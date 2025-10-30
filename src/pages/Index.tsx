@@ -1419,47 +1419,106 @@ const Index = () => {
                       <p className="text-muted-foreground leading-relaxed">{selectedProduct.description}</p>
                     </div>
 
-                    {selectedProduct.sizes && selectedProduct.sizes.length > 0 && (
-                      <div>
-                        <h3 className="font-semibold text-lg mb-3">Доступные размеры</h3>
-                        <div className="flex flex-wrap gap-2">
-                          {selectedProduct.sizes.map((size) => (
-                            <Badge key={size} variant="outline" className="px-4 py-2 text-base">
-                              {size}
-                            </Badge>
-                          ))}
+                    <Accordion type="multiple" className="md:hidden">
+                      {selectedProduct.sizes && selectedProduct.sizes.length > 0 && (
+                        <AccordionItem value="sizes">
+                          <AccordionTrigger className="text-lg font-semibold">
+                            Доступные размеры
+                          </AccordionTrigger>
+                          <AccordionContent>
+                            <div className="flex flex-wrap gap-2 pt-2">
+                              {selectedProduct.sizes.map((size) => (
+                                <Badge key={size} variant="outline" className="px-4 py-2 text-base">
+                                  {size}
+                                </Badge>
+                              ))}
+                            </div>
+                          </AccordionContent>
+                        </AccordionItem>
+                      )}
+
+                      {selectedProduct.features && selectedProduct.features.length > 0 && (
+                        <AccordionItem value="features">
+                          <AccordionTrigger className="text-lg font-semibold">
+                            Характеристики
+                          </AccordionTrigger>
+                          <AccordionContent>
+                            <ul className="space-y-2 pt-2">
+                              {selectedProduct.features.map((feature, idx) => (
+                                <li key={idx} className="flex items-start gap-2">
+                                  <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                                  <span className="text-muted-foreground">{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </AccordionContent>
+                        </AccordionItem>
+                      )}
+
+                      <AccordionItem value="sizing-guide">
+                        <AccordionTrigger className="text-lg font-semibold">
+                          <span className="flex items-center gap-2">
+                            <Icon name="Ruler" size={20} className="text-primary" />
+                            Как определить размер
+                          </span>
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <ol className="space-y-2 text-sm text-muted-foreground pt-2">
+                            <li>1. Встаньте на лист бумаги и обведите стопу</li>
+                            <li>2. Измерьте расстояние от пятки до большого пальца</li>
+                            <li>3. Добавьте 0.5-1 см запаса для комфорта</li>
+                            <li>4. Сверьтесь с таблицей размеров (25.5 см = 8 US, 26 см = 8.5 US, 26.5 см = 9 US, и т.д.)</li>
+                          </ol>
+                          <p className="text-xs text-muted-foreground mt-3">
+                            💡 Не уверены в размере? Напишите нам — поможем подобрать!
+                          </p>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+
+                    <div className="hidden md:block space-y-6">
+                      {selectedProduct.sizes && selectedProduct.sizes.length > 0 && (
+                        <div>
+                          <h3 className="font-semibold text-lg mb-3">Доступные размеры</h3>
+                          <div className="flex flex-wrap gap-2">
+                            {selectedProduct.sizes.map((size) => (
+                              <Badge key={size} variant="outline" className="px-4 py-2 text-base">
+                                {size}
+                              </Badge>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
 
-                    {selectedProduct.features && selectedProduct.features.length > 0 && (
-                      <div>
-                        <h3 className="font-semibold text-lg mb-3">Характеристики</h3>
-                        <ul className="space-y-2">
-                          {selectedProduct.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                              <span className="text-muted-foreground">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                      {selectedProduct.features && selectedProduct.features.length > 0 && (
+                        <div>
+                          <h3 className="font-semibold text-lg mb-3">Характеристики</h3>
+                          <ul className="space-y-2">
+                            {selectedProduct.features.map((feature, idx) => (
+                              <li key={idx} className="flex items-start gap-2">
+                                <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                                <span className="text-muted-foreground">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
 
-                    <div className="bg-muted/50 rounded-lg p-4">
-                      <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-                        <Icon name="Ruler" size={20} className="text-primary" />
-                        Как определить размер
-                      </h3>
-                      <ol className="space-y-2 text-sm text-muted-foreground">
-                        <li>1. Встаньте на лист бумаги и обведите стопу</li>
-                        <li>2. Измерьте расстояние от пятки до большого пальца</li>
-                        <li>3. Добавьте 0.5-1 см запаса для комфорта</li>
-                        <li>4. Сверьтесь с таблицей размеров (25.5 см = 8 US, 26 см = 8.5 US, 26.5 см = 9 US, и т.д.)</li>
-                      </ol>
-                      <p className="text-xs text-muted-foreground mt-3">
-                        💡 Не уверены в размере? Напишите нам — поможем подобрать!
-                      </p>
+                      <div className="bg-muted/50 rounded-lg p-4">
+                        <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                          <Icon name="Ruler" size={20} className="text-primary" />
+                          Как определить размер
+                        </h3>
+                        <ol className="space-y-2 text-sm text-muted-foreground">
+                          <li>1. Встаньте на лист бумаги и обведите стопу</li>
+                          <li>2. Измерьте расстояние от пятки до большого пальца</li>
+                          <li>3. Добавьте 0.5-1 см запаса для комфорта</li>
+                          <li>4. Сверьтесь с таблицей размеров (25.5 см = 8 US, 26 см = 8.5 US, 26.5 см = 9 US, и т.д.)</li>
+                        </ol>
+                        <p className="text-xs text-muted-foreground mt-3">
+                          💡 Не уверены в размере? Напишите нам — поможем подобрать!
+                        </p>
+                      </div>
                     </div>
 
                     <Button 
