@@ -11,6 +11,7 @@ interface Product {
   name: string;
   price: number;
   brand: string;
+  color: string;
   image?: string;
   priceFrom?: boolean;
 }
@@ -40,28 +41,29 @@ const sneakerImages = [
 ];
 
 const products: Product[] = [
-  { id: 1, name: 'Nike Hyperdunk 2017 low White', price: 9577.17, brand: 'Nike', image: sneakerImages[13], priceFrom: true },
-  { id: 4, name: 'Nike KD 17 EP', price: 14056.47, brand: 'Nike', image: sneakerImages[17] },
-  { id: 6, name: 'Jordan Luka 77', price: 9363.87, brand: 'Jordan', image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', priceFrom: true },
-  { id: 7, name: 'Nike KD 4 Brown', price: 10217.07, brand: 'Nike', image: sneakerImages[16] },
-  { id: 8, name: 'UA Curry Fox 1 Banzito', price: 10430.37, brand: 'Curry', image: sneakerImages[20] },
-  { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', image: sneakerImages[3] },
-  { id: 10, name: 'Anta Kyrie Orange', price: 8084.07, brand: 'Anta', image: sneakerImages[4] },
-  { id: 11, name: 'Anta Kyrie Violet', price: 8084.07, brand: 'Anta', image: sneakerImages[5] },
-  { id: 12, name: 'Jordan Zion 3 Rising', price: 8723.97, brand: 'Jordan', image: sneakerImages[10] },
-  { id: 13, name: 'Nike JA 2 Nightmare', price: 17042.67, brand: 'Nike', image: sneakerImages[14] },
-  { id: 15, name: 'Nike Lebron 21 Orange', price: 10430.37, brand: 'Nike', image: sneakerImages[11] },
-  { id: 16, name: 'Nike Lebron 21 EP', price: 10003.77, brand: 'Nike', image: sneakerImages[18] },
-  { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', image: sneakerImages[15] },
-  { id: 18, name: 'Nike Sabrina 2 Arpic Agate', price: 12563.37, brand: 'Nike', image: sneakerImages[19] },
-  { id: 22, name: 'Jordan Luka 2', price: 6804.27, brand: 'Jordan', image: sneakerImages[7], priceFrom: true },
-  { id: 23, name: 'Jordan Luka 77 Black', price: 8937.47, brand: 'Jordan', image: sneakerImages[8] },
-  { id: 24, name: 'Jordan Luka 77 Orange', price: 8937.47, brand: 'Jordan', image: sneakerImages[9] },
-  { id: 25, name: 'Nike Hyperdunk 2017 low Blue', price: 9577.17, brand: 'Nike', image: sneakerImages[12] },
+  { id: 1, name: 'Nike Hyperdunk 2017 low White', price: 9577.17, brand: 'Nike', color: 'Белый', image: sneakerImages[13], priceFrom: true },
+  { id: 4, name: 'Nike KD 17 EP', price: 14056.47, brand: 'Nike', color: 'Мульти', image: sneakerImages[17] },
+  { id: 6, name: 'Jordan Luka 77', price: 9363.87, brand: 'Jordan', color: 'Бежевый', image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', priceFrom: true },
+  { id: 7, name: 'Nike KD 4 Brown', price: 10217.07, brand: 'Nike', color: 'Коричневый', image: sneakerImages[16] },
+  { id: 8, name: 'UA Curry Fox 1 Banzito', price: 10430.37, brand: 'Curry', color: 'Мульти', image: sneakerImages[20] },
+  { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', color: 'Розовый', image: sneakerImages[3] },
+  { id: 10, name: 'Anta Kyrie Orange', price: 8084.07, brand: 'Anta', color: 'Оранжевый', image: sneakerImages[4] },
+  { id: 11, name: 'Anta Kyrie Violet', price: 8084.07, brand: 'Anta', color: 'Фиолетовый', image: sneakerImages[5] },
+  { id: 12, name: 'Jordan Zion 3 Rising', price: 8723.97, brand: 'Jordan', color: 'Чёрный', image: sneakerImages[10] },
+  { id: 13, name: 'Nike JA 2 Nightmare', price: 17042.67, brand: 'Nike', color: 'Чёрный', image: sneakerImages[14] },
+  { id: 15, name: 'Nike Lebron 21 Orange', price: 10430.37, brand: 'Nike', color: 'Оранжевый', image: sneakerImages[11] },
+  { id: 16, name: 'Nike Lebron 21 EP', price: 10003.77, brand: 'Nike', color: 'Розовый', image: sneakerImages[18] },
+  { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', color: 'Белый', image: sneakerImages[15] },
+  { id: 18, name: 'Nike Sabrina 2 Arpic Agate', price: 12563.37, brand: 'Nike', color: 'Синий', image: sneakerImages[19] },
+  { id: 22, name: 'Jordan Luka 2', price: 6804.27, brand: 'Jordan', color: 'Мульти', image: sneakerImages[7], priceFrom: true },
+  { id: 23, name: 'Jordan Luka 77 Black', price: 8937.47, brand: 'Jordan', color: 'Чёрный', image: sneakerImages[8] },
+  { id: 24, name: 'Jordan Luka 77 Orange', price: 8937.47, brand: 'Jordan', color: 'Оранжевый', image: sneakerImages[9] },
+  { id: 25, name: 'Nike Hyperdunk 2017 low Blue', price: 9577.17, brand: 'Nike', color: 'Синий', image: sneakerImages[12] },
 ];
 
 const Index = () => {
   const [selectedBrand, setSelectedBrand] = useState<string>('all');
+  const [selectedColor, setSelectedColor] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -181,8 +183,11 @@ const Index = () => {
   }, [detailSlides.length]);
   
   const brands = ['all', ...Array.from(new Set(products.map(p => p.brand)))];
+  const colors = ['all', ...Array.from(new Set(products.map(p => p.color)))];
+  
   let filteredProducts = products
     .filter(p => selectedBrand === 'all' || p.brand === selectedBrand)
+    .filter(p => selectedColor === 'all' || p.color === selectedColor)
     .filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
   
   if (sortOrder === 'asc') {
@@ -397,17 +402,36 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-3 justify-center mb-12">
-            {brands.map(brand => (
-              <Button
-                key={brand}
-                variant={selectedBrand === brand ? "default" : "outline"}
-                onClick={() => setSelectedBrand(brand)}
-                className="capitalize"
-              >
-                {brand === 'all' ? 'Все бренды' : brand}
-              </Button>
-            ))}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold mb-3 text-center">Бренды</h3>
+            <div className="flex flex-wrap gap-3 justify-center">
+              {brands.map(brand => (
+                <Button
+                  key={brand}
+                  variant={selectedBrand === brand ? "default" : "outline"}
+                  onClick={() => setSelectedBrand(brand)}
+                  className="capitalize"
+                >
+                  {brand === 'all' ? 'Все бренды' : brand}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-12">
+            <h3 className="text-lg font-semibold mb-3 text-center">Цвета</h3>
+            <div className="flex flex-wrap gap-3 justify-center">
+              {colors.map(color => (
+                <Button
+                  key={color}
+                  variant={selectedColor === color ? "default" : "outline"}
+                  onClick={() => setSelectedColor(color)}
+                  className="capitalize"
+                >
+                  {color === 'all' ? 'Все цвета' : color}
+                </Button>
+              ))}
+            </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
