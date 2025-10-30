@@ -71,6 +71,7 @@ const Index = () => {
   const [imageLoaded, setImageLoaded] = useState<Set<number>>(new Set());
   const [clientCount, setClientCount] = useState(0);
   const [parallaxOffset, setParallaxOffset] = useState(0);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -1038,7 +1039,31 @@ const Index = () => {
                         className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                       />
                     </div>
-                    <Button type="submit" size="lg" className="w-full text-lg">
+                    <div className="flex items-start gap-2 mb-4">
+                      <input
+                        type="checkbox"
+                        id="privacy-checkbox"
+                        checked={privacyAccepted}
+                        onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                        className="mt-1 w-4 h-4 accent-primary"
+                      />
+                      <label htmlFor="privacy-checkbox" className="text-sm text-gray-300">
+                        Я согласен на{' '}
+                        <a 
+                          href="/privacy-policy" 
+                          target="_blank"
+                          className="text-primary hover:underline"
+                        >
+                          обработку персональных данных
+                        </a>
+                      </label>
+                    </div>
+                    <Button 
+                      type="submit" 
+                      size="lg" 
+                      className="w-full text-lg"
+                      disabled={!privacyAccepted}
+                    >
                       <Icon name="Send" size={20} className="mr-2" />
                       Отправить в Telegram
                     </Button>
