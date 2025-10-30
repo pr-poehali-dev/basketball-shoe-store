@@ -87,7 +87,7 @@ const Index = () => {
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <a href="#catalog" className="text-white hover:text-primary transition-colors">Каталог</a>
-            <a href="#education" className="text-white hover:text-primary transition-colors">База знаний</a>
+            <a href="#education" className="text-white hover:text-primary transition-colors">Гид по выбору</a>
             <a href="#delivery" className="text-white hover:text-primary transition-colors">Доставка</a>
             <a href="#contacts" className="text-white hover:text-primary transition-colors">Контакты</a>
           </nav>
@@ -235,7 +235,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
-              База знаний
+              Гид по выбору
             </h2>
             <p className="text-muted-foreground text-lg">Всё, что нужно знать о баскетбольных кроссовках</p>
           </div>
