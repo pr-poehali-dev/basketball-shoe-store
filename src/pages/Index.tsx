@@ -433,32 +433,46 @@ const Index = () => {
           </div>
 
           <div className="relative order-1 md:order-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="relative w-full aspect-square max-w-2xl mx-auto">
-              <div className="absolute inset-0 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '3s' }} />
+            <div className="relative w-full h-[600px] md:h-[700px] max-w-2xl mx-auto">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[600px] md:h-[600px] bg-orange-400/30 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
               
               <div className="relative z-10 w-full h-full flex items-center justify-center">
                 <img 
-                  src={sneakerImages[13]} 
-                  alt="Nike Basketball Shoes"
-                  className="w-full h-full object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                  src="https://cdn.poehali.dev/files/0497ea82-a7ac-4f7f-837a-4ba4a539c269.jpg" 
+                  alt="Basketball Player in Action"
+                  className="w-auto h-full object-contain drop-shadow-2xl transform hover:scale-[1.02] transition-transform duration-500"
                   style={{
-                    filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.5))'
+                    filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.6)) contrast(1.1) saturate(1.1)'
                   }}
                 />
               </div>
 
-              <div className="absolute -top-10 -right-10 bg-white text-orange-600 rounded-full w-32 h-32 flex flex-col items-center justify-center shadow-2xl animate-bounce-slow">
-                <span className="text-sm font-bold">ОТ</span>
-                <span className="text-3xl font-oswald font-bold">6,800₽</span>
+              <div className="absolute top-10 right-5 md:right-10 bg-white text-orange-600 rounded-full w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center shadow-2xl animate-bounce-slow">
+                <span className="text-xs md:text-sm font-bold">ОТ</span>
+                <span className="text-2xl md:text-3xl font-oswald font-bold">6,800₽</span>
               </div>
 
-              <div className="absolute -bottom-5 -left-5 bg-orange-800/80 backdrop-blur-sm text-white rounded-2xl px-6 py-4 shadow-xl">
-                <div className="flex items-center gap-3">
-                  <Icon name="TrendingUp" size={24} />
+              <div className="absolute bottom-10 left-5 md:left-10 bg-orange-800/90 backdrop-blur-sm text-white rounded-2xl px-4 md:px-6 py-3 md:py-4 shadow-xl">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <Icon name="TrendingUp" size={20} className="md:w-6 md:h-6" />
                   <div>
-                    <div className="text-xs opacity-80">В наличии</div>
-                    <div className="text-xl font-bold">25+ моделей</div>
+                    <div className="text-xs opacity-90">В наличии</div>
+                    <div className="text-lg md:text-xl font-bold">25+ моделей</div>
                   </div>
+                </div>
+              </div>
+
+              <div className="absolute top-1/3 left-5 md:left-0 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-xl px-3 md:px-4 py-2 md:py-3 shadow-lg text-xs md:text-sm">
+                <div className="flex items-center gap-2">
+                  <Icon name="Zap" size={16} className="text-orange-300" />
+                  <span className="font-semibold">Максимальная амортизация</span>
+                </div>
+              </div>
+
+              <div className="absolute bottom-1/3 right-5 md:right-0 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-xl px-3 md:px-4 py-2 md:py-3 shadow-lg text-xs md:text-sm">
+                <div className="flex items-center gap-2">
+                  <Icon name="Target" size={16} className="text-orange-300" />
+                  <span className="font-semibold">Отличное сцепление</span>
                 </div>
               </div>
             </div>
