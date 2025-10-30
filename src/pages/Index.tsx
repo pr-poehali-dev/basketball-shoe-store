@@ -32,7 +32,7 @@ const products: Product[] = [
   { id: 7, name: 'Nike KD 4 Br', price: 10217.07, brand: 'Nike', image: sneakerImages[0] },
   { id: 8, name: 'Curry Fox 1 Banzito', price: 10430.37, brand: 'Curry', image: sneakerImages[2] },
   { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', image: sneakerImages[3] },
-  { id: 10, name: 'Anta Kyrie 1 Speed', price: 8084.07, brand: 'Anta', image: sneakerImages[3] },
+  { id: 10, name: 'Anta Kyrie Orange', price: 8084.07, brand: 'Anta', image: sneakerImages[4] },
   { id: 11, name: 'Anta Kyrie 1 Speed', price: 8084.07, brand: 'Anta', image: sneakerImages[3] },
   { id: 12, name: 'Jordan Zion 3 Rising', price: 8723.97, brand: 'Jordan', image: sneakerImages[1] },
   { id: 13, name: 'Nike JA 2 RED', price: 17042.67, brand: 'Nike', image: sneakerImages[1] },
