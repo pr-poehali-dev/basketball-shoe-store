@@ -23,6 +23,7 @@ const sneakerImages = [
   'https://cdn.poehali.dev/files/b71161de-7386-444d-908a-aeb673c78ccd.jpg',
   'https://cdn.poehali.dev/files/4fad4319-74ea-4e8f-9a4f-906218933294.jpg',
   'https://cdn.poehali.dev/files/34189bde-17f6-4b41-92c7-cfbc7c267be6.jpg',
+  'https://cdn.poehali.dev/files/575f65ea-7d94-4824-ae69-2d027299ad78.jpg',
 ];
 
 const products: Product[] = [
@@ -48,6 +49,7 @@ const products: Product[] = [
   { id: 20, name: 'LiNing 9 V 1.5', price: 6377.67, brand: 'LiNing', image: sneakerImages[2] },
   { id: 21, name: 'Jordan Luka 2 Nebula', price: 8510.67, brand: 'Jordan', image: sneakerImages[6] },
   { id: 22, name: 'Jordan Luka 2 PF', price: 6804.27, brand: 'Jordan', image: sneakerImages[7] },
+  { id: 23, name: 'Jordan Luka 77 Black', price: 8937.47, brand: 'Jordan', image: sneakerImages[8] },
 ];
 
 const Index = () => {
