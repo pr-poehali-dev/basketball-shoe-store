@@ -524,7 +524,7 @@ const Index = () => {
                     <h3 className="font-oswald font-semibold text-base md:text-lg mb-2 line-clamp-2 flex-grow">{product.name}</h3>
                     <div className="flex items-center justify-between gap-2 mt-auto">
                       <span className="text-xl md:text-2xl font-bold text-primary">
-                        {product.priceFrom && <span className="text-sm md:text-sm text-muted-foreground mr-1">От</span>}
+                        <span className="text-sm md:text-sm text-muted-foreground mr-1">От</span>
                         {product.price.toLocaleString('ru-RU')} ₽
                       </span>
                       <Button 
