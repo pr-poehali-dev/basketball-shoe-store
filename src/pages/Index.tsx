@@ -1050,7 +1050,7 @@ const Index = () => {
                       <label htmlFor="privacy-checkbox" className="text-sm text-gray-300">
                         Я согласен на{' '}
                         <a 
-                          href="/privacy-policy" 
+                          href="/privacy-policy.html" 
                           target="_blank"
                           className="text-primary hover:underline"
                         >
@@ -1132,7 +1132,7 @@ const Index = () => {
             <div className="pt-8 mt-8 border-t border-white/20">
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4">
                 <a 
-                  href="/privacy-policy" 
+                  href="/privacy-policy.html" 
                   target="_blank"
                   className="text-gray-300 hover:text-primary transition-colors text-sm flex items-center gap-2"
                 >
