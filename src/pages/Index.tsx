@@ -30,6 +30,7 @@ const sneakerImages = [
   'https://cdn.poehali.dev/files/4a6eb145-eecb-4b3f-9cf2-731197781096.jpg',
   'https://cdn.poehali.dev/files/375c50a7-ad11-4146-a938-2fba7e4121b8.jpg',
   'https://cdn.poehali.dev/files/28e1ece0-f842-4efb-a09f-2a774286ee31.jpg',
+  'https://cdn.poehali.dev/files/8604aab3-afee-45b4-a9c0-c1660959f9d6.jpg',
 ];
 
 const products: Product[] = [
@@ -49,7 +50,7 @@ const products: Product[] = [
   { id: 14, name: 'Nike Lebron 21 Orange', price: 13629.87, brand: 'Nike', image: sneakerImages[11] },
   { id: 15, name: 'Nike Lebron 21 Orange', price: 10430.37, brand: 'Nike', image: sneakerImages[11] },
   { id: 16, name: 'Nike Lebron 21 Jeans', price: 10003.77, brand: 'Nike', image: sneakerImages[2] },
-  { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', image: sneakerImages[0] },
+  { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', image: sneakerImages[15] },
   { id: 18, name: 'Nike Sabrina 2 Orange', price: 12563.37, brand: 'Nike', image: sneakerImages[0] },
   { id: 19, name: 'Jordan Ultra fly 2 low', price: 7870.77, brand: 'Jordan', image: sneakerImages[1] },
   { id: 20, name: 'LiNing 9 V 1.5', price: 6377.67, brand: 'LiNing', image: sneakerImages[2] },
