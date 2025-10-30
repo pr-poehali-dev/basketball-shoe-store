@@ -382,91 +382,46 @@ const Index = () => {
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
         </div>
 
-        <div className="container mx-auto px-4 md:px-8 z-10 grid md:grid-cols-2 gap-4 md:gap-12 items-center h-full">
-          <div className="text-left animate-fade-in order-2 md:order-1">
+        <div className="container mx-auto px-4 md:px-8 z-10 flex items-center justify-center h-full">
+          <div className="text-center max-w-4xl animate-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-oswald font-bold text-white mb-3 md:mb-6 leading-tight">
               ИГРАЙ<br />
               <span className="text-white/90">НА</span><br />
               <span className="text-white">МАКСИМУМ</span>
             </h1>
             
-            <p className="text-base md:text-xl text-white/90 mb-4 md:mb-8 max-w-lg leading-relaxed">
-              Баскетбольные кроссовки премиум класса от Nike, Jordan, Anta и LiNing.
+            <p className="text-base md:text-xl text-white/90 mb-6 md:mb-10 mx-auto max-w-2xl leading-relaxed">
+              Баскетбольные кроссовки премиум класса от Nike, Jordan, Anta и LiNing. 
+              Технологии профессионального уровня для твоей игры.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-4 md:mb-8">
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 text-base md:text-lg px-6 py-5 md:px-8 md:py-6 shadow-2xl" asChild>
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-5 mb-8 md:mb-12 justify-center">
+              <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 text-base md:text-lg px-8 py-6 md:px-10 md:py-7 shadow-2xl" asChild>
                 <a href="#catalog">
-                  <Icon name="ShoppingBag" size={18} className="mr-2" />
+                  <Icon name="ShoppingBag" size={20} className="mr-2" />
                   Смотреть каталог
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-orange-600 text-base md:text-lg px-6 py-5 md:px-8 md:py-6 animate-pulse-scale" asChild>
+              <Button size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-orange-600 text-base md:text-lg px-8 py-6 md:px-10 md:py-7 animate-pulse-scale" asChild>
                 <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-                  <Icon name="Send" size={18} className="mr-2" />
+                  <Icon name="Send" size={20} className="mr-2" />
                   Написать в Telegram
                 </a>
               </Button>
             </div>
             
-            <div className="flex flex-wrap items-center gap-4 md:gap-6 text-white/90">
-              <div className="flex items-center gap-1.5 md:gap-2">
-                <Icon name="Shield" size={16} className="text-white md:w-5 md:h-5" />
-                <span className="text-xs md:text-sm font-semibold">100% Оригинал</span>
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-white/90">
+              <div className="flex items-center gap-2">
+                <Icon name="Shield" size={20} className="text-white" />
+                <span className="text-sm md:text-base font-semibold">100% Оригинал</span>
               </div>
-              <div className="flex items-center gap-1.5 md:gap-2">
-                <Icon name="Truck" size={16} className="text-white md:w-5 md:h-5" />
-                <span className="text-xs md:text-sm font-semibold">Доставка 2-5 дней</span>
+              <div className="flex items-center gap-2">
+                <Icon name="Truck" size={20} className="text-white" />
+                <span className="text-sm md:text-base font-semibold">Доставка 2-5 дней</span>
               </div>
-              <div className="flex items-center gap-1.5 md:gap-2">
-                <Icon name="Award" size={16} className="text-white md:w-5 md:h-5" />
-                <span className="text-xs md:text-sm font-semibold">Гарантия качества</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative order-1 md:order-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="relative w-full h-[350px] sm:h-[450px] md:h-[700px] max-w-2xl mx-auto">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[600px] md:h-[600px] bg-orange-400/30 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
-              
-              <div className="relative z-10 w-full h-full flex items-center justify-center">
-                <img 
-                  src="https://cdn.poehali.dev/files/23d8fd6c-d15c-45a8-ba97-66da4c5c0c47.jpeg" 
-                  alt="Basketball Player in Action"
-                  className="w-auto h-full object-contain drop-shadow-2xl transform hover:scale-[1.02] transition-transform duration-500"
-                  style={{
-                    filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.6)) contrast(1.05) saturate(1.05)'
-                  }}
-                />
-              </div>
-
-              <div className="absolute top-5 md:top-10 right-3 md:right-10 bg-white text-orange-600 rounded-full w-20 h-20 md:w-32 md:h-32 flex flex-col items-center justify-center shadow-2xl animate-bounce-slow text-center">
-                <span className="text-[10px] md:text-sm font-bold">ОТ</span>
-                <span className="text-lg md:text-3xl font-oswald font-bold leading-none">6,800₽</span>
-              </div>
-
-              <div className="absolute bottom-5 md:bottom-10 left-3 md:left-10 bg-orange-800/90 backdrop-blur-sm text-white rounded-xl md:rounded-2xl px-3 md:px-6 py-2 md:py-4 shadow-xl">
-                <div className="flex items-center gap-1.5 md:gap-3">
-                  <Icon name="TrendingUp" size={16} className="md:w-6 md:h-6" />
-                  <div>
-                    <div className="text-[10px] md:text-xs opacity-90">В наличии</div>
-                    <div className="text-sm md:text-xl font-bold">25+ моделей</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="hidden md:block absolute top-1/3 left-0 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-xl px-4 py-3 shadow-lg text-sm">
-                <div className="flex items-center gap-2">
-                  <Icon name="Zap" size={16} className="text-orange-300" />
-                  <span className="font-semibold">Максимальная амортизация</span>
-                </div>
-              </div>
-
-              <div className="hidden md:block absolute bottom-1/3 right-0 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-xl px-4 py-3 shadow-lg text-sm">
-                <div className="flex items-center gap-2">
-                  <Icon name="Target" size={16} className="text-orange-300" />
-                  <span className="font-semibold">Отличное сцепление</span>
-                </div>
+              <div className="flex items-center gap-2">
+                <Icon name="Award" size={20} className="text-white" />
+                <span className="text-sm md:text-base font-semibold">Гарантия качества</span>
               </div>
             </div>
           </div>
