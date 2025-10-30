@@ -29,6 +29,7 @@ const sneakerImages = [
   'https://cdn.poehali.dev/files/d994c68c-5ec9-4756-aa5e-6615c0d334bd.jpg',
   'https://cdn.poehali.dev/files/4a6eb145-eecb-4b3f-9cf2-731197781096.jpg',
   'https://cdn.poehali.dev/files/375c50a7-ad11-4146-a938-2fba7e4121b8.jpg',
+  'https://cdn.poehali.dev/files/28e1ece0-f842-4efb-a09f-2a774286ee31.jpg',
 ];
 
 const products: Product[] = [
@@ -44,7 +45,7 @@ const products: Product[] = [
   { id: 10, name: 'Anta Kyrie Orange', price: 8084.07, brand: 'Anta', image: sneakerImages[4] },
   { id: 11, name: 'Anta Kyrie Violet', price: 8084.07, brand: 'Anta', image: sneakerImages[5] },
   { id: 12, name: 'Jordan Zion 3 Rising', price: 8723.97, brand: 'Jordan', image: sneakerImages[10] },
-  { id: 13, name: 'Nike JA 2 RED', price: 17042.67, brand: 'Nike', image: sneakerImages[1] },
+  { id: 13, name: 'Nike JA 2 Nightmare', price: 17042.67, brand: 'Nike', image: sneakerImages[14] },
   { id: 14, name: 'Nike Lebron 21 Orange', price: 13629.87, brand: 'Nike', image: sneakerImages[11] },
   { id: 15, name: 'Nike Lebron 21 Orange', price: 10430.37, brand: 'Nike', image: sneakerImages[11] },
   { id: 16, name: 'Nike Lebron 21 Jeans', price: 10003.77, brand: 'Nike', image: sneakerImages[2] },
