@@ -89,6 +89,7 @@ const Index = () => {
             <a href="#catalog" className="text-white hover:text-primary transition-colors">Каталог</a>
             <a href="#education" className="text-white hover:text-primary transition-colors">Гид по выбору</a>
             <a href="#delivery" className="text-white hover:text-primary transition-colors">Доставка</a>
+            <a href="#faq" className="text-white hover:text-primary transition-colors">FAQ</a>
             <a href="#contacts" className="text-white hover:text-primary transition-colors">Контакты</a>
           </nav>
           <Button asChild size="sm" className="hidden md:flex">
@@ -591,25 +592,212 @@ const Index = () => {
         </div>
       </section>
 
-      <footer id="contacts" className="py-12 bg-secondary text-white">
+      <section id="faq" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <Icon name="Dribbble" size={40} className="text-primary" />
-              <h2 className="text-3xl font-oswald font-bold">SKBasketShop</h2>
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <Icon name="HelpCircle" size={64} className="text-primary mx-auto mb-4" />
+              <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
+                Частые вопросы
+              </h2>
+              <p className="text-muted-foreground text-lg">Ответы на популярные вопросы о заказе и доставке</p>
             </div>
-            <p className="text-gray-300 mb-8 text-lg">
-              Брендовая баскетбольная обувь для профессионалов и любителей
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Button size="lg" className="w-full sm:w-auto" asChild>
-                <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-                  <Icon name="Send" size={20} className="mr-2" />
-                  @SKBasketShop
-                </a>
-              </Button>
+
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="faq-1" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold text-lg">Как оформить заказ?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
+                  Напишите нам в Telegram @SKBasketShop, укажите модель и размер. Мы проверим наличие, 
+                  согласуем цену и детали доставки. После подтверждения отправим кроссовки с трек-номером.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-2" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold text-lg">Это оригинальные кроссовки?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
+                  Да, мы работаем только с оригинальной продукцией Nike, Jordan, Anta и других брендов. 
+                  На каждую пару предоставляем фото с бирками и можем отправить видео товара перед отправкой.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-3" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold text-lg">Сколько стоит доставка?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
+                  Стоимость доставки зависит от региона и службы доставки (СДЭК или Почта России). 
+                  Обычно 300-800 рублей по России. Точную стоимость рассчитаем при оформлении заказа.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-4" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold text-lg">Можно ли примерить перед оплатой?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
+                  При доставке СДЭК можно заказать примерку в пункте выдачи. Вы осматриваете товар, 
+                  примеряете, и только потом оплачиваете. Если не подошло — отказываетесь от покупки.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-5" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold text-lg">Как понять свой размер?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
+                  Измерьте длину стопы в см (встаньте на лист бумаги и обведите стопу). Добавьте 0.5-1 см запаса. 
+                  Сверьтесь с размерной сеткой бренда. Мы поможем подобрать правильный размер в переписке.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-6" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold text-lg">Есть ли гарантия?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
+                  На все кроссовки распространяется гарантия от производителя. Если обнаружите заводской брак — 
+                  вернём деньги или заменим пару. Гарантия не покрывает естественный износ при эксплуатации.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-7" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold text-lg">Сколько ждать доставку?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
+                  СДЭК: 3-7 дней до большинства городов России. Почта России: 7-14 дней. 
+                  После отправки предоставляем трек-номер для отслеживания посылки.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      <footer id="contacts" className="py-20 bg-secondary text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Icon name="Dribbble" size={48} className="text-primary" />
+                <h2 className="text-4xl md:text-5xl font-oswald font-bold">Контакты</h2>
+              </div>
+              <p className="text-gray-300 text-lg">
+                Свяжитесь с нами удобным способом
+              </p>
             </div>
-            <div className="pt-8 border-t border-white/20">
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <Card className="bg-white/10 border-white/20">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-oswald font-bold mb-6 text-white">Быстрая связь</h3>
+                  <form className="space-y-4" onSubmit={(e) => {
+                    e.preventDefault();
+                    const formData = new FormData(e.currentTarget);
+                    const name = formData.get('name');
+                    const contact = formData.get('contact');
+                    const message = formData.get('message');
+                    const text = `Новая заявка:%0A%0AИмя: ${name}%0AКонтакт: ${contact}%0AСообщение: ${message}`;
+                    window.open(`https://t.me/SKBasketShop?text=${text}`, '_blank');
+                  }}>
+                    <div>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Ваше имя"
+                        required
+                        className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        name="contact"
+                        placeholder="Telegram или телефон"
+                        required
+                        className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
+                      />
+                    </div>
+                    <div>
+                      <textarea
+                        name="message"
+                        placeholder="Какая модель интересует?"
+                        rows={4}
+                        required
+                        className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                      />
+                    </div>
+                    <Button type="submit" size="lg" className="w-full text-lg">
+                      <Icon name="Send" size={20} className="mr-2" />
+                      Отправить в Telegram
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+
+              <div className="space-y-6">
+                <Card className="bg-white/10 border-white/20">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <Icon name="Send" size={32} className="text-primary flex-shrink-0" />
+                      <div>
+                        <h4 className="font-bold text-xl mb-2 text-white">Telegram</h4>
+                        <p className="text-gray-300 mb-3">Самый быстрый способ связи</p>
+                        <Button variant="outline" className="border-white text-white hover:bg-white hover:text-secondary" asChild>
+                          <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
+                            @SKBasketShop
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-white/10 border-white/20">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <Icon name="Clock" size={32} className="text-primary flex-shrink-0" />
+                      <div>
+                        <h4 className="font-bold text-xl mb-2 text-white">Режим работы</h4>
+                        <p className="text-gray-300">Ежедневно с 10:00 до 22:00 МСК</p>
+                        <p className="text-sm text-gray-400 mt-2">Отвечаем в течение часа</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-primary border-primary">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <Icon name="Shield" size={32} className="text-primary-foreground flex-shrink-0" />
+                      <div>
+                        <h4 className="font-bold text-xl mb-2 text-primary-foreground">Гарантии</h4>
+                        <p className="text-primary-foreground/90">Только оригинал • Возврат и обмен • Безопасная оплата</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <p className="text-gray-300 mb-4 text-lg font-semibold">
+                SKBasketShop — Брендовая баскетбольная обувь
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <Button size="lg" asChild>
+                  <a href="#catalog">
+                    <Icon name="ShoppingBag" size={20} className="mr-2" />
+                    Смотреть каталог
+                  </a>
+                </Button>
+              </div>
+            </div>
+            <div className="pt-8 mt-8 border-t border-white/20">
               <p className="text-gray-400 text-sm">
                 © 2024 SKBasketShop. Все права защищены.
               </p>
