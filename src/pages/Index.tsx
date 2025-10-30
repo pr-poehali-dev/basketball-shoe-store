@@ -63,6 +63,7 @@ const products: Product[] = [
     brand: 'Nike', 
     color: 'Оранжевый', 
     image: sneakerImages[17],
+    priceFrom: true,
     description: 'Последняя модель линейки Kevin Durant. Создана для взрывной игры и точных бросков.',
     features: ['Полноразмерная подушка Air Strobel', 'Верх из синтетики и сетки', 'Поддержка голеностопа', 'Профессиональное сцепление'],
     sizes: ['8 US', '8.5 US', '9 US', '9.5 US', '10 US', '10.5 US', '11 US', '11.5 US', '12 US']
@@ -111,9 +112,9 @@ const products: Product[] = [
   { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', color: 'Бежевый', image: sneakerImages[15], description: 'Элегантная бежевая версия кроссовок Ja Morant.', features: ['Лёгкая конструкция', 'Отзывчивая подошва', 'Минималистичный дизайн', 'Для быстрых защитников'], sizes: ['8 US', '9 US', '10 US', '11 US'] },
   { id: 18, name: 'Nike Sabrina 2 Arpic Agate', price: 12563.37, brand: 'Nike', color: 'Розовый', image: sneakerImages[19], description: 'Женская модель Sabrina Ionescu в уникальной расцветке Arpic Agate.', features: ['Специальная колодка для женщин', 'Премиум материалы', 'Стильный дизайн', 'Профессиональные технологии'], sizes: ['7 US', '7.5 US', '8 US', '8.5 US', '9 US', '9.5 US', '10 US'] },
   { id: 22, name: 'Jordan Luka 2', price: 6804.27, brand: 'Jordan', color: 'Розовый', image: sneakerImages[7], priceFrom: true, description: 'Вторая сигнатурная модель Луки Дончича с улучшенными технологиями.', features: ['Улучшенная амортизация', 'Низкий профиль', 'Контроль при дриблинге', 'Выгодная цена'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
-  { id: 23, name: 'Jordan Luka 77 Black', price: 8937.47, brand: 'Jordan', color: 'Чёрный', image: sneakerImages[8], description: 'Классическая чёрная версия Jordan Luka 77.', features: ['Универсальный чёрный цвет', 'Технологии от Jordan Brand', 'Комфорт на весь матч', 'Премиум качество'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
-  { id: 24, name: 'Jordan Luka 77 Orange', price: 8937.47, brand: 'Jordan', color: 'Оранжевый', image: sneakerImages[9], description: 'Яркая оранжевая расцветка модели Luka 77.', features: ['Эффектный оранжевый дизайн', 'Отличная видимость на площадке', 'Проверенные технологии', 'Высокое качество'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
-  { id: 25, name: 'Nike Hyperdunk 2017 low Blue', price: 9577.17, brand: 'Nike', color: 'Синий', image: sneakerImages[12], description: 'Синяя версия Nike Hyperdunk 2017 для универсальной игры.', features: ['Проверенная модель', 'Zoom Air амортизация', 'Лёгкий вес', 'Доступная цена'], sizes: ['9 US', '10 US', '11 US', '12 US'] },
+  { id: 23, name: 'Jordan Luka 77 Black', price: 8937.47, brand: 'Jordan', color: 'Чёрный', image: sneakerImages[8], priceFrom: true, description: 'Классическая чёрная версия Jordan Luka 77.', features: ['Универсальный чёрный цвет', 'Технологии от Jordan Brand', 'Комфорт на весь матч', 'Премиум качество'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
+  { id: 24, name: 'Jordan Luka 77 Orange', price: 8937.47, brand: 'Jordan', color: 'Оранжевый', image: sneakerImages[9], priceFrom: true, description: 'Яркая оранжевая расцветка модели Luka 77.', features: ['Эффектный оранжевый дизайн', 'Отличная видимость на площадке', 'Проверенные технологии', 'Высокое качество'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
+  { id: 25, name: 'Nike Hyperdunk 2017 low Blue', price: 9577.17, brand: 'Nike', color: 'Синий', image: sneakerImages[12], priceFrom: true, description: 'Синяя версия Nike Hyperdunk 2017 для универсальной игры.', features: ['Проверенная модель', 'Zoom Air амортизация', 'Лёгкий вес', 'Доступная цена'], sizes: ['9 US', '10 US', '11 US', '12 US'] },
 ];
 
 const Index = () => {
@@ -1407,11 +1408,13 @@ const Index = () => {
                     <div>
                       <Badge className="mb-3">{selectedProduct.brand}</Badge>
                       <h2 className="text-3xl font-oswald font-bold mb-2">{selectedProduct.name}</h2>
-                      <div className="flex items-baseline gap-2 mb-4">
-                        <span className="text-4xl font-bold text-primary">
-                          {selectedProduct.priceFrom && <span className="text-lg text-muted-foreground mr-1">От</span>}
-                          {selectedProduct.price.toLocaleString('ru-RU')} ₽
-                        </span>
+                      <div className="mb-4">
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-4xl font-bold text-primary">
+                            От {selectedProduct.price.toLocaleString('ru-RU')} ₽
+                          </span>
+                        </div>
+                        <p className="text-xs text-muted-foreground mt-1">* Стоимость зависит от размера</p>
                       </div>
                       <p className="text-muted-foreground leading-relaxed">{selectedProduct.description}</p>
                     </div>
