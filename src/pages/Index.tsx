@@ -67,6 +67,7 @@ const Index = () => {
   const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [reviewIndex, setReviewIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,6 +79,47 @@ const Index = () => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const reviews = [
+    {
+      text: 'Заказал Nike KD 17, пришли за 4 дня в отличном состоянии. Оригинал, все бирки на месте. Цена приятно удивила — дешевле чем в магазинах!',
+      name: 'Дмитрий',
+      city: 'Москва'
+    },
+    {
+      text: 'Отличный магазин! Помогли с выбором размера, отправили видео перед отправкой. Jordan Luka 2 сидят идеально, играю в них уже месяц — кайф!',
+      name: 'Александр',
+      city: 'Санкт-Петербург'
+    },
+    {
+      text: 'Брал Anta Kyrie для зала. Сцепление огонь, амортизация супер. Доставка СДЭК быстрая, смог примерить перед оплатой. Рекомендую!',
+      name: 'Игорь',
+      city: 'Казань'
+    },
+    {
+      text: 'Впервые заказывал кроссовки онлайн и немного волновался. Ребята всё объяснили, помогли подобрать модель. Nike Lebron 21 — просто огонь!',
+      name: 'Максим',
+      city: 'Новосибирск'
+    },
+    {
+      text: 'Заказывал уже второй раз — Nike Hyperdunk и Curry Fox. Оба раза всё быстро, качественно упаковано. Цены лучше чем на маркетплейсах!',
+      name: 'Артём',
+      city: 'Екатеринбург'
+    },
+    {
+      text: 'Искал Jordan Luka 77 везде — нашёл тут по адекватной цене. Общение в телеграме быстрое, все вопросы решили моментально. Доволен!',
+      name: 'Сергей',
+      city: 'Краснодар'
+    }
+  ];
+
+  const nextReview = () => {
+    setReviewIndex((prev) => (prev + 1) % reviews.length);
+  };
+
+  const prevReview = () => {
+    setReviewIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
   };
   
   const brands = ['all', ...Array.from(new Set(products.map(p => p.brand)))];
@@ -710,162 +752,91 @@ const Index = () => {
               <p className="text-muted-foreground text-lg">Что говорят те, кто уже купил у нас</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card className="hover:shadow-xl transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="flex gap-1">
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Заказал Nike KD 17, пришли за 4 дня в отличном состоянии. Оригинал, все бирки на месте. Цена приятно удивила — дешевле чем в магазинах!
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                      <Icon name="User" size={20} className="text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-semibold">Дмитрий</p>
-                      <p className="text-sm text-muted-foreground">Москва</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="relative">
+              <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {reviews.map((review, idx) => (
+                  <Card key={idx} className="hover:shadow-xl transition-shadow">
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="flex gap-1">
+                          {[...Array(5)].map((_, i) => (
+                            <Icon key={i} name="Star" size={16} className="text-primary fill-primary" />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground mb-4 leading-relaxed">
+                        {review.text}
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                          <Icon name="User" size={20} className="text-primary" />
+                        </div>
+                        <div>
+                          <p className="font-semibold">{review.name}</p>
+                          <p className="text-sm text-muted-foreground">{review.city}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
 
-              <Card className="hover:shadow-xl transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="flex gap-1">
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+              <div className="md:hidden relative">
+                <Card className="hover:shadow-xl transition-all">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="flex gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Icon key={i} name="Star" size={16} className="text-primary fill-primary" />
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Отличный магазин! Помогли с выбором размера, отправили видео перед отправкой. Jordan Luka 2 сидят идеально, играю в них уже месяц — кайф!
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                      <Icon name="User" size={20} className="text-primary" />
+                    <p className="text-muted-foreground mb-4 leading-relaxed min-h-[120px]">
+                      {reviews[reviewIndex].text}
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                        <Icon name="User" size={20} className="text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">{reviews[reviewIndex].name}</p>
+                        <p className="text-sm text-muted-foreground">{reviews[reviewIndex].city}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold">Александр</p>
-                      <p className="text-sm text-muted-foreground">Санкт-Петербург</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
 
-              <Card className="hover:shadow-xl transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="flex gap-1">
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                    </div>
+                <div className="flex items-center justify-center gap-4 mt-6">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={prevReview}
+                    className="rounded-full"
+                  >
+                    <Icon name="ChevronLeft" size={24} />
+                  </Button>
+                  <div className="flex gap-2">
+                    {reviews.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setReviewIndex(idx)}
+                        className={`w-2 h-2 rounded-full transition-all ${
+                          idx === reviewIndex ? 'bg-primary w-6' : 'bg-muted-foreground/30'
+                        }`}
+                        aria-label={`Отзыв ${idx + 1}`}
+                      />
+                    ))}
                   </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Брал Anta Kyrie для зала. Сцепление огонь, амортизация супер. Доставка СДЭК быстрая, смог примерить перед оплатой. Рекомендую!
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                      <Icon name="User" size={20} className="text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-semibold">Игорь</p>
-                      <p className="text-sm text-muted-foreground">Казань</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-xl transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="flex gap-1">
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Впервые заказывал кроссовки онлайн и немного волновался. Ребята всё объяснили, помогли подобрать модель. Nike Lebron 21 — просто огонь!
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                      <Icon name="User" size={20} className="text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-semibold">Максим</p>
-                      <p className="text-sm text-muted-foreground">Новосибирск</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-xl transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="flex gap-1">
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Заказывал уже второй раз — Nike Hyperdunk и Curry Fox. Оба раза всё быстро, качественно упаковано. Цены лучше чем на маркетплейсах!
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                      <Icon name="User" size={20} className="text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-semibold">Артём</p>
-                      <p className="text-sm text-muted-foreground">Екатеринбург</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-xl transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="flex gap-1">
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                      <Icon name="Star" size={16} className="text-primary fill-primary" />
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Искал Jordan Luka 77 везде — нашёл тут по адекватной цене. Общение в телеграме быстрое, все вопросы решили моментально. Доволен!
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                      <Icon name="User" size={20} className="text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-semibold">Сергей</p>
-                      <p className="text-sm text-muted-foreground">Краснодар</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={nextReview}
+                    className="rounded-full"
+                  >
+                    <Icon name="ChevronRight" size={24} />
+                  </Button>
+                </div>
+              </div>
             </div>
 
             <div className="mt-12 text-center">
