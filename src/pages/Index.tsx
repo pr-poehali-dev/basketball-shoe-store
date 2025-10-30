@@ -19,6 +19,7 @@ const sneakerImages = [
   'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/b09278e7-a1e1-40e7-87de-7a9adfb6ac18.jpg',
   'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/d1111f35-ee6e-478b-ac87-5e5dca7b35d4.jpg',
   'https://cdn.poehali.dev/files/a29c6479-7118-455e-831c-a0633d66f1dc.jpg',
+  'https://cdn.poehali.dev/files/1ad00cdf-5160-4081-9b54-6c47aabe307d.jpg',
 ];
 
 const products: Product[] = [
