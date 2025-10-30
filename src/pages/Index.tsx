@@ -32,13 +32,14 @@ const sneakerImages = [
   'https://cdn.poehali.dev/files/28e1ece0-f842-4efb-a09f-2a774286ee31.jpg',
   'https://cdn.poehali.dev/files/8604aab3-afee-45b4-a9c0-c1660959f9d6.jpg',
   'https://cdn.poehali.dev/files/b7546cf7-b74e-4a1f-8687-83518870763d.jpg',
+  'https://cdn.poehali.dev/files/eb30716d-5a14-41d7-99c4-7b352da495f5.jpg',
 ];
 
 const products: Product[] = [
   { id: 1, name: 'Nike Hyperdunk 2017 low White 9-10-11 US', price: 9577.17, brand: 'Nike', image: sneakerImages[13] },
   { id: 2, name: 'Nike Hyperdunk 2017 low W/G', price: 11070.27, brand: 'Nike', image: sneakerImages[2] },
   { id: 3, name: 'Nike Hyperdunk 2017 low B/G', price: 10856.97, brand: 'Nike', image: sneakerImages[0] },
-  { id: 4, name: 'Nike KD 17 EP', price: 14056.47, brand: 'Nike', image: sneakerImages[1] },
+  { id: 4, name: 'Nike KD 17 EP', price: 14056.47, brand: 'Nike', image: sneakerImages[17] },
   { id: 5, name: 'Jordan Luka 77', price: 10217.07, brand: 'Jordan', image: sneakerImages[1] },
   { id: 6, name: 'Jordan Luka 77 PF', price: 9363.87, brand: 'Jordan', image: sneakerImages[2] },
   { id: 7, name: 'Nike KD 4 Brown', price: 10217.07, brand: 'Nike', image: sneakerImages[16] },
