@@ -27,6 +27,7 @@ const sneakerImages = [
   'https://cdn.poehali.dev/files/362cc07a-b21e-4a78-bead-e229691d049d.jpg',
   'https://cdn.poehali.dev/files/ba150f88-36c3-48cd-a1fe-53d353adfeb1.jpg',
   'https://cdn.poehali.dev/files/d994c68c-5ec9-4756-aa5e-6615c0d334bd.jpg',
+  'https://cdn.poehali.dev/files/4a6eb145-eecb-4b3f-9cf2-731197781096.jpg',
 ];
 
 const products: Product[] = [
@@ -54,6 +55,7 @@ const products: Product[] = [
   { id: 22, name: 'Jordan Luka 2 PF', price: 6804.27, brand: 'Jordan', image: sneakerImages[7] },
   { id: 23, name: 'Jordan Luka 77 Black', price: 8937.47, brand: 'Jordan', image: sneakerImages[8] },
   { id: 24, name: 'Jordan Luka 77 Orange', price: 8937.47, brand: 'Jordan', image: sneakerImages[9] },
+  { id: 25, name: 'Nike Hyperdunk 2017 low Blue', price: 9577.17, brand: 'Nike', image: sneakerImages[12] },
 ];
 
 const Index = () => {
