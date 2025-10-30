@@ -144,6 +144,7 @@ const Index = () => {
           <nav className="hidden md:flex items-center gap-6">
             <a href="#catalog" className="text-white hover:text-primary transition-colors">Каталог</a>
             <a href="#education" className="text-white hover:text-primary transition-colors">Гид по выбору</a>
+            <a href="#reviews" className="text-white hover:text-primary transition-colors">Отзывы</a>
             <a href="#delivery" className="text-white hover:text-primary transition-colors">Доставка</a>
             <a href="#faq" className="text-white hover:text-primary transition-colors">FAQ</a>
             <a href="#contacts" className="text-white hover:text-primary transition-colors">Контакты</a>
@@ -182,6 +183,13 @@ const Index = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Гид по выбору
+              </a>
+              <a 
+                href="#reviews" 
+                className="text-white hover:text-primary transition-colors py-2 border-b border-white/10"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Отзывы
               </a>
               <a 
                 href="#delivery" 
@@ -741,7 +749,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-background">
+      <section id="reviews" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
