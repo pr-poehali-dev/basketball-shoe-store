@@ -5,6 +5,8 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
+import Stories from '@/components/Stories';
+import ProductQuiz from '@/components/ProductQuiz';
 
 interface Product {
   id: number;
@@ -134,6 +136,7 @@ const Index = () => {
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [quizFilters, setQuizFilters] = useState<{position: string, style: string, budget: string} | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -248,6 +251,16 @@ const Index = () => {
     .filter(p => selectedBrand === 'all' || p.brand === selectedBrand)
     .filter(p => selectedColor === 'all' || p.color === selectedColor)
     .filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
+
+  if (quizFilters) {
+    filteredProducts = filteredProducts.filter(p => {
+      const [minPrice, maxPrice] = quizFilters.budget === '15000+' 
+        ? [15000, Infinity] 
+        : quizFilters.budget.split('-').map(Number);
+      
+      return p.price >= minPrice && p.price <= (maxPrice || Infinity);
+    });
+  }
   
   if (sortOrder === 'asc') {
     filteredProducts = [...filteredProducts].sort((a, b) => a.price - b.price);
@@ -257,6 +270,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background font-roboto">
+      <ProductQuiz onComplete={(filters) => {
+        setQuizFilters(filters);
+        const catalogSection = document.getElementById('catalog');
+        if (catalogSection) {
+          catalogSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }} />
+
       <header className="fixed top-0 w-full bg-secondary/95 backdrop-blur-sm z-50 border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -345,8 +366,8 @@ const Index = () => {
         )}
       </header>
 
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary to-primary/20">
-        <div className="absolute inset-0 opacity-20 parallax-bg" style={{ transform: `translateY(${parallaxOffset}px)` }}>
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-purple-900 to-black">
+        <div className="absolute inset-0 opacity-20 parallax-bg" style={{ transform: `translateY(${parallaxOffset * 0.3}px)` }}>
           <div className="absolute top-10 left-10 animate-bounce-slow" style={{ animationDelay: '0s' }}>
             <Icon name="Dribbble" size={80} className="text-primary/40" />
           </div>
@@ -363,8 +384,35 @@ const Index = () => {
             <Icon name="Trophy" size={65} className="text-primary/40" />
           </div>
         </div>
+
+        <div 
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          style={{
+            transform: `translateY(${parallaxOffset * 0.5}px) scale(${Math.max(0.8, 1 - parallaxOffset * 0.0003)})`,
+            opacity: Math.max(0, 1 - parallaxOffset * 0.0015),
+          }}
+        >
+          <div className="relative w-80 h-80 md:w-[550px] md:h-[550px]">
+            <img
+              src={sneakerImages[17]}
+              alt="Nike Basketball Shoe"
+              className="w-full h-full object-contain drop-shadow-2xl"
+              style={{
+                filter: 'drop-shadow(0 20px 60px rgba(255, 107, 0, 0.6))',
+                animation: 'float 6s ease-in-out infinite',
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-radial from-primary/30 to-transparent blur-3xl -z-10" />
+          </div>
+        </div>
         
-        <div className="container mx-auto px-4 z-10 text-center animate-fade-in">
+        <div 
+          className="container mx-auto px-4 z-10 text-center"
+          style={{
+            transform: `translateY(${parallaxOffset * 0.8}px)`,
+            opacity: Math.max(0, 1 - parallaxOffset * 0.002),
+          }}
+        >
           <div className="mb-4 md:mb-6 flex items-center justify-center gap-3">
             <Icon name="Dribbble" size={48} className="text-primary animate-pulse" />
             <Icon name="Flame" size={64} className="text-primary" />
@@ -418,8 +466,27 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
               Каталог кроссовок
             </h2>
-            <p className="text-muted-foreground text-lg">{products.length} моделей в наличии</p>
+            <p className="text-muted-foreground text-lg">
+              {quizFilters ? (
+                <>
+                  <span className="inline-flex items-center gap-2 text-primary font-semibold">
+                    <Icon name="Target" size={20} />
+                    Подобрано {filteredProducts.length} моделей для тебя! 
+                  </span>
+                  <button 
+                    onClick={() => setQuizFilters(null)}
+                    className="ml-4 text-sm text-muted-foreground hover:text-foreground underline"
+                  >
+                    Показать всё
+                  </button>
+                </>
+              ) : (
+                `${products.length} моделей в наличии`
+              )}
+            </p>
           </div>
+
+          <Stories allProducts={products} />
 
           <div className="mb-8 max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row gap-4">
