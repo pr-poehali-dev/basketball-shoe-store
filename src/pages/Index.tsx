@@ -21,6 +21,7 @@ const sneakerImages = [
   'https://cdn.poehali.dev/files/a29c6479-7118-455e-831c-a0633d66f1dc.jpg',
   'https://cdn.poehali.dev/files/1ad00cdf-5160-4081-9b54-6c47aabe307d.jpg',
   'https://cdn.poehali.dev/files/b71161de-7386-444d-908a-aeb673c78ccd.jpg',
+  'https://cdn.poehali.dev/files/4fad4319-74ea-4e8f-9a4f-906218933294.jpg',
 ];
 
 const products: Product[] = [
@@ -44,7 +45,7 @@ const products: Product[] = [
   { id: 18, name: 'Nike Sabrina 2 Orange', price: 12563.37, brand: 'Nike', image: sneakerImages[0] },
   { id: 19, name: 'Jordan Ultra fly 2 low', price: 7870.77, brand: 'Jordan', image: sneakerImages[1] },
   { id: 20, name: 'LiNing 9 V 1.5', price: 6377.67, brand: 'LiNing', image: sneakerImages[2] },
-  { id: 21, name: 'Jordan Luka 2 Nebula', price: 8510.67, brand: 'Jordan', image: sneakerImages[1] },
+  { id: 21, name: 'Jordan Luka 2 Nebula', price: 8510.67, brand: 'Jordan', image: sneakerImages[6] },
   { id: 22, name: 'Jordan Luka 2 PF', price: 6804.27, brand: 'Jordan', image: sneakerImages[2] },
 ];
 
