@@ -408,7 +408,7 @@ const Index = () => {
                   Смотреть каталог
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-orange-600 text-lg px-8 py-6" asChild>
+              <Button size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-orange-600 text-lg px-8 py-6 animate-pulse-scale" asChild>
                 <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
                   <Icon name="Send" size={20} className="mr-2" />
                   Написать в Telegram
