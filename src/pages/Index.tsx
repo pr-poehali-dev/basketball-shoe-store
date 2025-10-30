@@ -366,24 +366,18 @@ const Index = () => {
         )}
       </header>
 
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary to-primary/20">
-        <div className="absolute inset-0 opacity-20 parallax-bg" style={{ transform: `translateY(${parallaxOffset}px)` }}>
-          <div className="absolute top-10 left-10 animate-bounce-slow" style={{ animationDelay: '0s' }}>
-            <Icon name="Dribbble" size={80} className="text-primary/40" />
-          </div>
-          <div className="absolute top-32 right-20 animate-bounce-slow" style={{ animationDelay: '0.5s' }}>
-            <Icon name="Flame" size={60} className="text-primary/30" />
-          </div>
-          <div className="absolute bottom-40 left-1/4 animate-bounce-slow" style={{ animationDelay: '1s' }}>
-            <Icon name="Zap" size={70} className="text-primary/35" />
-          </div>
-          <div className="absolute top-1/3 right-10 animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
-            <Icon name="Target" size={50} className="text-primary/25" />
-          </div>
-          <div className="absolute bottom-20 right-1/3 animate-bounce-slow" style={{ animationDelay: '2s' }}>
-            <Icon name="Trophy" size={65} className="text-primary/40" />
-          </div>
-        </div>
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+        >
+          <source src="https://drive.google.com/uc?id=1UJdEmDsovrCLEZkZ07F7Pi6Qk9qwfYf7" type="video/mp4" />
+        </video>
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70" />
         
         <div className="container mx-auto px-4 z-10 text-center animate-fade-in">
           <div className="mb-4 md:mb-6 flex items-center justify-center gap-3">
