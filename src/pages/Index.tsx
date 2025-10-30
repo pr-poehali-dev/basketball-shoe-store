@@ -1130,8 +1130,26 @@ const Index = () => {
               </div>
             </div>
             <div className="pt-8 mt-8 border-t border-white/20">
-              <p className="text-gray-400 text-sm">
-                © 2024 SKBasketShop. Все права защищены.
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4">
+                <a 
+                  href="/privacy-policy" 
+                  target="_blank"
+                  className="text-gray-300 hover:text-primary transition-colors text-sm flex items-center gap-2"
+                >
+                  <Icon name="FileText" size={16} />
+                  Политика конфиденциальности
+                </a>
+                <span className="hidden sm:inline text-gray-600">•</span>
+                <a 
+                  href="#contacts"
+                  className="text-gray-300 hover:text-primary transition-colors text-sm flex items-center gap-2"
+                >
+                  <Icon name="Mail" size={16} />
+                  Контакты
+                </a>
+              </div>
+              <p className="text-gray-400 text-sm text-center">
+                © 2025 SKBasketShop. Все права защищены.
               </p>
             </div>
           </div>
