@@ -40,7 +40,7 @@ const sneakerImages = [
 ];
 
 const products: Product[] = [
-  { id: 1, name: 'Nike Hyperdunk 2017 low White 9-10-11 US', price: 9577.17, brand: 'Nike', image: sneakerImages[13], priceFrom: true },
+  { id: 1, name: 'Nike Hyperdunk 2017 low White', price: 9577.17, brand: 'Nike', image: sneakerImages[13], priceFrom: true },
   { id: 4, name: 'Nike KD 17 EP', price: 14056.47, brand: 'Nike', image: sneakerImages[17] },
   { id: 6, name: 'Jordan Luka 77', price: 9363.87, brand: 'Jordan', image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', priceFrom: true },
   { id: 7, name: 'Nike KD 4 Brown', price: 10217.07, brand: 'Nike', image: sneakerImages[16] },
