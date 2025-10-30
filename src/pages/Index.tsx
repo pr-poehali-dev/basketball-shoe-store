@@ -384,12 +384,6 @@ const Index = () => {
 
         <div className="container mx-auto px-4 md:px-8 z-10 grid md:grid-cols-2 gap-4 md:gap-12 items-center h-full">
           <div className="text-left animate-fade-in order-2 md:order-1">
-            <div className="mb-3 md:mb-6">
-              <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold">
-                НОВАЯ КОЛЛЕКЦИЯ 2024
-              </span>
-            </div>
-            
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-oswald font-bold text-white mb-3 md:mb-6 leading-tight">
               ИГРАЙ<br />
               <span className="text-white/90">НА</span><br />
@@ -1063,31 +1057,31 @@ const Index = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-12">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <Icon name="MapPin" size={32} className="text-primary flex-shrink-0" />
-                    <div>
-                      <h3 className="font-bold text-xl mb-2">Доставка по России</h3>
-                      <p className="text-muted-foreground mb-2">СДЭК, Почта России</p>
-                      <p className="text-sm text-muted-foreground">Сроки: 3-7 дней</p>
-                    </div>
+              <div className="bg-white/40 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:bg-white/50 dark:hover:bg-white/10">
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary/10 backdrop-blur-sm p-3 rounded-full flex-shrink-0">
+                    <Icon name="MapPin" size={32} className="text-primary" />
                   </div>
-                </CardContent>
-              </Card>
+                  <div>
+                    <h3 className="font-bold text-xl mb-2">Доставка по России</h3>
+                    <p className="text-muted-foreground mb-2">СДЭК, Почта России</p>
+                    <p className="text-sm text-muted-foreground">Сроки: 3-7 дней</p>
+                  </div>
+                </div>
+              </div>
 
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <Icon name="CreditCard" size={32} className="text-primary flex-shrink-0" />
-                    <div>
-                      <h3 className="font-bold text-xl mb-2">Оплата</h3>
-                      <p className="text-muted-foreground mb-2">Перевод на карту</p>
-                      <p className="text-sm text-muted-foreground">Оплата при получении (наложенный платёж)</p>
-                    </div>
+              <div className="bg-white/40 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:bg-white/50 dark:hover:bg-white/10">
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary/10 backdrop-blur-sm p-3 rounded-full flex-shrink-0">
+                    <Icon name="CreditCard" size={32} className="text-primary" />
                   </div>
-                </CardContent>
-              </Card>
+                  <div>
+                    <h3 className="font-bold text-xl mb-2">Оплата</h3>
+                    <p className="text-muted-foreground mb-2">Перевод на карту</p>
+                    <p className="text-sm text-muted-foreground">Оплата при получении (наложенный платёж)</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <Card className="bg-primary text-primary-foreground">
