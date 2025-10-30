@@ -474,21 +474,21 @@ const Index = () => {
                 <Icon name="Star" size={18} className="mr-2" />
                 Интересные факты
               </TabsTrigger>
-              <TabsTrigger value="details" className="text-sm md:text-base py-3">
-                <Icon name="Eye" size={18} className="mr-2" />
-                Детали
-              </TabsTrigger>
-              <TabsTrigger value="choose" className="text-sm md:text-base py-3">
-                <Icon name="Target" size={18} className="mr-2" />
-                Как выбрать
+              <TabsTrigger value="positions" className="text-sm md:text-base py-3">
+                <Icon name="Users" size={18} className="mr-2" />
+                По позициям
               </TabsTrigger>
               <TabsTrigger value="difference" className="text-sm md:text-base py-3">
                 <Icon name="Map" size={18} className="mr-2" />
                 Зал vs Улица
               </TabsTrigger>
-              <TabsTrigger value="positions" className="text-sm md:text-base py-3">
-                <Icon name="Users" size={18} className="mr-2" />
-                По позициям
+              <TabsTrigger value="choose" className="text-sm md:text-base py-3">
+                <Icon name="Target" size={18} className="mr-2" />
+                Как выбрать
+              </TabsTrigger>
+              <TabsTrigger value="details" className="text-sm md:text-base py-3">
+                <Icon name="Eye" size={18} className="mr-2" />
+                Детали
               </TabsTrigger>
             </TabsList>
 
