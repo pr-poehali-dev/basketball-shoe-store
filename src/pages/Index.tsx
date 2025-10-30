@@ -34,6 +34,7 @@ const sneakerImages = [
   'https://cdn.poehali.dev/files/b7546cf7-b74e-4a1f-8687-83518870763d.jpg',
   'https://cdn.poehali.dev/files/eb30716d-5a14-41d7-99c4-7b352da495f5.jpg',
   'https://cdn.poehali.dev/files/dee48e22-ca49-427c-8771-5fddab94cffd.jpg',
+  'https://cdn.poehali.dev/files/c4d0405d-9c94-421a-91a7-f4e2b6b08442.jpg',
 ];
 
 const products: Product[] = [
@@ -54,7 +55,7 @@ const products: Product[] = [
   { id: 15, name: 'Nike Lebron 21 Orange', price: 10430.37, brand: 'Nike', image: sneakerImages[11] },
   { id: 16, name: 'Nike Lebron 21 EP', price: 10003.77, brand: 'Nike', image: sneakerImages[18] },
   { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', image: sneakerImages[15] },
-  { id: 18, name: 'Nike Sabrina 2 Orange', price: 12563.37, brand: 'Nike', image: sneakerImages[0] },
+  { id: 18, name: 'Nike Sabrina 2 Arpic Agate', price: 12563.37, brand: 'Nike', image: sneakerImages[19] },
   { id: 19, name: 'Jordan Ultra fly 2 low', price: 7870.77, brand: 'Jordan', image: sneakerImages[1] },
   { id: 20, name: 'LiNing 9 V 1.5', price: 6377.67, brand: 'LiNing', image: sneakerImages[2] },
   { id: 21, name: 'Jordan Luka 2 Nebula', price: 8510.67, brand: 'Jordan', image: sneakerImages[6] },
