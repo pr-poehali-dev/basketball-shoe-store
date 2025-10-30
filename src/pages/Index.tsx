@@ -382,47 +382,81 @@ const Index = () => {
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
         </div>
 
-        <div className="container mx-auto px-4 md:px-8 z-10 flex items-center justify-center h-full">
-          <div className="text-center max-w-4xl animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-oswald font-bold text-white mb-3 md:mb-6 leading-tight">
+        <div className="container mx-auto px-4 md:px-8 z-10 h-full flex items-center">
+          <div className="max-w-3xl animate-fade-in">
+            <div className="mb-4 md:mb-6">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-6">
+                <Icon name="Flame" size={20} className="text-orange-300" />
+                <span className="text-white text-sm font-semibold">Хит продаж 2024</span>
+              </div>
+            </div>
+
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-oswald font-bold text-white mb-4 md:mb-6 leading-[0.9]">
               ИГРАЙ<br />
               <span className="text-white/90">НА</span><br />
-              <span className="text-white">МАКСИМУМ</span>
+              <span className="text-white inline-flex items-center gap-4">
+                МАКСИМУМ
+                <Icon name="Zap" size={48} className="text-orange-300 hidden md:inline animate-pulse" />
+              </span>
             </h1>
             
-            <p className="text-base md:text-xl text-white/90 mb-6 md:mb-10 mx-auto max-w-2xl leading-relaxed">
-              Баскетбольные кроссовки премиум класса от Nike, Jordan, Anta и LiNing. 
+            <div className="w-20 h-1.5 bg-orange-400 rounded-full mb-6 md:mb-8" />
+            
+            <p className="text-lg md:text-2xl text-white/90 mb-8 md:mb-10 max-w-2xl leading-relaxed">
+              Баскетбольные кроссовки премиум класса от <span className="text-white font-bold">Nike, Jordan, Anta</span> и <span className="text-white font-bold">LiNing</span>. 
               Технологии профессионального уровня для твоей игры.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-5 mb-8 md:mb-12 justify-center">
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 text-base md:text-lg px-8 py-6 md:px-10 md:py-7 shadow-2xl" asChild>
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-5 mb-8 md:mb-12">
+              <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 text-base md:text-xl px-8 py-6 md:px-12 md:py-8 shadow-2xl font-bold" asChild>
                 <a href="#catalog">
-                  <Icon name="ShoppingBag" size={20} className="mr-2" />
+                  <Icon name="ShoppingBag" size={24} className="mr-2" />
                   Смотреть каталог
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-orange-600 text-base md:text-lg px-8 py-6 md:px-10 md:py-7 animate-pulse-scale" asChild>
+              <Button size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-orange-600 text-base md:text-xl px-8 py-6 md:px-12 md:py-8 animate-pulse-scale font-bold" asChild>
                 <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-                  <Icon name="Send" size={20} className="mr-2" />
+                  <Icon name="Send" size={24} className="mr-2" />
                   Написать в Telegram
                 </a>
               </Button>
             </div>
             
-            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-white/90">
-              <div className="flex items-center gap-2">
-                <Icon name="Shield" size={20} className="text-white" />
-                <span className="text-sm md:text-base font-semibold">100% Оригинал</span>
+            <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-xl">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center hover:bg-white/20 transition-all">
+                <Icon name="Shield" size={28} className="text-orange-300 mx-auto mb-2" />
+                <span className="text-white text-xs md:text-sm font-semibold block">100% Оригинал</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Icon name="Truck" size={20} className="text-white" />
-                <span className="text-sm md:text-base font-semibold">Доставка 2-5 дней</span>
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center hover:bg-white/20 transition-all">
+                <Icon name="Truck" size={28} className="text-orange-300 mx-auto mb-2" />
+                <span className="text-white text-xs md:text-sm font-semibold block">2-5 дней</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Icon name="Award" size={20} className="text-white" />
-                <span className="text-sm md:text-base font-semibold">Гарантия качества</span>
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center hover:bg-white/20 transition-all">
+                <Icon name="Award" size={28} className="text-orange-300 mx-auto mb-2" />
+                <span className="text-white text-xs md:text-sm font-semibold block">Гарантия</span>
               </div>
+            </div>
+          </div>
+
+          <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 space-y-6">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <div className="text-5xl font-oswald font-bold mb-2">500+</div>
+              <div className="text-sm opacity-80">Довольных клиентов</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white animate-fade-in" style={{ animationDelay: '0.5s' }}>
+              <div className="text-5xl font-oswald font-bold mb-2">25+</div>
+              <div className="text-sm opacity-80">Моделей в наличии</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white animate-fade-in" style={{ animationDelay: '0.7s' }}>
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Icon key={i} name="Star" size={16} className="text-orange-400 fill-orange-400" />
+                  ))}
+                </div>
+                <span className="text-sm font-bold">5.0</span>
+              </div>
+              <div className="text-sm opacity-80 mt-2">Рейтинг отзывов</div>
             </div>
           </div>
         </div>
