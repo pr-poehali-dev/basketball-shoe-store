@@ -414,12 +414,12 @@ const Index = () => {
             {filteredProducts.map((product, idx) => (
               <Card 
                 key={product.id} 
-                className={`group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${
+                className={`group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col ${
                   visibleSections.has('catalog') ? 'animate-fade-in-up' : 'opacity-0'
                 }`} 
                 style={{ animationDelay: `${idx * 0.05}s` }}
               >
-                <CardContent className="p-0">
+                <CardContent className="p-0 flex flex-col flex-grow">
                   <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center relative overflow-hidden">
                     {!imageLoaded.has(product.id) && (
                       <div className="absolute inset-0 skeleton" />
@@ -438,14 +438,14 @@ const Index = () => {
                     )}
                     <Badge className="absolute top-2 right-2 bg-primary text-xs md:text-sm">{product.brand}</Badge>
                   </div>
-                  <div className="p-2 md:p-4">
-                    <h3 className="font-oswald font-semibold text-sm md:text-lg mb-1 md:mb-2 line-clamp-2">{product.name}</h3>
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1">
+                  <div className="p-2 md:p-4 flex flex-col h-full">
+                    <h3 className="font-oswald font-semibold text-sm md:text-lg mb-1 md:mb-2 line-clamp-2 flex-grow">{product.name}</h3>
+                    <div className="flex items-center justify-between gap-2 mt-auto">
                       <span className="text-lg md:text-2xl font-bold text-primary">
                         {product.priceFrom && <span className="text-xs md:text-sm text-muted-foreground mr-1">От</span>}
                         {product.price.toLocaleString('ru-RU')} ₽
                       </span>
-                      <Button size="sm" className="animate-pulse-scale" asChild>
+                      <Button size="sm" className="animate-pulse-scale flex-shrink-0" asChild>
                         <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
                           <Icon name="ShoppingCart" size={16} />
                         </a>
