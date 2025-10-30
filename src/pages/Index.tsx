@@ -41,7 +41,6 @@ const sneakerImages = [
 
 const products: Product[] = [
   { id: 1, name: 'Nike Hyperdunk 2017 low White 9-10-11 US', price: 9577.17, brand: 'Nike', image: sneakerImages[13], priceFrom: true },
-  { id: 3, name: 'Nike Hyperdunk 2017 low B/G', price: 10856.97, brand: 'Nike', image: sneakerImages[0] },
   { id: 4, name: 'Nike KD 17 EP', price: 14056.47, brand: 'Nike', image: sneakerImages[17] },
   { id: 6, name: 'Jordan Luka 77', price: 9363.87, brand: 'Jordan', image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', priceFrom: true },
   { id: 7, name: 'Nike KD 4 Brown', price: 10217.07, brand: 'Nike', image: sneakerImages[16] },
@@ -68,14 +67,38 @@ const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [reviewIndex, setReviewIndex] = useState(0);
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const [imageLoaded, setImageLoaded] = useState<Set<number>>(new Set());
+  const [clientCount, setClientCount] = useState(0);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
+      setParallaxOffset(window.scrollY * 0.5);
+
+      const sections = document.querySelectorAll('[data-animate]');
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+          setVisibleSections((prev) => new Set(prev).add(section.id));
+        }
+      });
     };
+    
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (clientCount < 500) {
+      const timer = setTimeout(() => {
+        setClientCount((prev) => Math.min(prev + 15, 500));
+      }, 30);
+      return () => clearTimeout(timer);
+    }
+  }, [clientCount]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -224,7 +247,7 @@ const Index = () => {
       </header>
 
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary to-primary/20">
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-20 parallax-bg" style={{ transform: `translateY(${parallaxOffset}px)` }}>
           <div className="absolute top-10 left-10 animate-bounce-slow" style={{ animationDelay: '0s' }}>
             <Icon name="Dribbble" size={80} className="text-primary/40" />
           </div>
@@ -262,7 +285,7 @@ const Index = () => {
                 Смотреть каталог
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 bg-white/10 text-white border-white hover:bg-white hover:text-secondary" asChild>
+            <Button size="lg" variant="outline" className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 bg-white/10 text-white border-white hover:bg-white hover:text-secondary animate-pulse-scale" asChild>
               <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
                 <Icon name="Send" size={20} className="mr-2" />
                 Написать в Telegram
@@ -290,9 +313,9 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="catalog" className="py-20 bg-background">
+      <section id="catalog" data-animate className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-slide-up">
+          <div className={`text-center mb-12 transition-all duration-700 ${visibleSections.has('catalog') ? 'animate-fade-in-up' : 'opacity-0'}`}>
             <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
               Каталог кроссовок
             </h2>
@@ -354,14 +377,26 @@ const Index = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
             {filteredProducts.map((product, idx) => (
-              <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: `${idx * 0.05}s` }}>
+              <Card 
+                key={product.id} 
+                className={`group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${
+                  visibleSections.has('catalog') ? 'animate-fade-in-up' : 'opacity-0'
+                }`} 
+                style={{ animationDelay: `${idx * 0.05}s` }}
+              >
                 <CardContent className="p-0">
                   <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center relative overflow-hidden">
+                    {!imageLoaded.has(product.id) && (
+                      <div className="absolute inset-0 skeleton" />
+                    )}
                     {product.image ? (
                       <img 
                         src={product.image} 
                         alt={product.name} 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ${
+                          imageLoaded.has(product.id) ? 'opacity-100' : 'opacity-0'
+                        }`}
+                        onLoad={() => setImageLoaded((prev) => new Set(prev).add(product.id))}
                       />
                     ) : (
                       <Icon name="Dribbble" size={64} className="text-primary/20" />
@@ -375,7 +410,7 @@ const Index = () => {
                         {product.priceFrom && <span className="text-xs md:text-sm text-muted-foreground mr-1">От</span>}
                         {product.price.toLocaleString('ru-RU')} ₽
                       </span>
-                      <Button size="sm" asChild>
+                      <Button size="sm" className="animate-pulse-scale" asChild>
                         <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
                           <Icon name="ShoppingCart" size={16} />
                         </a>
@@ -389,9 +424,9 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="education" className="py-20 bg-muted/30">
+      <section id="education" data-animate className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 transition-all duration-700 ${visibleSections.has('education') ? 'animate-fade-in-up' : 'opacity-0'}`}>
             <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
               Гид по выбору
             </h2>
@@ -693,10 +728,10 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="delivery" className="py-20 bg-background">
+      <section id="delivery" data-animate className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
+            <div className={`text-center mb-12 transition-all duration-700 ${visibleSections.has('delivery') ? 'animate-fade-in-up' : 'opacity-0'}`}>
               <Icon name="Truck" size={64} className="text-primary mx-auto mb-4" />
               <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
                 Доставка и оплата
@@ -737,7 +772,7 @@ const Index = () => {
                 <p className="mb-6 opacity-90">
                   Напишите нам в Telegram, чтобы уточнить наличие и оформить заказ
                 </p>
-                <Button size="lg" variant="secondary" className="text-lg px-8" asChild>
+                <Button size="lg" variant="secondary" className="text-lg px-8 animate-pulse-scale" asChild>
                   <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
                     <Icon name="Send" size={20} className="mr-2" />
                     Написать в Telegram
@@ -749,10 +784,10 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="reviews" className="py-20 bg-background">
+      <section id="reviews" data-animate className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
+            <div className={`text-center mb-12 transition-all duration-700 ${visibleSections.has('reviews') ? 'animate-fade-in-up' : 'opacity-0'}`}>
               <Icon name="Star" size={64} className="text-primary mx-auto mb-4" />
               <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
                 Отзывы клиентов
@@ -853,7 +888,7 @@ const Index = () => {
                   <div className="flex items-center gap-4">
                     <Icon name="TrendingUp" size={48} className="text-primary-foreground" />
                     <div className="text-left">
-                      <p className="text-3xl font-oswald font-bold">500+</p>
+                      <p className="text-3xl font-oswald font-bold">{clientCount}+</p>
                       <p className="text-primary-foreground/90">Довольных клиентов</p>
                     </div>
                   </div>
@@ -864,10 +899,10 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="faq" className="py-20 bg-muted/30">
+      <section id="faq" data-animate className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
+            <div className={`text-center mb-12 transition-all duration-700 ${visibleSections.has('faq') ? 'animate-fade-in-up' : 'opacity-0'}`}>
               <Icon name="HelpCircle" size={64} className="text-primary mx-auto mb-4" />
               <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
                 Частые вопросы
@@ -950,10 +985,10 @@ const Index = () => {
         </div>
       </section>
 
-      <footer id="contacts" className="py-20 bg-secondary text-white">
+      <footer id="contacts" data-animate className="py-20 bg-secondary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
+            <div className={`text-center mb-12 transition-all duration-700 ${visibleSections.has('contacts') ? 'animate-fade-in-up' : 'opacity-0'}`}>
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Icon name="Dribbble" size={48} className="text-primary" />
                 <h2 className="text-4xl md:text-5xl font-oswald font-bold">Контакты</h2>
