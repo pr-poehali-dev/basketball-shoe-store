@@ -28,10 +28,11 @@ const sneakerImages = [
   'https://cdn.poehali.dev/files/ba150f88-36c3-48cd-a1fe-53d353adfeb1.jpg',
   'https://cdn.poehali.dev/files/d994c68c-5ec9-4756-aa5e-6615c0d334bd.jpg',
   'https://cdn.poehali.dev/files/4a6eb145-eecb-4b3f-9cf2-731197781096.jpg',
+  'https://cdn.poehali.dev/files/375c50a7-ad11-4146-a938-2fba7e4121b8.jpg',
 ];
 
 const products: Product[] = [
-  { id: 1, name: 'Nike Hyperdunk 2017 low W/G', price: 9577.17, brand: 'Nike', image: sneakerImages[0] },
+  { id: 1, name: 'Nike Hyperdunk 2017 low White 9-10-11 US', price: 9577.17, brand: 'Nike', image: sneakerImages[13] },
   { id: 2, name: 'Nike Hyperdunk 2017 low W/G', price: 11070.27, brand: 'Nike', image: sneakerImages[2] },
   { id: 3, name: 'Nike Hyperdunk 2017 low B/G', price: 10856.97, brand: 'Nike', image: sneakerImages[0] },
   { id: 4, name: 'Nike KD 17 EP', price: 14056.47, brand: 'Nike', image: sneakerImages[1] },
