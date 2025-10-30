@@ -12,6 +12,7 @@ interface Product {
   price: number;
   brand: string;
   image?: string;
+  priceFrom?: boolean;
 }
 
 const sneakerImages = [
@@ -39,12 +40,10 @@ const sneakerImages = [
 ];
 
 const products: Product[] = [
-  { id: 1, name: 'Nike Hyperdunk 2017 low White 9-10-11 US', price: 9577.17, brand: 'Nike', image: sneakerImages[13] },
-  { id: 2, name: 'Nike Hyperdunk 2017 low W/G', price: 11070.27, brand: 'Nike', image: sneakerImages[2] },
+  { id: 1, name: 'Nike Hyperdunk 2017 low White 9-10-11 US', price: 9577.17, brand: 'Nike', image: sneakerImages[13], priceFrom: true },
   { id: 3, name: 'Nike Hyperdunk 2017 low B/G', price: 10856.97, brand: 'Nike', image: sneakerImages[0] },
   { id: 4, name: 'Nike KD 17 EP', price: 14056.47, brand: 'Nike', image: sneakerImages[17] },
-  { id: 5, name: 'Jordan Luka 77', price: 10217.07, brand: 'Jordan', image: sneakerImages[1] },
-  { id: 6, name: 'Jordan Luka 77 PF', price: 9363.87, brand: 'Jordan', image: sneakerImages[2] },
+  { id: 6, name: 'Jordan Luka 77', price: 9363.87, brand: 'Jordan', image: sneakerImages[2], priceFrom: true },
   { id: 7, name: 'Nike KD 4 Brown', price: 10217.07, brand: 'Nike', image: sneakerImages[16] },
   { id: 8, name: 'UA Curry Fox 1 Banzito', price: 10430.37, brand: 'Curry', image: sneakerImages[20] },
   { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', image: sneakerImages[3] },
@@ -52,15 +51,11 @@ const products: Product[] = [
   { id: 11, name: 'Anta Kyrie Violet', price: 8084.07, brand: 'Anta', image: sneakerImages[5] },
   { id: 12, name: 'Jordan Zion 3 Rising', price: 8723.97, brand: 'Jordan', image: sneakerImages[10] },
   { id: 13, name: 'Nike JA 2 Nightmare', price: 17042.67, brand: 'Nike', image: sneakerImages[14] },
-  { id: 14, name: 'Nike Lebron 21 Orange', price: 13629.87, brand: 'Nike', image: sneakerImages[11] },
   { id: 15, name: 'Nike Lebron 21 Orange', price: 10430.37, brand: 'Nike', image: sneakerImages[11] },
   { id: 16, name: 'Nike Lebron 21 EP', price: 10003.77, brand: 'Nike', image: sneakerImages[18] },
   { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', image: sneakerImages[15] },
   { id: 18, name: 'Nike Sabrina 2 Arpic Agate', price: 12563.37, brand: 'Nike', image: sneakerImages[19] },
-  { id: 19, name: 'Jordan Ultra fly 2 low', price: 7870.77, brand: 'Jordan', image: sneakerImages[1] },
-  { id: 20, name: 'LiNing 9 V 1.5', price: 6377.67, brand: 'LiNing', image: sneakerImages[2] },
-  { id: 21, name: 'Jordan Luka 2 Nebula', price: 8510.67, brand: 'Jordan', image: sneakerImages[6] },
-  { id: 22, name: 'Jordan Luka 2 PF', price: 6804.27, brand: 'Jordan', image: sneakerImages[7] },
+  { id: 22, name: 'Jordan Luka 2', price: 6804.27, brand: 'Jordan', image: sneakerImages[7], priceFrom: true },
   { id: 23, name: 'Jordan Luka 77 Black', price: 8937.47, brand: 'Jordan', image: sneakerImages[8] },
   { id: 24, name: 'Jordan Luka 77 Orange', price: 8937.47, brand: 'Jordan', image: sneakerImages[9] },
   { id: 25, name: 'Nike Hyperdunk 2017 low Blue', price: 9577.17, brand: 'Nike', image: sneakerImages[12] },
@@ -68,11 +63,12 @@ const products: Product[] = [
 
 const Index = () => {
   const [selectedBrand, setSelectedBrand] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   
   const brands = ['all', ...Array.from(new Set(products.map(p => p.brand)))];
-  const filteredProducts = selectedBrand === 'all' 
-    ? products 
-    : products.filter(p => p.brand === selectedBrand);
+  const filteredProducts = products
+    .filter(p => selectedBrand === 'all' || p.brand === selectedBrand)
+    .filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   return (
     <div className="min-h-screen bg-background font-roboto">
@@ -135,7 +131,20 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
               Каталог кроссовок
             </h2>
-            <p className="text-muted-foreground text-lg">22 модели в наличии</p>
+            <p className="text-muted-foreground text-lg">{products.length} моделей в наличии</p>
+          </div>
+
+          <div className="mb-8 max-w-md mx-auto">
+            <div className="relative">
+              <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+              <input
+                type="text"
+                placeholder="Поиск по названию..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-3 justify-center mb-12">
@@ -171,6 +180,7 @@ const Index = () => {
                     <h3 className="font-oswald font-semibold text-lg mb-2 line-clamp-2">{product.name}</h3>
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold text-primary">
+                        {product.priceFrom && <span className="text-sm text-muted-foreground mr-1">От</span>}
                         {product.price.toLocaleString('ru-RU')} ₽
                       </span>
                       <Button size="sm" asChild>
