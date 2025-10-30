@@ -699,6 +699,192 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <Icon name="Star" size={64} className="text-primary mx-auto mb-4" />
+              <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
+                Отзывы клиентов
+              </h2>
+              <p className="text-muted-foreground text-lg">Что говорят те, кто уже купил у нас</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="hover:shadow-xl transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="flex gap-1">
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Заказал Nike KD 17, пришли за 4 дня в отличном состоянии. Оригинал, все бирки на месте. Цена приятно удивила — дешевле чем в магазинах!
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Icon name="User" size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Дмитрий</p>
+                      <p className="text-sm text-muted-foreground">Москва</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-xl transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="flex gap-1">
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Отличный магазин! Помогли с выбором размера, отправили видео перед отправкой. Jordan Luka 2 сидят идеально, играю в них уже месяц — кайф!
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Icon name="User" size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Александр</p>
+                      <p className="text-sm text-muted-foreground">Санкт-Петербург</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-xl transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="flex gap-1">
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Брал Anta Kyrie для зала. Сцепление огонь, амортизация супер. Доставка СДЭК быстрая, смог примерить перед оплатой. Рекомендую!
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Icon name="User" size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Игорь</p>
+                      <p className="text-sm text-muted-foreground">Казань</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-xl transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="flex gap-1">
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Впервые заказывал кроссовки онлайн и немного волновался. Ребята всё объяснили, помогли подобрать модель. Nike Lebron 21 — просто огонь!
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Icon name="User" size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Максим</p>
+                      <p className="text-sm text-muted-foreground">Новосибирск</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-xl transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="flex gap-1">
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Заказывал уже второй раз — Nike Hyperdunk и Curry Fox. Оба раза всё быстро, качественно упаковано. Цены лучше чем на маркетплейсах!
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Icon name="User" size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Артём</p>
+                      <p className="text-sm text-muted-foreground">Екатеринбург</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-xl transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="flex gap-1">
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                      <Icon name="Star" size={16} className="text-primary fill-primary" />
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Искал Jordan Luka 77 везде — нашёл тут по адекватной цене. Общение в телеграме быстрое, все вопросы решили моментально. Доволен!
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Icon name="User" size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Сергей</p>
+                      <p className="text-sm text-muted-foreground">Краснодар</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Card className="inline-block bg-primary text-primary-foreground">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-4">
+                    <Icon name="TrendingUp" size={48} className="text-primary-foreground" />
+                    <div className="text-left">
+                      <p className="text-3xl font-oswald font-bold">500+</p>
+                      <p className="text-primary-foreground/90">Довольных клиентов</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="faq" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
