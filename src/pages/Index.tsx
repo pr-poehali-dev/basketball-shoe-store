@@ -366,8 +366,8 @@ const Index = () => {
         )}
       </header>
 
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-purple-900 to-black">
-        <div className="absolute inset-0 opacity-20 parallax-bg" style={{ transform: `translateY(${parallaxOffset * 0.3}px)` }}>
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary to-primary/20">
+        <div className="absolute inset-0 opacity-20 parallax-bg" style={{ transform: `translateY(${parallaxOffset}px)` }}>
           <div className="absolute top-10 left-10 animate-bounce-slow" style={{ animationDelay: '0s' }}>
             <Icon name="Dribbble" size={80} className="text-primary/40" />
           </div>
@@ -384,35 +384,8 @@ const Index = () => {
             <Icon name="Trophy" size={65} className="text-primary/40" />
           </div>
         </div>
-
-        <div 
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
-          style={{
-            transform: `translateY(${parallaxOffset * 0.5}px) scale(${Math.max(0.8, 1 - parallaxOffset * 0.0003)})`,
-            opacity: Math.max(0, 1 - parallaxOffset * 0.0015),
-          }}
-        >
-          <div className="relative w-80 h-80 md:w-[550px] md:h-[550px]">
-            <img
-              src={sneakerImages[17]}
-              alt="Nike Basketball Shoe"
-              className="w-full h-full object-contain drop-shadow-2xl"
-              style={{
-                filter: 'drop-shadow(0 20px 60px rgba(255, 107, 0, 0.6))',
-                animation: 'float 6s ease-in-out infinite',
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-radial from-primary/30 to-transparent blur-3xl -z-10" />
-          </div>
-        </div>
         
-        <div 
-          className="container mx-auto px-4 z-10 text-center"
-          style={{
-            transform: `translateY(${parallaxOffset * 0.8}px)`,
-            opacity: Math.max(0, 1 - parallaxOffset * 0.002),
-          }}
-        >
+        <div className="container mx-auto px-4 z-10 text-center animate-fade-in">
           <div className="mb-4 md:mb-6 flex items-center justify-center gap-3">
             <Icon name="Dribbble" size={48} className="text-primary animate-pulse" />
             <Icon name="Flame" size={64} className="text-primary" />
