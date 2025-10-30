@@ -438,11 +438,11 @@ const Index = () => {
               
               <div className="relative z-10 w-full h-full flex items-center justify-center">
                 <img 
-                  src="https://cdn.poehali.dev/files/0497ea82-a7ac-4f7f-837a-4ba4a539c269.jpg" 
+                  src="https://cdn.poehali.dev/files/23d8fd6c-d15c-45a8-ba97-66da4c5c0c47.jpeg" 
                   alt="Basketball Player in Action"
                   className="w-auto h-full object-contain drop-shadow-2xl transform hover:scale-[1.02] transition-transform duration-500"
                   style={{
-                    filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.6)) contrast(1.1) saturate(1.1)'
+                    filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.6)) contrast(1.05) saturate(1.05)'
                   }}
                 />
               </div>
