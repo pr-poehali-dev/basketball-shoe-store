@@ -35,6 +35,7 @@ const sneakerImages = [
   'https://cdn.poehali.dev/files/eb30716d-5a14-41d7-99c4-7b352da495f5.jpg',
   'https://cdn.poehali.dev/files/dee48e22-ca49-427c-8771-5fddab94cffd.jpg',
   'https://cdn.poehali.dev/files/c4d0405d-9c94-421a-91a7-f4e2b6b08442.jpg',
+  'https://cdn.poehali.dev/files/0effbacb-3c8c-4a7d-adae-d7d5ee714940.jpg',
 ];
 
 const products: Product[] = [
@@ -45,7 +46,7 @@ const products: Product[] = [
   { id: 5, name: 'Jordan Luka 77', price: 10217.07, brand: 'Jordan', image: sneakerImages[1] },
   { id: 6, name: 'Jordan Luka 77 PF', price: 9363.87, brand: 'Jordan', image: sneakerImages[2] },
   { id: 7, name: 'Nike KD 4 Brown', price: 10217.07, brand: 'Nike', image: sneakerImages[16] },
-  { id: 8, name: 'Curry Fox 1 Banzito', price: 10430.37, brand: 'Curry', image: sneakerImages[2] },
+  { id: 8, name: 'UA Curry Fox 1 Banzito', price: 10430.37, brand: 'Curry', image: sneakerImages[20] },
   { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', image: sneakerImages[3] },
   { id: 10, name: 'Anta Kyrie Orange', price: 8084.07, brand: 'Anta', image: sneakerImages[4] },
   { id: 11, name: 'Anta Kyrie Violet', price: 8084.07, brand: 'Anta', image: sneakerImages[5] },
