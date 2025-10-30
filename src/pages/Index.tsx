@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import Icon from '@/components/ui/icon';
 import Stories from '@/components/Stories';
 import ProductQuiz from '@/components/ProductQuiz';
+import QuickView from '@/components/QuickView';
 
 interface Product {
   id: number;
@@ -53,6 +54,7 @@ const products: Product[] = [
     brand: 'Nike', 
     color: 'Белый', 
     image: sneakerImages[13], 
+    images: [sneakerImages[13], 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/5871e394-d933-47de-a0a5-af6651b74295.jpg', 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/ccf77b08-bca2-42bc-b177-bf50d72faabf.jpg'],
     priceFrom: true,
     description: 'Классические баскетбольные кроссовки Nike Hyperdunk 2017 в белой расцветке. Лёгкие и быстрые, идеальны для динамичной игры.',
     features: ['Технология Nike Zoom Air для амортизации', 'Дышащий сетчатый верх', 'Резиновая подошва для сцепления', 'Низкий профиль для свободы движений'],
@@ -65,6 +67,7 @@ const products: Product[] = [
     brand: 'Nike', 
     color: 'Оранжевый', 
     image: sneakerImages[17],
+    images: [sneakerImages[17], 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/11a912d2-2fb5-46b0-9bcf-c55636dd088f.jpg', 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/5871e394-d933-47de-a0a5-af6651b74295.jpg'],
     priceFrom: true,
     description: 'Последняя модель линейки Kevin Durant. Создана для взрывной игры и точных бросков.',
     features: ['Полноразмерная подушка Air Strobel', 'Верх из синтетики и сетки', 'Поддержка голеностопа', 'Профессиональное сцепление'],
@@ -76,7 +79,8 @@ const products: Product[] = [
     price: 9364, 
     brand: 'Jordan', 
     color: 'Фиолетовый', 
-    image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', 
+    image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg',
+    images: ['https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/11a912d2-2fb5-46b0-9bcf-c55636dd088f.jpg', 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/ccf77b08-bca2-42bc-b177-bf50d72faabf.jpg'],
     priceFrom: true,
     description: 'Сигнатурная модель Луки Дончича. Стиль и производительность в одной паре.',
     features: ['Технология IsoPlate для стабильности', 'Система шнуровки Formula 23', 'Амортизация Cushlon 3.0', 'Уникальный дизайн от Луки'],
@@ -137,6 +141,7 @@ const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quizFilters, setQuizFilters] = useState<{position: string, style: string, budget: string} | null>(null);
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -597,7 +602,10 @@ const Index = () => {
                   visibleSections.has('catalog') ? 'animate-fade-in-up' : 'opacity-0'
                 }`} 
                 style={{ animationDelay: `${idx * 0.05}s` }}
-                onClick={() => setSelectedProduct(product)}
+                onClick={() => {
+                  setSelectedProduct(product);
+                  setIsQuickViewOpen(true);
+                }}
               >
                 <CardContent className="p-0 flex flex-col flex-grow">
                   <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center relative overflow-hidden">
@@ -1467,6 +1475,15 @@ const Index = () => {
             </div>
           </div>
         </div>
+        
+        <QuickView 
+          product={selectedProduct}
+          isOpen={isQuickViewOpen}
+          onClose={() => {
+            setIsQuickViewOpen(false);
+            setSelectedProduct(null);
+          }}
+        />
       </footer>
 
       {showScrollTop && (
