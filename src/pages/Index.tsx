@@ -66,6 +66,7 @@ const Index = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -96,7 +97,7 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Icon name="Dribbble" size={32} className="text-primary" />
-            <h1 className="text-2xl md:text-3xl font-oswald font-bold text-white">SKBasketShop</h1>
+            <h1 className="text-xl md:text-3xl font-oswald font-bold text-white">SKBasketShop</h1>
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <a href="#catalog" className="text-white hover:text-primary transition-colors">Каталог</a>
@@ -105,40 +106,133 @@ const Index = () => {
             <a href="#faq" className="text-white hover:text-primary transition-colors">FAQ</a>
             <a href="#contacts" className="text-white hover:text-primary transition-colors">Контакты</a>
           </nav>
-          <Button asChild size="sm" className="hidden md:flex">
-            <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-              <Icon name="Send" size={18} className="mr-2" />
-              Telegram
-            </a>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button asChild size="sm" className="hidden md:flex">
+              <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
+                <Icon name="Send" size={18} className="mr-2" />
+                Telegram
+              </a>
+            </Button>
+            <Button
+              size="sm"
+              variant="ghost"
+              className="md:hidden text-white"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <Icon name={mobileMenuOpen ? "X" : "Menu"} size={24} />
+            </Button>
+          </div>
         </div>
+        
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-secondary border-t border-border animate-fade-in">
+            <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              <a 
+                href="#catalog" 
+                className="text-white hover:text-primary transition-colors py-2 border-b border-white/10"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Каталог
+              </a>
+              <a 
+                href="#education" 
+                className="text-white hover:text-primary transition-colors py-2 border-b border-white/10"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Гид по выбору
+              </a>
+              <a 
+                href="#delivery" 
+                className="text-white hover:text-primary transition-colors py-2 border-b border-white/10"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Доставка
+              </a>
+              <a 
+                href="#faq" 
+                className="text-white hover:text-primary transition-colors py-2 border-b border-white/10"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                FAQ
+              </a>
+              <a 
+                href="#contacts" 
+                className="text-white hover:text-primary transition-colors py-2 border-b border-white/10"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Контакты
+              </a>
+              <Button asChild className="w-full" onClick={() => setMobileMenuOpen(false)}>
+                <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
+                  <Icon name="Send" size={18} className="mr-2" />
+                  Telegram
+                </a>
+              </Button>
+            </nav>
+          </div>
+        )}
       </header>
 
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary to-primary/20">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-10" />
-        <div className="container mx-auto px-4 z-10 text-center animate-fade-in">
-          <div className="mb-6 animate-bounce-slow inline-block">
-            <Icon name="Flame" size={64} className="text-primary" />
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-10 animate-bounce-slow" style={{ animationDelay: '0s' }}>
+            <Icon name="Dribbble" size={80} className="text-primary/40" />
           </div>
-          <h2 className="text-5xl md:text-7xl font-oswald font-bold text-white mb-6 leading-tight">
-            БРЕНДОВАЯ<br />БАСКЕТБОЛЬНАЯ ОБУВЬ
+          <div className="absolute top-32 right-20 animate-bounce-slow" style={{ animationDelay: '0.5s' }}>
+            <Icon name="Flame" size={60} className="text-primary/30" />
+          </div>
+          <div className="absolute bottom-40 left-1/4 animate-bounce-slow" style={{ animationDelay: '1s' }}>
+            <Icon name="Zap" size={70} className="text-primary/35" />
+          </div>
+          <div className="absolute top-1/3 right-10 animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
+            <Icon name="Target" size={50} className="text-primary/25" />
+          </div>
+          <div className="absolute bottom-20 right-1/3 animate-bounce-slow" style={{ animationDelay: '2s' }}>
+            <Icon name="Trophy" size={65} className="text-primary/40" />
+          </div>
+        </div>
+        
+        <div className="container mx-auto px-4 z-10 text-center animate-fade-in">
+          <div className="mb-4 md:mb-6 flex items-center justify-center gap-3">
+            <Icon name="Dribbble" size={48} className="text-primary animate-pulse" />
+            <Icon name="Flame" size={64} className="text-primary" />
+            <Icon name="Dribbble" size={48} className="text-primary animate-pulse" />
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-oswald font-bold text-white mb-4 md:mb-6 leading-tight">
+            ИГРАЙ<br className="md:hidden" /> <span className="text-primary">НА МАКСИМУМ</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Nike · Jordan · Anta · LiNing — Оригинальные кроссовки для профессионалов и любителей
+          <p className="text-lg md:text-2xl text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto">
+            Баскетбольные кроссовки от Nike, Jordan, Anta, LiNing<br className="hidden md:block" />
+            <span className="text-primary font-semibold">Побеждай в каждой игре! 🏀</span>
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg px-8 py-6" asChild>
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+            <Button size="lg" className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 shadow-lg shadow-primary/50" asChild>
               <a href="#catalog">
                 <Icon name="ShoppingBag" size={20} className="mr-2" />
                 Смотреть каталог
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-white/10 text-white border-white hover:bg-white hover:text-secondary" asChild>
+            <Button size="lg" variant="outline" className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 bg-white/10 text-white border-white hover:bg-white hover:text-secondary" asChild>
               <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
                 <Icon name="Send" size={20} className="mr-2" />
                 Написать в Telegram
               </a>
             </Button>
+          </div>
+          
+          <div className="mt-8 md:mt-12 flex items-center justify-center gap-4 md:gap-8 text-white/80">
+            <div className="flex items-center gap-2">
+              <Icon name="Shield" size={24} className="text-primary" />
+              <span className="text-xs md:text-sm font-semibold">100% Оригинал</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Icon name="Truck" size={24} className="text-primary" />
+              <span className="text-xs md:text-sm font-semibold">Быстрая доставка</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Icon name="Award" size={24} className="text-primary" />
+              <span className="text-xs md:text-sm font-semibold">Гарантия</span>
+            </div>
           </div>
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
