@@ -9,6 +9,8 @@ import Stories from '@/components/Stories';
 import ProductQuiz from '@/components/ProductQuiz';
 import QuickView from '@/components/QuickView';
 import ProductCard from '@/components/ProductCard';
+import StickyTelegram from '@/components/StickyTelegram';
+import CompareProducts from '@/components/CompareProducts';
 
 interface Product {
   id: number;
@@ -374,7 +376,7 @@ const Index = () => {
         )}
       </header>
 
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 mb-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)]" />
         
         <div className="absolute top-0 left-0 w-full h-full">
@@ -459,7 +461,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="catalog" data-animate className="py-20 bg-background">
+      <section id="catalog" data-animate className="py-20 md:py-32 bg-background">
         <div className="container mx-auto px-4">
           <div className={`text-center mb-12 transition-all duration-700 ${visibleSections.has('catalog') ? 'animate-fade-in-up' : 'opacity-0'}`}>
             <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
@@ -613,6 +615,10 @@ const Index = () => {
             </div>
           </div>
 
+          <div className="mb-16">
+            <CompareProducts products={filteredProducts} />
+          </div>
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
             {filteredProducts.map((product, idx) => (
               <ProductCard
@@ -632,7 +638,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="education" data-animate className="py-20 bg-muted/30">
+      <section id="education" data-animate className="py-20 md:py-32 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className={`text-center mb-12 transition-all duration-700 ${visibleSections.has('education') ? 'animate-fade-in-up' : 'opacity-0'}`}>
             <h2 className="text-4xl md:text-5xl font-oswald font-bold text-foreground mb-4">
@@ -1084,7 +1090,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="reviews" data-animate className="py-20 bg-background">
+      <section id="reviews" data-animate className="py-20 md:py-32 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className={`text-center mb-12 transition-all duration-700 ${visibleSections.has('reviews') ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -1199,7 +1205,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="faq" data-animate className="py-20 bg-muted/30">
+      <section id="faq" data-animate className="py-20 md:py-32 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className={`text-center mb-12 transition-all duration-700 ${visibleSections.has('faq') ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -1285,7 +1291,7 @@ const Index = () => {
         </div>
       </section>
 
-      <footer id="contacts" data-animate className="py-20 bg-secondary text-white">
+      <footer id="contacts" data-animate className="py-20 md:py-32 bg-secondary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className={`text-center mb-12 transition-all duration-700 ${visibleSections.has('contacts') ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -1453,6 +1459,8 @@ const Index = () => {
             </div>
           </div>
         </div>
+        
+        <StickyTelegram />
         
         <QuickView 
           product={selectedProduct}
