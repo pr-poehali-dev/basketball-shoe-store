@@ -33,6 +33,7 @@ const sneakerImages = [
   'https://cdn.poehali.dev/files/8604aab3-afee-45b4-a9c0-c1660959f9d6.jpg',
   'https://cdn.poehali.dev/files/b7546cf7-b74e-4a1f-8687-83518870763d.jpg',
   'https://cdn.poehali.dev/files/eb30716d-5a14-41d7-99c4-7b352da495f5.jpg',
+  'https://cdn.poehali.dev/files/dee48e22-ca49-427c-8771-5fddab94cffd.jpg',
 ];
 
 const products: Product[] = [
@@ -51,7 +52,7 @@ const products: Product[] = [
   { id: 13, name: 'Nike JA 2 Nightmare', price: 17042.67, brand: 'Nike', image: sneakerImages[14] },
   { id: 14, name: 'Nike Lebron 21 Orange', price: 13629.87, brand: 'Nike', image: sneakerImages[11] },
   { id: 15, name: 'Nike Lebron 21 Orange', price: 10430.37, brand: 'Nike', image: sneakerImages[11] },
-  { id: 16, name: 'Nike Lebron 21 Jeans', price: 10003.77, brand: 'Nike', image: sneakerImages[2] },
+  { id: 16, name: 'Nike Lebron 21 EP', price: 10003.77, brand: 'Nike', image: sneakerImages[18] },
   { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', image: sneakerImages[15] },
   { id: 18, name: 'Nike Sabrina 2 Orange', price: 12563.37, brand: 'Nike', image: sneakerImages[0] },
   { id: 19, name: 'Jordan Ultra fly 2 low', price: 7870.77, brand: 'Jordan', image: sneakerImages[1] },
