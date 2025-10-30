@@ -8,6 +8,7 @@ import Icon from '@/components/ui/icon';
 import Stories from '@/components/Stories';
 import ProductQuiz from '@/components/ProductQuiz';
 import QuickView from '@/components/QuickView';
+import ProductPreview from '@/components/ProductPreview';
 
 interface Product {
   id: number;
@@ -142,6 +143,8 @@ const Index = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quizFilters, setQuizFilters] = useState<{position: string, style: string, budget: string} | null>(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+  const [previewProduct, setPreviewProduct] = useState<Product | null>(null);
+  const [previewPosition, setPreviewPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -605,6 +608,17 @@ const Index = () => {
                 onClick={() => {
                   setSelectedProduct(product);
                   setIsQuickViewOpen(true);
+                }}
+                onMouseEnter={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  setPreviewPosition({
+                    x: rect.left + rect.width / 2,
+                    y: rect.top,
+                  });
+                  setPreviewProduct(product);
+                }}
+                onMouseLeave={() => {
+                  setPreviewProduct(null);
                 }}
               >
                 <CardContent className="p-0 flex flex-col flex-grow">
@@ -1484,6 +1498,13 @@ const Index = () => {
             setSelectedProduct(null);
           }}
         />
+        
+        {previewProduct && (
+          <ProductPreview 
+            product={previewProduct}
+            position={previewPosition}
+          />
+        )}
       </footer>
 
       {showScrollTop && (
