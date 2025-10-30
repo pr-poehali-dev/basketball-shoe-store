@@ -42,20 +42,20 @@ const sneakerImages = [
 
 const products: Product[] = [
   { id: 1, name: 'Nike Hyperdunk 2017 low White', price: 9577.17, brand: 'Nike', color: 'Белый', image: sneakerImages[13], priceFrom: true },
-  { id: 4, name: 'Nike KD 17 EP', price: 14056.47, brand: 'Nike', color: 'Мульти', image: sneakerImages[17] },
-  { id: 6, name: 'Jordan Luka 77', price: 9363.87, brand: 'Jordan', color: 'Бежевый', image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', priceFrom: true },
+  { id: 4, name: 'Nike KD 17 EP', price: 14056.47, brand: 'Nike', color: 'Оранжевый', image: sneakerImages[17] },
+  { id: 6, name: 'Jordan Luka 77', price: 9363.87, brand: 'Jordan', color: 'Фиолетовый', image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', priceFrom: true },
   { id: 7, name: 'Nike KD 4 Brown', price: 10217.07, brand: 'Nike', color: 'Коричневый', image: sneakerImages[16] },
-  { id: 8, name: 'UA Curry Fox 1 Banzito', price: 10430.37, brand: 'Curry', color: 'Мульти', image: sneakerImages[20] },
-  { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', color: 'Розовый', image: sneakerImages[3] },
+  { id: 8, name: 'UA Curry Fox 1 Banzito', price: 10430.37, brand: 'Curry', color: 'Оранжевый', image: sneakerImages[20] },
+  { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', color: 'Серый', image: sneakerImages[3] },
   { id: 10, name: 'Anta Kyrie Orange', price: 8084.07, brand: 'Anta', color: 'Оранжевый', image: sneakerImages[4] },
   { id: 11, name: 'Anta Kyrie Violet', price: 8084.07, brand: 'Anta', color: 'Фиолетовый', image: sneakerImages[5] },
-  { id: 12, name: 'Jordan Zion 3 Rising', price: 8723.97, brand: 'Jordan', color: 'Чёрный', image: sneakerImages[10] },
-  { id: 13, name: 'Nike JA 2 Nightmare', price: 17042.67, brand: 'Nike', color: 'Чёрный', image: sneakerImages[14] },
+  { id: 12, name: 'Jordan Zion 3 Rising', price: 8723.97, brand: 'Jordan', color: 'Розовый', image: sneakerImages[10] },
+  { id: 13, name: 'Nike JA 2 Nightmare', price: 17042.67, brand: 'Nike', color: 'Красный', image: sneakerImages[14] },
   { id: 15, name: 'Nike Lebron 21 Orange', price: 10430.37, brand: 'Nike', color: 'Оранжевый', image: sneakerImages[11] },
-  { id: 16, name: 'Nike Lebron 21 EP', price: 10003.77, brand: 'Nike', color: 'Розовый', image: sneakerImages[18] },
-  { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', color: 'Белый', image: sneakerImages[15] },
-  { id: 18, name: 'Nike Sabrina 2 Arpic Agate', price: 12563.37, brand: 'Nike', color: 'Синий', image: sneakerImages[19] },
-  { id: 22, name: 'Jordan Luka 2', price: 6804.27, brand: 'Jordan', color: 'Мульти', image: sneakerImages[7], priceFrom: true },
+  { id: 16, name: 'Nike Lebron 21 EP', price: 10003.77, brand: 'Nike', color: 'Синий', image: sneakerImages[18] },
+  { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', color: 'Бежевый', image: sneakerImages[15] },
+  { id: 18, name: 'Nike Sabrina 2 Arpic Agate', price: 12563.37, brand: 'Nike', color: 'Розовый', image: sneakerImages[19] },
+  { id: 22, name: 'Jordan Luka 2', price: 6804.27, brand: 'Jordan', color: 'Розовый', image: sneakerImages[7], priceFrom: true },
   { id: 23, name: 'Jordan Luka 77 Black', price: 8937.47, brand: 'Jordan', color: 'Чёрный', image: sneakerImages[8] },
   { id: 24, name: 'Jordan Luka 77 Orange', price: 8937.47, brand: 'Jordan', color: 'Оранжевый', image: sneakerImages[9] },
   { id: 25, name: 'Nike Hyperdunk 2017 low Blue', price: 9577.17, brand: 'Nike', color: 'Синий', image: sneakerImages[12] },
@@ -96,12 +96,12 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    if (clientCount < 500) {
-      const timer = setTimeout(() => {
+    const timer = setTimeout(() => {
+      if (clientCount < 500) {
         setClientCount((prev) => Math.min(prev + 15, 500));
-      }, 30);
-      return () => clearTimeout(timer);
-    }
+      }
+    }, 30);
+    return () => clearTimeout(timer);
   }, [clientCount]);
 
   const scrollToTop = () => {
