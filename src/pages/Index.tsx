@@ -18,6 +18,7 @@ const sneakerImages = [
   'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/4800c471-ca14-4d91-b230-69746b59abe2.jpg',
   'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/b09278e7-a1e1-40e7-87de-7a9adfb6ac18.jpg',
   'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/d1111f35-ee6e-478b-ac87-5e5dca7b35d4.jpg',
+  'https://cdn.poehali.dev/files/a29c6479-7118-455e-831c-a0633d66f1dc.jpg',
 ];
 
 const products: Product[] = [
@@ -29,9 +30,9 @@ const products: Product[] = [
   { id: 6, name: 'Jordan Luka 77 PF', price: 9363.87, brand: 'Jordan', image: sneakerImages[2] },
   { id: 7, name: 'Nike KD 4 Br', price: 10217.07, brand: 'Nike', image: sneakerImages[0] },
   { id: 8, name: 'Curry Fox 1 Banzito', price: 10430.37, brand: 'Curry', image: sneakerImages[2] },
-  { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', image: sneakerImages[0] },
-  { id: 10, name: 'Anta Kyrie 1 Speed', price: 8084.07, brand: 'Anta', image: sneakerImages[1] },
-  { id: 11, name: 'Anta Kyrie 1 Speed', price: 8084.07, brand: 'Anta', image: sneakerImages[2] },
+  { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', image: sneakerImages[3] },
+  { id: 10, name: 'Anta Kyrie 1 Speed', price: 8084.07, brand: 'Anta', image: sneakerImages[3] },
+  { id: 11, name: 'Anta Kyrie 1 Speed', price: 8084.07, brand: 'Anta', image: sneakerImages[3] },
   { id: 12, name: 'Jordan Zion 3 Rising', price: 8723.97, brand: 'Jordan', image: sneakerImages[1] },
   { id: 13, name: 'Nike JA 2 RED', price: 17042.67, brand: 'Nike', image: sneakerImages[1] },
   { id: 14, name: 'Nike Lebron 21 Orange', price: 13629.87, brand: 'Nike', image: sneakerImages[0] },
