@@ -374,72 +374,99 @@ const Index = () => {
         )}
       </header>
 
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-purple-900 to-black">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-10 animate-bounce-slow" style={{ animationDelay: '0s' }}>
-            <Icon name="Dribbble" size={80} className="text-primary/40" />
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)]" />
+        
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-orange-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
+        </div>
+
+        <div className="container mx-auto px-4 md:px-8 z-10 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="text-left animate-fade-in order-2 md:order-1">
+            <div className="mb-6">
+              <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                НОВАЯ КОЛЛЕКЦИЯ 2024
+              </span>
+            </div>
+            
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-oswald font-bold text-white mb-6 leading-tight">
+              ИГРАЙ<br />
+              <span className="text-white/90">НА</span><br />
+              <span className="text-white">МАКСИМУМ</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-lg leading-relaxed">
+              Баскетбольные кроссовки премиум класса от Nike, Jordan, Anta и LiNing. 
+              Технологии профессионального уровня для твоей игры.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 text-lg px-8 py-6 shadow-2xl" asChild>
+                <a href="#catalog">
+                  <Icon name="ShoppingBag" size={20} className="mr-2" />
+                  Смотреть каталог
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-orange-600 text-lg px-8 py-6" asChild>
+                <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
+                  <Icon name="Send" size={20} className="mr-2" />
+                  Написать в Telegram
+                </a>
+              </Button>
+            </div>
+            
+            <div className="flex flex-wrap items-center gap-6 text-white/90">
+              <div className="flex items-center gap-2">
+                <Icon name="Shield" size={20} className="text-white" />
+                <span className="text-sm font-semibold">100% Оригинал</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="Truck" size={20} className="text-white" />
+                <span className="text-sm font-semibold">Доставка 2-5 дней</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="Award" size={20} className="text-white" />
+              <span className="text-sm font-semibold">Гарантия качества</span>
+              </div>
+            </div>
           </div>
-          <div className="absolute top-32 right-20 animate-bounce-slow" style={{ animationDelay: '0.5s' }}>
-            <Icon name="Flame" size={60} className="text-primary/30" />
-          </div>
-          <div className="absolute bottom-40 left-1/4 animate-bounce-slow" style={{ animationDelay: '1s' }}>
-            <Icon name="Zap" size={70} className="text-primary/35" />
-          </div>
-          <div className="absolute top-1/3 right-10 animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
-            <Icon name="Target" size={50} className="text-primary/25" />
-          </div>
-          <div className="absolute bottom-20 right-1/3 animate-bounce-slow" style={{ animationDelay: '2s' }}>
-            <Icon name="Trophy" size={65} className="text-primary/40" />
+
+          <div className="relative order-1 md:order-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="relative w-full aspect-square max-w-2xl mx-auto">
+              <div className="absolute inset-0 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '3s' }} />
+              
+              <div className="relative z-10 w-full h-full flex items-center justify-center">
+                <img 
+                  src={sneakerImages[13]} 
+                  alt="Nike Basketball Shoes"
+                  className="w-full h-full object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                  style={{
+                    filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.5))'
+                  }}
+                />
+              </div>
+
+              <div className="absolute -top-10 -right-10 bg-white text-orange-600 rounded-full w-32 h-32 flex flex-col items-center justify-center shadow-2xl animate-bounce-slow">
+                <span className="text-sm font-bold">ОТ</span>
+                <span className="text-3xl font-oswald font-bold">6,800₽</span>
+              </div>
+
+              <div className="absolute -bottom-5 -left-5 bg-orange-800/80 backdrop-blur-sm text-white rounded-2xl px-6 py-4 shadow-xl">
+                <div className="flex items-center gap-3">
+                  <Icon name="TrendingUp" size={24} />
+                  <div>
+                    <div className="text-xs opacity-80">В наличии</div>
+                    <div className="text-xl font-bold">25+ моделей</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent" />
-        
-        <div className="container mx-auto px-4 z-10 text-center animate-fade-in">
-          <div className="mb-4 md:mb-6 flex items-center justify-center gap-3">
-            <Icon name="Dribbble" size={48} className="text-primary animate-pulse" />
-            <Icon name="Flame" size={64} className="text-primary" />
-            <Icon name="Dribbble" size={48} className="text-primary animate-pulse" />
-          </div>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-oswald font-bold text-white mb-4 md:mb-6 leading-tight">
-            ИГРАЙ<br className="md:hidden" /> <span className="text-primary">НА МАКСИМУМ</span>
-          </h2>
-          <p className="text-lg md:text-2xl text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto">
-            Баскетбольные кроссовки от Nike, Jordan, Anta, LiNing<br className="hidden md:block" />
-            <span className="text-primary font-semibold">Побеждай в каждой игре! 🏀</span>
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
-            <Button size="lg" className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 shadow-lg shadow-primary/50" asChild>
-              <a href="#catalog">
-                <Icon name="ShoppingBag" size={20} className="mr-2" />
-                Смотреть каталог
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 bg-white/10 text-white border-white hover:bg-white hover:text-secondary animate-pulse-scale" asChild>
-              <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-                <Icon name="Send" size={20} className="mr-2" />
-                Написать в Telegram
-              </a>
-            </Button>
-          </div>
-          
-          <div className="mt-8 md:mt-12 flex items-center justify-center gap-4 md:gap-8 text-white/80">
-            <div className="flex items-center gap-2">
-              <Icon name="Shield" size={24} className="text-primary" />
-              <span className="text-xs md:text-sm font-semibold">100% Оригинал</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Icon name="Truck" size={24} className="text-primary" />
-              <span className="text-xs md:text-sm font-semibold">Быстрая доставка</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Icon name="Award" size={24} className="text-primary" />
-              <span className="text-xs md:text-sm font-semibold">Гарантия</span>
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <Icon name="ChevronDown" size={32} className="text-white/50" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
+          <Icon name="ChevronDown" size={32} className="text-white/70" />
         </div>
       </section>
 
