@@ -527,10 +527,12 @@ const Index = () => {
                   <div className="p-3 md:p-4 flex flex-col min-h-[120px]">
                     <h3 className="font-oswald font-semibold text-base md:text-lg mb-2 line-clamp-2 flex-grow">{product.name}</h3>
                     <div className="flex items-center justify-between gap-2 mt-auto">
-                      <span className="text-xl md:text-2xl font-bold text-primary">
-                        <span className="text-sm md:text-sm text-muted-foreground mr-1">От</span>
-                        {product.price.toLocaleString('ru-RU')} ₽
-                      </span>
+                      <div className="flex items-baseline gap-1 min-w-0">
+                        <span className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">От</span>
+                        <span className="text-lg md:text-2xl font-bold text-primary whitespace-nowrap">
+                          {product.price.toLocaleString('ru-RU')} ₽
+                        </span>
+                      </div>
                       <Button 
                         size="sm" 
                         className="animate-pulse-scale flex-shrink-0" 
