@@ -47,7 +47,7 @@ const products: Product[] = [
   { 
     id: 1, 
     name: 'Nike Hyperdunk 2017 low White', 
-    price: 9577.17, 
+    price: 9577, 
     brand: 'Nike', 
     color: 'Белый', 
     image: sneakerImages[13], 
@@ -59,7 +59,7 @@ const products: Product[] = [
   { 
     id: 4, 
     name: 'Nike KD 17 EP', 
-    price: 14056.47, 
+    price: 14056, 
     brand: 'Nike', 
     color: 'Оранжевый', 
     image: sneakerImages[17],
@@ -71,7 +71,7 @@ const products: Product[] = [
   { 
     id: 6, 
     name: 'Jordan Luka 77', 
-    price: 9363.87, 
+    price: 9364, 
     brand: 'Jordan', 
     color: 'Фиолетовый', 
     image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', 
@@ -83,10 +83,11 @@ const products: Product[] = [
   { 
     id: 7, 
     name: 'Nike KD 4 Brown', 
-    price: 10217.07, 
+    price: 10217, 
     brand: 'Nike', 
     color: 'Коричневый', 
-    image: sneakerImages[16],
+    image: sneakerImages[16], 
+    priceFrom: true,
     description: 'Культовая ретро-модель из коллекции Kevin Durant в коричневой расцветке.',
     features: ['Классическая амортизация Nike Zoom', 'Прочный синтетический верх', 'Винтажный дизайн', 'Надёжная фиксация стопы'],
     sizes: ['8.5 US', '9 US', '9.5 US', '10 US', '10.5 US', '11 US']
@@ -94,27 +95,28 @@ const products: Product[] = [
   { 
     id: 8, 
     name: 'UA Curry Fox 1 Banzito', 
-    price: 10430.37, 
+    price: 10430, 
     brand: 'Curry', 
     color: 'Оранжевый', 
-    image: sneakerImages[20],
+    image: sneakerImages[20], 
+    priceFrom: true,
     description: 'Лимитированная модель Curry с уникальным дизайном. Для скоростных разыгрывающих.',
     features: ['Технология UA Flow без резиновой подошвы', 'Лёгкий верх из текстиля', 'Отзывчивая амортизация', 'Дизайн от De\'Aaron Fox'],
     sizes: ['8 US', '8.5 US', '9 US', '9.5 US', '10 US', '10.5 US', '11 US', '11.5 US']
   },
-  { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', color: 'Серый', image: sneakerImages[3], description: 'Быстрые кроссовки из коллекции Kyrie Irving для взрывной игры.', features: ['Технология A-WEB для сцепления', 'Лёгкая конструкция', 'Поддержка при резких движениях', 'Доступная цена'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
-  { id: 10, name: 'Anta Kyrie Orange', price: 8084.07, brand: 'Anta', color: 'Оранжевый', image: sneakerImages[4], description: 'Яркая оранжевая расцветка модели Kyrie от Anta.', features: ['Отличное сцепление', 'Вентилируемый верх', 'Амортизация в пятке', 'Яркий дизайн'], sizes: ['8 US', '9 US', '10 US', '11 US'] },
-  { id: 11, name: 'Anta Kyrie Violet', price: 8084.07, brand: 'Anta', color: 'Фиолетовый', image: sneakerImages[5], description: 'Стильная фиолетовая версия баскетбольных кроссовок Kyrie.', features: ['Прочная подошва', 'Комфортная посадка', 'Эффектный цвет', 'Надёжная фиксация'], sizes: ['8 US', '9 US', '10 US', '11 US'] },
-  { id: 12, name: 'Jordan Zion 3 Rising', price: 8723.97, brand: 'Jordan', color: 'Розовый', image: sneakerImages[10], description: 'Модель Zion Williamson для мощной игры под кольцом.', features: ['Усиленная амортизация для прыжков', 'Широкая подошва для стабильности', 'Прочная конструкция', 'Дизайн для форвардов'], sizes: ['9 US', '10 US', '11 US', '12 US', '13 US'] },
-  { id: 13, name: 'Nike JA 2 Nightmare', price: 17042.67, brand: 'Nike', color: 'Красный', image: sneakerImages[14], description: 'Премиум модель Ja Morant в агрессивной красной расцветке Nightmare.', features: ['Технология Air Zoom Strobel', 'Карбоновая пластина для отзывчивости', 'Лёгкий верх из сетки', 'Профессиональный уровень'], sizes: ['8 US', '8.5 US', '9 US', '9.5 US', '10 US', '10.5 US', '11 US'] },
-  { id: 15, name: 'Nike Lebron 21 Orange', price: 10430.37, brand: 'Nike', color: 'Оранжевый', image: sneakerImages[11], description: 'Новейшая модель LeBron James в яркой оранжевой расцветке.', features: ['Двойная система амортизации', 'Поддержка для тяжёлых игроков', 'Прочный верх', 'Универсальная модель'], sizes: ['9 US', '9.5 US', '10 US', '10.5 US', '11 US', '11.5 US', '12 US'] },
-  { id: 16, name: 'Nike Lebron 21 EP', price: 10003.77, brand: 'Nike', color: 'Синий', image: sneakerImages[18], description: 'Версия LeBron 21 в синей расцветке для игры на всех позициях.', features: ['Zoom Air в передней части', 'Battleknit верх', 'Широкая колодка', 'Надёжная поддержка'], sizes: ['9 US', '10 US', '11 US', '12 US', '13 US'] },
-  { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', color: 'Бежевый', image: sneakerImages[15], description: 'Элегантная бежевая версия кроссовок Ja Morant.', features: ['Лёгкая конструкция', 'Отзывчивая подошва', 'Минималистичный дизайн', 'Для быстрых защитников'], sizes: ['8 US', '9 US', '10 US', '11 US'] },
-  { id: 18, name: 'Nike Sabrina 2 Arpic Agate', price: 12563.37, brand: 'Nike', color: 'Розовый', image: sneakerImages[19], description: 'Женская модель Sabrina Ionescu в уникальной расцветке Arpic Agate.', features: ['Специальная колодка для женщин', 'Премиум материалы', 'Стильный дизайн', 'Профессиональные технологии'], sizes: ['7 US', '7.5 US', '8 US', '8.5 US', '9 US', '9.5 US', '10 US'] },
-  { id: 22, name: 'Jordan Luka 2', price: 6804.27, brand: 'Jordan', color: 'Розовый', image: sneakerImages[7], priceFrom: true, description: 'Вторая сигнатурная модель Луки Дончича с улучшенными технологиями.', features: ['Улучшенная амортизация', 'Низкий профиль', 'Контроль при дриблинге', 'Выгодная цена'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
-  { id: 23, name: 'Jordan Luka 77 Black', price: 8937.47, brand: 'Jordan', color: 'Чёрный', image: sneakerImages[8], priceFrom: true, description: 'Классическая чёрная версия Jordan Luka 77.', features: ['Универсальный чёрный цвет', 'Технологии от Jordan Brand', 'Комфорт на весь матч', 'Премиум качество'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
-  { id: 24, name: 'Jordan Luka 77 Orange', price: 8937.47, brand: 'Jordan', color: 'Оранжевый', image: sneakerImages[9], priceFrom: true, description: 'Яркая оранжевая расцветка модели Luka 77.', features: ['Эффектный оранжевый дизайн', 'Отличная видимость на площадке', 'Проверенные технологии', 'Высокое качество'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
-  { id: 25, name: 'Nike Hyperdunk 2017 low Blue', price: 9577.17, brand: 'Nike', color: 'Синий', image: sneakerImages[12], priceFrom: true, description: 'Синяя версия Nike Hyperdunk 2017 для универсальной игры.', features: ['Проверенная модель', 'Zoom Air амортизация', 'Лёгкий вес', 'Доступная цена'], sizes: ['9 US', '10 US', '11 US', '12 US'] },
+  { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444, brand: 'Anta', color: 'Серый', image: sneakerImages[3], priceFrom: true, description: 'Быстрые кроссовки из коллекции Kyrie Irving для взрывной игры.', features: ['Технология A-WEB для сцепления', 'Лёгкая конструкция', 'Поддержка при резких движениях', 'Доступная цена'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
+  { id: 10, name: 'Anta Kyrie Orange', price: 8084, brand: 'Anta', color: 'Оранжевый', image: sneakerImages[4], priceFrom: true, description: 'Яркая оранжевая расцветка модели Kyrie от Anta.', features: ['Отличное сцепление', 'Вентилируемый верх', 'Амортизация в пятке', 'Яркий дизайн'], sizes: ['8 US', '9 US', '10 US', '11 US'] },
+  { id: 11, name: 'Anta Kyrie Violet', price: 8084, brand: 'Anta', color: 'Фиолетовый', image: sneakerImages[5], priceFrom: true, description: 'Стильная фиолетовая версия баскетбольных кроссовок Kyrie.', features: ['Прочная подошва', 'Комфортная посадка', 'Эффектный цвет', 'Надёжная фиксация'], sizes: ['8 US', '9 US', '10 US', '11 US'] },
+  { id: 12, name: 'Jordan Zion 3 Rising', price: 8724, brand: 'Jordan', color: 'Розовый', image: sneakerImages[10], priceFrom: true, description: 'Модель Zion Williamson для мощной игры под кольцом.', features: ['Усиленная амортизация для прыжков', 'Широкая подошва для стабильности', 'Прочная конструкция', 'Дизайн для форвардов'], sizes: ['9 US', '10 US', '11 US', '12 US', '13 US'] },
+  { id: 13, name: 'Nike JA 2 Nightmare', price: 17043, brand: 'Nike', color: 'Красный', image: sneakerImages[14], priceFrom: true, description: 'Премиум модель Ja Morant в агрессивной красной расцветке Nightmare.', features: ['Технология Air Zoom Strobel', 'Карбоновая пластина для отзывчивости', 'Лёгкий верх из сетки', 'Профессиональный уровень'], sizes: ['8 US', '8.5 US', '9 US', '9.5 US', '10 US', '10.5 US', '11 US'] },
+  { id: 15, name: 'Nike Lebron 21 Orange', price: 10430, brand: 'Nike', color: 'Оранжевый', image: sneakerImages[11], priceFrom: true, description: 'Новейшая модель LeBron James в яркой оранжевой расцветке.', features: ['Двойная система амортизации', 'Поддержка для тяжёлых игроков', 'Прочный верх', 'Универсальная модель'], sizes: ['9 US', '9.5 US', '10 US', '10.5 US', '11 US', '11.5 US', '12 US'] },
+  { id: 16, name: 'Nike Lebron 21 EP', price: 10004, brand: 'Nike', color: 'Синий', image: sneakerImages[18], priceFrom: true, description: 'Версия LeBron 21 в синей расцветке для игры на всех позициях.', features: ['Zoom Air в передней части', 'Battleknit верх', 'Широкая колодка', 'Надёжная поддержка'], sizes: ['9 US', '10 US', '11 US', '12 US', '13 US'] },
+  { id: 17, name: 'Nike JA 2 WH', price: 10004, brand: 'Nike', color: 'Бежевый', image: sneakerImages[15], priceFrom: true, description: 'Элегантная бежевая версия кроссовок Ja Morant.', features: ['Лёгкая конструкция', 'Отзывчивая подошва', 'Минималистичный дизайн', 'Для быстрых защитников'], sizes: ['8 US', '9 US', '10 US', '11 US'] },
+  { id: 18, name: 'Nike Sabrina 2 Arpic Agate', price: 12563, brand: 'Nike', color: 'Розовый', image: sneakerImages[19], priceFrom: true, description: 'Женская модель Sabrina Ionescu в уникальной расцветке Arpic Agate.', features: ['Специальная колодка для женщин', 'Премиум материалы', 'Стильный дизайн', 'Профессиональные технологии'], sizes: ['7 US', '7.5 US', '8 US', '8.5 US', '9 US', '9.5 US', '10 US'] },
+  { id: 22, name: 'Jordan Luka 2', price: 6804, brand: 'Jordan', color: 'Розовый', image: sneakerImages[7], priceFrom: true, description: 'Вторая сигнатурная модель Луки Дончича с улучшенными технологиями.', features: ['Улучшенная амортизация', 'Низкий профиль', 'Контроль при дриблинге', 'Выгодная цена'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
+  { id: 23, name: 'Jordan Luka 77 Black', price: 8937, brand: 'Jordan', color: 'Чёрный', image: sneakerImages[8], priceFrom: true, description: 'Классическая чёрная версия Jordan Luka 77.', features: ['Универсальный чёрный цвет', 'Технологии от Jordan Brand', 'Комфорт на весь матч', 'Премиум качество'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
+  { id: 24, name: 'Jordan Luka 77 Orange', price: 8937, brand: 'Jordan', color: 'Оранжевый', image: sneakerImages[9], priceFrom: true, description: 'Яркая оранжевая расцветка модели Luka 77.', features: ['Эффектный оранжевый дизайн', 'Отличная видимость на площадке', 'Проверенные технологии', 'Высокое качество'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
+  { id: 25, name: 'Nike Hyperdunk 2017 low Blue', price: 9577, brand: 'Nike', color: 'Синий', image: sneakerImages[12], priceFrom: true, description: 'Синяя версия Nike Hyperdunk 2017 для универсальной игры.', features: ['Проверенная модель', 'Zoom Air амортизация', 'Лёгкий вес', 'Доступная цена'], sizes: ['9 US', '10 US', '11 US', '12 US'] },
 ];
 
 const Index = () => {
@@ -461,13 +463,14 @@ const Index = () => {
 
           <div className="mb-8">
             <h3 className="text-lg font-semibold mb-3 text-center">Бренды</h3>
-            <div className="flex flex-wrap gap-3 justify-center">
+            <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
               {brands.map(brand => (
                 <Button
                   key={brand}
                   variant={selectedBrand === brand ? "default" : "outline"}
                   onClick={() => setSelectedBrand(brand)}
-                  className="capitalize"
+                  className="capitalize text-xs md:text-sm px-3 md:px-4 py-2"
+                  size="sm"
                 >
                   {brand === 'all' ? 'Все бренды' : brand}
                 </Button>
@@ -477,13 +480,14 @@ const Index = () => {
 
           <div className="mb-12">
             <h3 className="text-lg font-semibold mb-3 text-center">Цвета</h3>
-            <div className="flex flex-wrap gap-3 justify-center">
+            <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
               {colors.map(color => (
                 <Button
                   key={color}
                   variant={selectedColor === color ? "default" : "outline"}
                   onClick={() => setSelectedColor(color)}
-                  className="capitalize"
+                  className="capitalize text-xs md:text-sm px-3 md:px-4 py-2"
+                  size="sm"
                 >
                   {color === 'all' ? 'Все цвета' : color}
                 </Button>
