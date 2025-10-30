@@ -461,37 +461,89 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-3 text-center">Бренды</h3>
-            <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
-              {brands.map(brand => (
-                <Button
-                  key={brand}
-                  variant={selectedBrand === brand ? "default" : "outline"}
-                  onClick={() => setSelectedBrand(brand)}
-                  className="capitalize text-xs md:text-sm px-3 md:px-4 py-2"
-                  size="sm"
-                >
-                  {brand === 'all' ? 'Все бренды' : brand}
-                </Button>
-              ))}
-            </div>
-          </div>
+          <div className="mb-8 md:mb-8">
+            <Accordion type="multiple" className="md:hidden mb-8">
+              <AccordionItem value="brands">
+                <AccordionTrigger className="text-lg font-semibold">
+                  <span className="flex items-center gap-2">
+                    <Icon name="Tag" size={20} className="text-primary" />
+                    Бренды
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="flex flex-wrap gap-2 justify-center pt-2">
+                    {brands.map(brand => (
+                      <Button
+                        key={brand}
+                        variant={selectedBrand === brand ? "default" : "outline"}
+                        onClick={() => setSelectedBrand(brand)}
+                        className="capitalize text-xs px-3 py-2"
+                        size="sm"
+                      >
+                        {brand === 'all' ? 'Все бренды' : brand}
+                      </Button>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
 
-          <div className="mb-12">
-            <h3 className="text-lg font-semibold mb-3 text-center">Цвета</h3>
-            <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
-              {colors.map(color => (
-                <Button
-                  key={color}
-                  variant={selectedColor === color ? "default" : "outline"}
-                  onClick={() => setSelectedColor(color)}
-                  className="capitalize text-xs md:text-sm px-3 md:px-4 py-2"
-                  size="sm"
-                >
-                  {color === 'all' ? 'Все цвета' : color}
-                </Button>
-              ))}
+              <AccordionItem value="colors">
+                <AccordionTrigger className="text-lg font-semibold">
+                  <span className="flex items-center gap-2">
+                    <Icon name="Palette" size={20} className="text-primary" />
+                    Цвета
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="flex flex-wrap gap-2 justify-center pt-2">
+                    {colors.map(color => (
+                      <Button
+                        key={color}
+                        variant={selectedColor === color ? "default" : "outline"}
+                        onClick={() => setSelectedColor(color)}
+                        className="capitalize text-xs px-3 py-2"
+                        size="sm"
+                      >
+                        {color === 'all' ? 'Все цвета' : color}
+                      </Button>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+            <div className="hidden md:block mb-8">
+              <h3 className="text-lg font-semibold mb-3 text-center">Бренды</h3>
+              <div className="flex flex-wrap gap-3 justify-center">
+                {brands.map(brand => (
+                  <Button
+                    key={brand}
+                    variant={selectedBrand === brand ? "default" : "outline"}
+                    onClick={() => setSelectedBrand(brand)}
+                    className="capitalize text-sm px-4 py-2"
+                    size="sm"
+                  >
+                    {brand === 'all' ? 'Все бренды' : brand}
+                  </Button>
+                ))}
+              </div>
+            </div>
+
+            <div className="hidden md:block mb-12">
+              <h3 className="text-lg font-semibold mb-3 text-center">Цвета</h3>
+              <div className="flex flex-wrap gap-3 justify-center">
+                {colors.map(color => (
+                  <Button
+                    key={color}
+                    variant={selectedColor === color ? "default" : "outline"}
+                    onClick={() => setSelectedColor(color)}
+                    className="capitalize text-sm px-4 py-2"
+                    size="sm"
+                  >
+                    {color === 'all' ? 'Все цвета' : color}
+                  </Button>
+                ))}
+              </div>
             </div>
           </div>
 
