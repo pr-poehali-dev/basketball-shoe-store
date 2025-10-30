@@ -64,11 +64,18 @@ const products: Product[] = [
 const Index = () => {
   const [selectedBrand, setSelectedBrand] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');
   
   const brands = ['all', ...Array.from(new Set(products.map(p => p.brand)))];
-  const filteredProducts = products
+  let filteredProducts = products
     .filter(p => selectedBrand === 'all' || p.brand === selectedBrand)
     .filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
+  
+  if (sortOrder === 'asc') {
+    filteredProducts = [...filteredProducts].sort((a, b) => a.price - b.price);
+  } else if (sortOrder === 'desc') {
+    filteredProducts = [...filteredProducts].sort((a, b) => b.price - a.price);
+  }
 
   return (
     <div className="min-h-screen bg-background font-roboto">
@@ -134,16 +141,43 @@ const Index = () => {
             <p className="text-muted-foreground text-lg">{products.length} моделей в наличии</p>
           </div>
 
-          <div className="mb-8 max-w-md mx-auto">
-            <div className="relative">
-              <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Поиск по названию..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              />
+          <div className="mb-8 max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="relative flex-1">
+                <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <input
+                  type="text"
+                  placeholder="Поиск по названию..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  variant={sortOrder === 'default' ? 'default' : 'outline'}
+                  onClick={() => setSortOrder('default')}
+                  className="flex-1 md:flex-none"
+                >
+                  По умолчанию
+                </Button>
+                <Button
+                  variant={sortOrder === 'asc' ? 'default' : 'outline'}
+                  onClick={() => setSortOrder('asc')}
+                  className="flex-1 md:flex-none"
+                >
+                  <Icon name="ArrowUp" size={16} className="mr-1" />
+                  Дешевле
+                </Button>
+                <Button
+                  variant={sortOrder === 'desc' ? 'default' : 'outline'}
+                  onClick={() => setSortOrder('desc')}
+                  className="flex-1 md:flex-none"
+                >
+                  <Icon name="ArrowDown" size={16} className="mr-1" />
+                  Дороже
+                </Button>
+              </div>
             </div>
           </div>
 
