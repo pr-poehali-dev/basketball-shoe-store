@@ -8,7 +8,7 @@ import Icon from '@/components/ui/icon';
 import Stories from '@/components/Stories';
 import ProductQuiz from '@/components/ProductQuiz';
 import QuickView from '@/components/QuickView';
-import ProductPreview from '@/components/ProductPreview';
+import ProductCard from '@/components/ProductCard';
 
 interface Product {
   id: number;
@@ -143,8 +143,6 @@ const Index = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quizFilters, setQuizFilters] = useState<{position: string, style: string, budget: string} | null>(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
-  const [previewProduct, setPreviewProduct] = useState<Product | null>(null);
-  const [previewPosition, setPreviewPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -599,70 +597,18 @@ const Index = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
             {filteredProducts.map((product, idx) => (
-              <Card 
-                key={product.id} 
-                className={`group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col cursor-pointer ${
-                  visibleSections.has('catalog') ? 'animate-fade-in-up' : 'opacity-0'
-                }`} 
-                style={{ animationDelay: `${idx * 0.05}s` }}
+              <ProductCard
+                key={product.id}
+                product={product}
                 onClick={() => {
                   setSelectedProduct(product);
                   setIsQuickViewOpen(true);
                 }}
-                onMouseEnter={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  setPreviewPosition({
-                    x: rect.left + rect.width / 2,
-                    y: rect.top,
-                  });
-                  setPreviewProduct(product);
-                }}
-                onMouseLeave={() => {
-                  setPreviewProduct(null);
-                }}
-              >
-                <CardContent className="p-0 flex flex-col flex-grow">
-                  <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center relative overflow-hidden">
-                    {!imageLoaded.has(product.id) && (
-                      <div className="absolute inset-0 skeleton" />
-                    )}
-                    {product.image ? (
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ${
-                          imageLoaded.has(product.id) ? 'opacity-100' : 'opacity-0'
-                        }`}
-                        onLoad={() => setImageLoaded((prev) => new Set(prev).add(product.id))}
-                      />
-                    ) : (
-                      <Icon name="Dribbble" size={64} className="text-primary/20" />
-                    )}
-                    <Badge className="absolute top-2 right-2 bg-primary text-xs md:text-sm">{product.brand}</Badge>
-                  </div>
-                  <div className="p-3 md:p-4 flex flex-col min-h-[120px]">
-                    <h3 className="font-oswald font-semibold text-base md:text-lg mb-2 line-clamp-2 flex-grow">{product.name}</h3>
-                    <div className="flex items-center justify-between gap-2 mt-auto">
-                      <div className="flex items-baseline gap-1 min-w-0">
-                        <span className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">От</span>
-                        <span className="text-lg md:text-2xl font-bold text-primary whitespace-nowrap">
-                          {product.price.toLocaleString('ru-RU')} ₽
-                        </span>
-                      </div>
-                      <Button 
-                        size="sm" 
-                        className="animate-pulse-scale flex-shrink-0" 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.open('https://t.me/SKBasketShop', '_blank');
-                        }}
-                      >
-                        <Icon name="ShoppingCart" size={16} />
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                animationDelay={idx * 0.05}
+                isVisible={visibleSections.has('catalog')}
+                imageLoaded={imageLoaded.has(product.id)}
+                onImageLoad={() => setImageLoaded((prev) => new Set(prev).add(product.id))}
+              />
             ))}
           </div>
         </div>
@@ -1498,13 +1444,6 @@ const Index = () => {
             setSelectedProduct(null);
           }}
         />
-        
-        {previewProduct && (
-          <ProductPreview 
-            product={previewProduct}
-            position={previewPosition}
-          />
-        )}
       </footer>
 
       {showScrollTop && (
