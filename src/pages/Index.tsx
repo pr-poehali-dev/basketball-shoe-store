@@ -1416,26 +1416,30 @@ const Index = () => {
                         </div>
                         <p className="text-xs text-muted-foreground mt-1">* Стоимость зависит от размера</p>
                       </div>
-                      <p className="text-muted-foreground leading-relaxed">{selectedProduct.description}</p>
                     </div>
 
+                    {selectedProduct.sizes && selectedProduct.sizes.length > 0 && (
+                      <div>
+                        <h3 className="font-semibold text-lg mb-3">Доступные размеры</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {selectedProduct.sizes.map((size) => (
+                            <Badge key={size} variant="outline" className="px-4 py-2 text-base">
+                              {size}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     <Accordion type="multiple" className="md:hidden">
-                      {selectedProduct.sizes && selectedProduct.sizes.length > 0 && (
-                        <AccordionItem value="sizes">
-                          <AccordionTrigger className="text-lg font-semibold">
-                            Доступные размеры
-                          </AccordionTrigger>
-                          <AccordionContent>
-                            <div className="flex flex-wrap gap-2 pt-2">
-                              {selectedProduct.sizes.map((size) => (
-                                <Badge key={size} variant="outline" className="px-4 py-2 text-base">
-                                  {size}
-                                </Badge>
-                              ))}
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-                      )}
+                      <AccordionItem value="description">
+                        <AccordionTrigger className="text-lg font-semibold">
+                          Описание
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <p className="text-muted-foreground leading-relaxed pt-2">{selectedProduct.description}</p>
+                        </AccordionContent>
+                      </AccordionItem>
 
                       {selectedProduct.features && selectedProduct.features.length > 0 && (
                         <AccordionItem value="features">
@@ -1475,6 +1479,10 @@ const Index = () => {
                         </AccordionContent>
                       </AccordionItem>
                     </Accordion>
+
+                    <div className="hidden md:block">
+                      <p className="text-muted-foreground leading-relaxed">{selectedProduct.description}</p>
+                    </div>
 
                     <div className="hidden md:block space-y-6">
                       {selectedProduct.sizes && selectedProduct.sizes.length > 0 && (
