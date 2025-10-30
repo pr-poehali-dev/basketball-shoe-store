@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -65,6 +65,19 @@ const Index = () => {
   const [selectedBrand, setSelectedBrand] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 500);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   
   const brands = ['all', ...Array.from(new Set(products.map(p => p.brand)))];
   let filteredProducts = products
@@ -195,7 +208,7 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
             {filteredProducts.map((product, idx) => (
               <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: `${idx * 0.05}s` }}>
                 <CardContent className="p-0">
@@ -209,13 +222,13 @@ const Index = () => {
                     ) : (
                       <Icon name="Dribbble" size={64} className="text-primary/20" />
                     )}
-                    <Badge className="absolute top-3 right-3 bg-primary">{product.brand}</Badge>
+                    <Badge className="absolute top-2 right-2 bg-primary text-xs md:text-sm">{product.brand}</Badge>
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-oswald font-semibold text-lg mb-2 line-clamp-2">{product.name}</h3>
-                    <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-primary">
-                        {product.priceFrom && <span className="text-sm text-muted-foreground mr-1">От</span>}
+                  <div className="p-2 md:p-4">
+                    <h3 className="font-oswald font-semibold text-sm md:text-lg mb-1 md:mb-2 line-clamp-2">{product.name}</h3>
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1">
+                      <span className="text-lg md:text-2xl font-bold text-primary">
+                        {product.priceFrom && <span className="text-xs md:text-sm text-muted-foreground mr-1">От</span>}
                         {product.price.toLocaleString('ru-RU')} ₽
                       </span>
                       <Button size="sm" asChild>
@@ -805,6 +818,16 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-50 bg-primary text-primary-foreground p-4 rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 hover:scale-110 animate-fade-in"
+          aria-label="Наверх"
+        >
+          <Icon name="ArrowUp" size={24} />
+        </button>
+      )}
     </div>
   );
 };
