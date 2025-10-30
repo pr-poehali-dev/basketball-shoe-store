@@ -72,6 +72,7 @@ const Index = () => {
   const [clientCount, setClientCount] = useState(0);
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -145,6 +146,39 @@ const Index = () => {
   const prevReview = () => {
     setReviewIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
   };
+
+  const detailSlides = [
+    {
+      image: 'https://cdn.poehali.dev/files/df2e14e6-bd1a-4a1d-880d-ceb1a244c799.jpg',
+      title: 'Детали имеют значение',
+      description: 'Каждая пара проходит тщательный контроль качества'
+    },
+    {
+      image: 'https://cdn.poehali.dev/files/79fe6c06-dc9d-4c94-a205-8338afdf47d1.jpg',
+      title: 'Технологии комфорта',
+      description: 'Современные материалы для максимальной производительности'
+    },
+    {
+      image: 'https://cdn.poehali.dev/files/95353dcb-c997-4922-aef2-9dc5ee5c5046.jpg',
+      title: 'Фирменный стиль',
+      description: 'Узнаваемый дизайн от ведущих брендов'
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % detailSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + detailSlides.length) % detailSlides.length);
+  };
+
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % detailSlides.length);
+    }, 5000);
+    return () => clearInterval(slideTimer);
+  }, [detailSlides.length]);
   
   const brands = ['all', ...Array.from(new Set(products.map(p => p.brand)))];
   let filteredProducts = products
@@ -435,10 +469,14 @@ const Index = () => {
           </div>
 
           <Tabs defaultValue="facts" className="max-w-5xl mx-auto">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 h-auto">
               <TabsTrigger value="facts" className="text-sm md:text-base py-3">
                 <Icon name="Star" size={18} className="mr-2" />
                 Интересные факты
+              </TabsTrigger>
+              <TabsTrigger value="details" className="text-sm md:text-base py-3">
+                <Icon name="Eye" size={18} className="mr-2" />
+                Детали
               </TabsTrigger>
               <TabsTrigger value="choose" className="text-sm md:text-base py-3">
                 <Icon name="Target" size={18} className="mr-2" />
@@ -453,6 +491,94 @@ const Index = () => {
                 По позициям
               </TabsTrigger>
             </TabsList>
+
+            <TabsContent value="details" className="mt-8">
+              <Card className="overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="relative bg-gradient-to-br from-muted to-background">
+                    <div className="relative aspect-[16/10] md:aspect-[21/9] overflow-hidden">
+                      <div className="absolute inset-0 flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                        {detailSlides.map((slide, idx) => (
+                          <div key={idx} className="min-w-full relative">
+                            <img 
+                              src={slide.image} 
+                              alt={slide.title}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-white">
+                              <h3 className="text-2xl md:text-4xl font-oswald font-bold mb-2">{slide.title}</h3>
+                              <p className="text-sm md:text-lg text-white/90">{slide.description}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-8 z-10">
+                      <Button
+                        variant="secondary"
+                        size="icon"
+                        onClick={prevSlide}
+                        className="rounded-full bg-white/90 hover:bg-white shadow-lg"
+                      >
+                        <Icon name="ChevronLeft" size={24} />
+                      </Button>
+                    </div>
+                    <div className="absolute top-1/2 -translate-y-1/2 right-4 md:right-8 z-10">
+                      <Button
+                        variant="secondary"
+                        size="icon"
+                        onClick={nextSlide}
+                        className="rounded-full bg-white/90 hover:bg-white shadow-lg"
+                      >
+                        <Icon name="ChevronRight" size={24} />
+                      </Button>
+                    </div>
+
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                      {detailSlides.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setCurrentSlide(idx)}
+                          className={`h-2 rounded-full transition-all ${
+                            idx === currentSlide ? 'bg-white w-8' : 'bg-white/50 w-2'
+                          }`}
+                          aria-label={`Слайд ${idx + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="p-6 md:p-8 bg-card">
+                    <h4 className="text-xl font-oswald font-bold mb-4">Качество в каждой детали</h4>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div className="flex items-start gap-3">
+                        <Icon name="CheckCircle" size={24} className="text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <p className="font-semibold mb-1">Оригинальность</p>
+                          <p className="text-sm text-muted-foreground">Гарантируем подлинность каждой пары</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Icon name="Award" size={24} className="text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <p className="font-semibold mb-1">Премиум материалы</p>
+                          <p className="text-sm text-muted-foreground">Только лучшие технологии брендов</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Icon name="ShieldCheck" size={24} className="text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <p className="font-semibold mb-1">Проверка качества</p>
+                          <p className="text-sm text-muted-foreground">Осмотр перед отправкой с фото/видео</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
 
             <TabsContent value="facts" className="mt-8">
               <Card>
