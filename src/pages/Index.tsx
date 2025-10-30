@@ -149,19 +149,19 @@ const Index = () => {
 
   const detailSlides = [
     {
-      image: 'https://cdn.poehali.dev/files/df2e14e6-bd1a-4a1d-880d-ceb1a244c799.jpg',
-      title: 'Детали имеют значение',
-      description: 'Каждая пара проходит тщательный контроль качества'
+      image: 'https://cdn.poehali.dev/files/a790564f-a3d1-48e3-ae2f-37ad40551656.jpg',
+      title: 'Задник премиум качества',
+      description: 'Jordan логотип и прочная конструкция для поддержки стопы'
     },
     {
-      image: 'https://cdn.poehali.dev/files/79fe6c06-dc9d-4c94-a205-8338afdf47d1.jpg',
-      title: 'Технологии комфорта',
-      description: 'Современные материалы для максимальной производительности'
+      image: 'https://cdn.poehali.dev/files/5ce3913d-bfe7-4a18-af6c-d884b5fcbb56.jpg',
+      title: 'Технология подошвы',
+      description: 'Амортизация Zoom Air для взрывных прыжков и защиты суставов'
     },
     {
-      image: 'https://cdn.poehali.dev/files/95353dcb-c997-4922-aef2-9dc5ee5c5046.jpg',
-      title: 'Фирменный стиль',
-      description: 'Узнаваемый дизайн от ведущих брендов'
+      image: 'https://cdn.poehali.dev/files/725a1abf-e9dc-406e-8589-85341f5d60bd.jpg',
+      title: 'Качество шнуровки',
+      description: 'Плотная фиксация и дышащий верх из сетчатых материалов'
     }
   ];
 
