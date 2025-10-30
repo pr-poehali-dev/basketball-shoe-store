@@ -384,13 +384,6 @@ const Index = () => {
 
         <div className="container mx-auto px-4 md:px-8 z-10 h-full flex items-center">
           <div className="max-w-3xl animate-fade-in">
-            <div className="mb-4 md:mb-6">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-6">
-                <Icon name="Flame" size={20} className="text-orange-300" />
-                <span className="text-white text-sm font-semibold">Хит продаж 2024</span>
-              </div>
-            </div>
-
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-oswald font-bold text-white mb-4 md:mb-6 leading-[0.9]">
               ИГРАЙ<br />
               <span className="text-white/90">НА</span><br />
