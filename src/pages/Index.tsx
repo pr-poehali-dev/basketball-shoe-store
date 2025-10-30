@@ -14,6 +14,9 @@ interface Product {
   color: string;
   image?: string;
   priceFrom?: boolean;
+  description?: string;
+  features?: string[];
+  sizes?: string[];
 }
 
 const sneakerImages = [
@@ -41,24 +44,76 @@ const sneakerImages = [
 ];
 
 const products: Product[] = [
-  { id: 1, name: 'Nike Hyperdunk 2017 low White', price: 9577.17, brand: 'Nike', color: 'Белый', image: sneakerImages[13], priceFrom: true },
-  { id: 4, name: 'Nike KD 17 EP', price: 14056.47, brand: 'Nike', color: 'Оранжевый', image: sneakerImages[17] },
-  { id: 6, name: 'Jordan Luka 77', price: 9363.87, brand: 'Jordan', color: 'Фиолетовый', image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', priceFrom: true },
-  { id: 7, name: 'Nike KD 4 Brown', price: 10217.07, brand: 'Nike', color: 'Коричневый', image: sneakerImages[16] },
-  { id: 8, name: 'UA Curry Fox 1 Banzito', price: 10430.37, brand: 'Curry', color: 'Оранжевый', image: sneakerImages[20] },
-  { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', color: 'Серый', image: sneakerImages[3] },
-  { id: 10, name: 'Anta Kyrie Orange', price: 8084.07, brand: 'Anta', color: 'Оранжевый', image: sneakerImages[4] },
-  { id: 11, name: 'Anta Kyrie Violet', price: 8084.07, brand: 'Anta', color: 'Фиолетовый', image: sneakerImages[5] },
-  { id: 12, name: 'Jordan Zion 3 Rising', price: 8723.97, brand: 'Jordan', color: 'Розовый', image: sneakerImages[10] },
-  { id: 13, name: 'Nike JA 2 Nightmare', price: 17042.67, brand: 'Nike', color: 'Красный', image: sneakerImages[14] },
-  { id: 15, name: 'Nike Lebron 21 Orange', price: 10430.37, brand: 'Nike', color: 'Оранжевый', image: sneakerImages[11] },
-  { id: 16, name: 'Nike Lebron 21 EP', price: 10003.77, brand: 'Nike', color: 'Синий', image: sneakerImages[18] },
-  { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', color: 'Бежевый', image: sneakerImages[15] },
-  { id: 18, name: 'Nike Sabrina 2 Arpic Agate', price: 12563.37, brand: 'Nike', color: 'Розовый', image: sneakerImages[19] },
-  { id: 22, name: 'Jordan Luka 2', price: 6804.27, brand: 'Jordan', color: 'Розовый', image: sneakerImages[7], priceFrom: true },
-  { id: 23, name: 'Jordan Luka 77 Black', price: 8937.47, brand: 'Jordan', color: 'Чёрный', image: sneakerImages[8] },
-  { id: 24, name: 'Jordan Luka 77 Orange', price: 8937.47, brand: 'Jordan', color: 'Оранжевый', image: sneakerImages[9] },
-  { id: 25, name: 'Nike Hyperdunk 2017 low Blue', price: 9577.17, brand: 'Nike', color: 'Синий', image: sneakerImages[12] },
+  { 
+    id: 1, 
+    name: 'Nike Hyperdunk 2017 low White', 
+    price: 9577.17, 
+    brand: 'Nike', 
+    color: 'Белый', 
+    image: sneakerImages[13], 
+    priceFrom: true,
+    description: 'Классические баскетбольные кроссовки Nike Hyperdunk 2017 в белой расцветке. Лёгкие и быстрые, идеальны для динамичной игры.',
+    features: ['Технология Nike Zoom Air для амортизации', 'Дышащий сетчатый верх', 'Резиновая подошва для сцепления', 'Низкий профиль для свободы движений'],
+    sizes: ['9 US', '10 US', '11 US']
+  },
+  { 
+    id: 4, 
+    name: 'Nike KD 17 EP', 
+    price: 14056.47, 
+    brand: 'Nike', 
+    color: 'Оранжевый', 
+    image: sneakerImages[17],
+    description: 'Последняя модель линейки Kevin Durant. Создана для взрывной игры и точных бросков.',
+    features: ['Полноразмерная подушка Air Strobel', 'Верх из синтетики и сетки', 'Поддержка голеностопа', 'Профессиональное сцепление'],
+    sizes: ['8 US', '8.5 US', '9 US', '9.5 US', '10 US', '10.5 US', '11 US', '11.5 US', '12 US']
+  },
+  { 
+    id: 6, 
+    name: 'Jordan Luka 77', 
+    price: 9363.87, 
+    brand: 'Jordan', 
+    color: 'Фиолетовый', 
+    image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', 
+    priceFrom: true,
+    description: 'Сигнатурная модель Луки Дончича. Стиль и производительность в одной паре.',
+    features: ['Технология IsoPlate для стабильности', 'Система шнуровки Formula 23', 'Амортизация Cushlon 3.0', 'Уникальный дизайн от Луки'],
+    sizes: ['8 US', '9 US', '10 US', '11 US', '12 US']
+  },
+  { 
+    id: 7, 
+    name: 'Nike KD 4 Brown', 
+    price: 10217.07, 
+    brand: 'Nike', 
+    color: 'Коричневый', 
+    image: sneakerImages[16],
+    description: 'Культовая ретро-модель из коллекции Kevin Durant в коричневой расцветке.',
+    features: ['Классическая амортизация Nike Zoom', 'Прочный синтетический верх', 'Винтажный дизайн', 'Надёжная фиксация стопы'],
+    sizes: ['8.5 US', '9 US', '9.5 US', '10 US', '10.5 US', '11 US']
+  },
+  { 
+    id: 8, 
+    name: 'UA Curry Fox 1 Banzito', 
+    price: 10430.37, 
+    brand: 'Curry', 
+    color: 'Оранжевый', 
+    image: sneakerImages[20],
+    description: 'Лимитированная модель Curry с уникальным дизайном. Для скоростных разыгрывающих.',
+    features: ['Технология UA Flow без резиновой подошвы', 'Лёгкий верх из текстиля', 'Отзывчивая амортизация', 'Дизайн от De\'Aaron Fox'],
+    sizes: ['8 US', '8.5 US', '9 US', '9.5 US', '10 US', '10.5 US', '11 US', '11.5 US']
+  },
+  { id: 9, name: 'Anta Kyrie 1 Speed', price: 7444.17, brand: 'Anta', color: 'Серый', image: sneakerImages[3], description: 'Быстрые кроссовки из коллекции Kyrie Irving для взрывной игры.', features: ['Технология A-WEB для сцепления', 'Лёгкая конструкция', 'Поддержка при резких движениях', 'Доступная цена'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
+  { id: 10, name: 'Anta Kyrie Orange', price: 8084.07, brand: 'Anta', color: 'Оранжевый', image: sneakerImages[4], description: 'Яркая оранжевая расцветка модели Kyrie от Anta.', features: ['Отличное сцепление', 'Вентилируемый верх', 'Амортизация в пятке', 'Яркий дизайн'], sizes: ['8 US', '9 US', '10 US', '11 US'] },
+  { id: 11, name: 'Anta Kyrie Violet', price: 8084.07, brand: 'Anta', color: 'Фиолетовый', image: sneakerImages[5], description: 'Стильная фиолетовая версия баскетбольных кроссовок Kyrie.', features: ['Прочная подошва', 'Комфортная посадка', 'Эффектный цвет', 'Надёжная фиксация'], sizes: ['8 US', '9 US', '10 US', '11 US'] },
+  { id: 12, name: 'Jordan Zion 3 Rising', price: 8723.97, brand: 'Jordan', color: 'Розовый', image: sneakerImages[10], description: 'Модель Zion Williamson для мощной игры под кольцом.', features: ['Усиленная амортизация для прыжков', 'Широкая подошва для стабильности', 'Прочная конструкция', 'Дизайн для форвардов'], sizes: ['9 US', '10 US', '11 US', '12 US', '13 US'] },
+  { id: 13, name: 'Nike JA 2 Nightmare', price: 17042.67, brand: 'Nike', color: 'Красный', image: sneakerImages[14], description: 'Премиум модель Ja Morant в агрессивной красной расцветке Nightmare.', features: ['Технология Air Zoom Strobel', 'Карбоновая пластина для отзывчивости', 'Лёгкий верх из сетки', 'Профессиональный уровень'], sizes: ['8 US', '8.5 US', '9 US', '9.5 US', '10 US', '10.5 US', '11 US'] },
+  { id: 15, name: 'Nike Lebron 21 Orange', price: 10430.37, brand: 'Nike', color: 'Оранжевый', image: sneakerImages[11], description: 'Новейшая модель LeBron James в яркой оранжевой расцветке.', features: ['Двойная система амортизации', 'Поддержка для тяжёлых игроков', 'Прочный верх', 'Универсальная модель'], sizes: ['9 US', '9.5 US', '10 US', '10.5 US', '11 US', '11.5 US', '12 US'] },
+  { id: 16, name: 'Nike Lebron 21 EP', price: 10003.77, brand: 'Nike', color: 'Синий', image: sneakerImages[18], description: 'Версия LeBron 21 в синей расцветке для игры на всех позициях.', features: ['Zoom Air в передней части', 'Battleknit верх', 'Широкая колодка', 'Надёжная поддержка'], sizes: ['9 US', '10 US', '11 US', '12 US', '13 US'] },
+  { id: 17, name: 'Nike JA 2 WH', price: 10003.77, brand: 'Nike', color: 'Бежевый', image: sneakerImages[15], description: 'Элегантная бежевая версия кроссовок Ja Morant.', features: ['Лёгкая конструкция', 'Отзывчивая подошва', 'Минималистичный дизайн', 'Для быстрых защитников'], sizes: ['8 US', '9 US', '10 US', '11 US'] },
+  { id: 18, name: 'Nike Sabrina 2 Arpic Agate', price: 12563.37, brand: 'Nike', color: 'Розовый', image: sneakerImages[19], description: 'Женская модель Sabrina Ionescu в уникальной расцветке Arpic Agate.', features: ['Специальная колодка для женщин', 'Премиум материалы', 'Стильный дизайн', 'Профессиональные технологии'], sizes: ['7 US', '7.5 US', '8 US', '8.5 US', '9 US', '9.5 US', '10 US'] },
+  { id: 22, name: 'Jordan Luka 2', price: 6804.27, brand: 'Jordan', color: 'Розовый', image: sneakerImages[7], priceFrom: true, description: 'Вторая сигнатурная модель Луки Дончича с улучшенными технологиями.', features: ['Улучшенная амортизация', 'Низкий профиль', 'Контроль при дриблинге', 'Выгодная цена'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
+  { id: 23, name: 'Jordan Luka 77 Black', price: 8937.47, brand: 'Jordan', color: 'Чёрный', image: sneakerImages[8], description: 'Классическая чёрная версия Jordan Luka 77.', features: ['Универсальный чёрный цвет', 'Технологии от Jordan Brand', 'Комфорт на весь матч', 'Премиум качество'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
+  { id: 24, name: 'Jordan Luka 77 Orange', price: 8937.47, brand: 'Jordan', color: 'Оранжевый', image: sneakerImages[9], description: 'Яркая оранжевая расцветка модели Luka 77.', features: ['Эффектный оранжевый дизайн', 'Отличная видимость на площадке', 'Проверенные технологии', 'Высокое качество'], sizes: ['8 US', '9 US', '10 US', '11 US', '12 US'] },
+  { id: 25, name: 'Nike Hyperdunk 2017 low Blue', price: 9577.17, brand: 'Nike', color: 'Синий', image: sneakerImages[12], description: 'Синяя версия Nike Hyperdunk 2017 для универсальной игры.', features: ['Проверенная модель', 'Zoom Air амортизация', 'Лёгкий вес', 'Доступная цена'], sizes: ['9 US', '10 US', '11 US', '12 US'] },
 ];
 
 const Index = () => {
@@ -75,6 +130,7 @@ const Index = () => {
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -438,10 +494,11 @@ const Index = () => {
             {filteredProducts.map((product, idx) => (
               <Card 
                 key={product.id} 
-                className={`group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col ${
+                className={`group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col cursor-pointer ${
                   visibleSections.has('catalog') ? 'animate-fade-in-up' : 'opacity-0'
                 }`} 
                 style={{ animationDelay: `${idx * 0.05}s` }}
+                onClick={() => setSelectedProduct(product)}
               >
                 <CardContent className="p-0 flex flex-col flex-grow">
                   <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center relative overflow-hidden">
@@ -469,10 +526,15 @@ const Index = () => {
                         {product.priceFrom && <span className="text-sm md:text-sm text-muted-foreground mr-1">От</span>}
                         {product.price.toLocaleString('ru-RU')} ₽
                       </span>
-                      <Button size="sm" className="animate-pulse-scale flex-shrink-0" asChild>
-                        <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-                          <Icon name="ShoppingCart" size={16} />
-                        </a>
+                      <Button 
+                        size="sm" 
+                        className="animate-pulse-scale flex-shrink-0" 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open('https://t.me/SKBasketShop', '_blank');
+                        }}
+                      >
+                        <Icon name="ShoppingCart" size={16} />
                       </Button>
                     </div>
                   </div>
@@ -1314,6 +1376,103 @@ const Index = () => {
         >
           <Icon name="ArrowUp" size={24} />
         </button>
+      )}
+
+      {selectedProduct && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 animate-fade-in" onClick={() => setSelectedProduct(null)}>
+          <Card className="max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <CardContent className="p-0">
+              <div className="relative">
+                <button
+                  onClick={() => setSelectedProduct(null)}
+                  className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors shadow-lg"
+                >
+                  <Icon name="X" size={24} />
+                </button>
+                
+                <div className="grid md:grid-cols-2 gap-6 p-6 md:p-8">
+                  <div className="space-y-4">
+                    <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 rounded-lg overflow-hidden">
+                      {selectedProduct.image && (
+                        <img 
+                          src={selectedProduct.image} 
+                          alt={selectedProduct.name}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div>
+                      <Badge className="mb-3">{selectedProduct.brand}</Badge>
+                      <h2 className="text-3xl font-oswald font-bold mb-2">{selectedProduct.name}</h2>
+                      <div className="flex items-baseline gap-2 mb-4">
+                        <span className="text-4xl font-bold text-primary">
+                          {selectedProduct.priceFrom && <span className="text-lg text-muted-foreground mr-1">От</span>}
+                          {selectedProduct.price.toLocaleString('ru-RU')} ₽
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">{selectedProduct.description}</p>
+                    </div>
+
+                    {selectedProduct.sizes && selectedProduct.sizes.length > 0 && (
+                      <div>
+                        <h3 className="font-semibold text-lg mb-3">Доступные размеры</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {selectedProduct.sizes.map((size) => (
+                            <Badge key={size} variant="outline" className="px-4 py-2 text-base">
+                              {size}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {selectedProduct.features && selectedProduct.features.length > 0 && (
+                      <div>
+                        <h3 className="font-semibold text-lg mb-3">Характеристики</h3>
+                        <ul className="space-y-2">
+                          {selectedProduct.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-muted-foreground">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    <div className="bg-muted/50 rounded-lg p-4">
+                      <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                        <Icon name="Ruler" size={20} className="text-primary" />
+                        Как определить размер
+                      </h3>
+                      <ol className="space-y-2 text-sm text-muted-foreground">
+                        <li>1. Встаньте на лист бумаги и обведите стопу</li>
+                        <li>2. Измерьте расстояние от пятки до большого пальца</li>
+                        <li>3. Добавьте 0.5-1 см запаса для комфорта</li>
+                        <li>4. Сверьтесь с таблицей размеров (25.5 см = 8 US, 26 см = 8.5 US, 26.5 см = 9 US, и т.д.)</li>
+                      </ol>
+                      <p className="text-xs text-muted-foreground mt-3">
+                        💡 Не уверены в размере? Напишите нам — поможем подобрать!
+                      </p>
+                    </div>
+
+                    <Button 
+                      size="lg" 
+                      className="w-full text-lg"
+                      onClick={() => window.open('https://t.me/SKBasketShop', '_blank')}
+                    >
+                      <Icon name="ShoppingCart" size={20} className="mr-2" />
+                      Заказать в Telegram
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       )}
     </div>
   );
