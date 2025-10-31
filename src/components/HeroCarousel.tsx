@@ -20,15 +20,15 @@ export default function HeroCarousel() {
         <img 
           src="https://cdn.poehali.dev/files/1d11d89c-80ea-4eb2-aaf5-340a4fc497fb.jpg"
           alt="Nike Basketball Shoes Sole"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
           style={{
-            transform: `scale(${1 + scrollY * 0.0003})`,
+            transform: `scale(${1.2 + scrollY * 0.0003})`,
             transition: 'transform 0.1s ease-out'
           }}
         />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/80" />
       
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
@@ -50,15 +50,17 @@ export default function HeroCarousel() {
               </span>
             </div>
             
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-black text-white leading-none tracking-tighter">
-              ИГРАЙ НА
+            <h1 className="text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter">
+              <span className="text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]" style={{ textShadow: '0 0 40px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.9)' }}>
+                ИГРАЙ НА
+              </span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600" style={{ filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.9)) drop-shadow(0 0 40px rgba(0,0,0,0.8))' }}>
                 МАКСИМУМ
               </span>
             </h1>
             
-            <p className="text-xl md:text-3xl text-white/80 max-w-3xl mx-auto font-light tracking-wide">
+            <p className="text-xl md:text-3xl text-white max-w-3xl mx-auto font-semibold tracking-wide" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 4px 20px rgba(0,0,0,0.7)' }}>
               Оригинальные баскетбольные кроссовки
               <br />
               от мировых брендов
@@ -85,23 +87,19 @@ export default function HeroCarousel() {
           </div>
 
           <div className="flex items-center justify-center gap-12 pt-12">
-            <div className="text-center">
-              <div className="text-white font-black text-3xl">100%</div>
-              <div className="text-white/60 text-sm uppercase tracking-widest mt-1">Оригинал</div>
+            <div className="text-center px-6 py-4 bg-black/50 backdrop-blur-xl rounded-2xl border border-white/10">
+              <div className="text-white font-black text-3xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}>100%</div>
+              <div className="text-white/90 text-sm uppercase tracking-widest mt-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Оригинал</div>
             </div>
             
-            <div className="w-px h-16 bg-white/20" />
-            
-            <div className="text-center">
-              <div className="text-white font-black text-3xl">3+</div>
-              <div className="text-white/60 text-sm uppercase tracking-widest mt-1">Доставка</div>
+            <div className="text-center px-6 py-4 bg-black/50 backdrop-blur-xl rounded-2xl border border-white/10">
+              <div className="text-white font-black text-3xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}>3+</div>
+              <div className="text-white/90 text-sm uppercase tracking-widest mt-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Доставка</div>
             </div>
             
-            <div className="w-px h-16 bg-white/20" />
-            
-            <div className="text-center">
-              <div className="text-white font-black text-3xl">1 год</div>
-              <div className="text-white/60 text-sm uppercase tracking-widest mt-1">Гарантия</div>
+            <div className="text-center px-6 py-4 bg-black/50 backdrop-blur-xl rounded-2xl border border-white/10">
+              <div className="text-white font-black text-3xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}>1 год</div>
+              <div className="text-white/90 text-sm uppercase tracking-widest mt-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Гарантия</div>
             </div>
           </div>
         </div>
