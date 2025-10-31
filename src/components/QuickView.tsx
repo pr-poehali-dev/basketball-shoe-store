@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import Icon from '@/components/ui/icon';
 
 interface Product {
@@ -26,6 +27,9 @@ interface QuickViewProps {
 
 export default function QuickView({ product, isOpen, onClose }: QuickViewProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+  const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
+  const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
 
   if (!product) return null;
 
@@ -43,6 +47,9 @@ export default function QuickView({ product, isOpen, onClose }: QuickViewProps) 
   const handleOpenChange = (open: boolean) => {
     if (!open) {
       setCurrentImageIndex(0);
+      setIsDescriptionOpen(false);
+      setIsFeaturesOpen(false);
+      setIsSizeGuideOpen(false);
       onClose();
     }
   };
@@ -109,30 +116,56 @@ export default function QuickView({ product, isOpen, onClose }: QuickViewProps) 
             </div>
 
             {product.description && (
-              <div>
-                <h3 className="font-semibold mb-2 flex items-center gap-2 text-sm md:text-base">
-                  <Icon name="FileText" size={16} className="md:w-[18px] md:h-[18px]" />
-                  Описание
-                </h3>
-                <p className="text-muted-foreground text-sm md:text-base">{product.description}</p>
-              </div>
+              <Collapsible open={isDescriptionOpen} onOpenChange={setIsDescriptionOpen}>
+                <CollapsibleTrigger className="w-full">
+                  <div className="flex items-center justify-between w-full py-2 hover:bg-muted/50 rounded-lg px-2 transition-colors">
+                    <h3 className="font-semibold flex items-center gap-2 text-sm md:text-base">
+                      <Icon name="FileText" size={16} className="md:w-[18px] md:h-[18px]" />
+                      Описание
+                    </h3>
+                    <Icon 
+                      name="ChevronDown" 
+                      size={18} 
+                      className={`transition-transform duration-200 ${
+                        isDescriptionOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="px-2 pt-1 pb-2">
+                  <p className="text-muted-foreground text-sm md:text-base">{product.description}</p>
+                </CollapsibleContent>
+              </Collapsible>
             )}
 
             {product.features && product.features.length > 0 && (
-              <div>
-                <h3 className="font-semibold mb-2 flex items-center gap-2 text-sm md:text-base">
-                  <Icon name="CheckCircle" size={16} className="md:w-[18px] md:h-[18px]" />
-                  Особенности
-                </h3>
-                <ul className="space-y-1">
-                  {product.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-xs md:text-sm">
-                      <Icon name="Check" size={14} className="text-primary mt-0.5 flex-shrink-0 md:w-4 md:h-4" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <Collapsible open={isFeaturesOpen} onOpenChange={setIsFeaturesOpen}>
+                <CollapsibleTrigger className="w-full">
+                  <div className="flex items-center justify-between w-full py-2 hover:bg-muted/50 rounded-lg px-2 transition-colors">
+                    <h3 className="font-semibold flex items-center gap-2 text-sm md:text-base">
+                      <Icon name="CheckCircle" size={16} className="md:w-[18px] md:h-[18px]" />
+                      Особенности
+                    </h3>
+                    <Icon 
+                      name="ChevronDown" 
+                      size={18} 
+                      className={`transition-transform duration-200 ${
+                        isFeaturesOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="px-2 pt-1 pb-2">
+                  <ul className="space-y-1">
+                    {product.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs md:text-sm">
+                        <Icon name="Check" size={14} className="text-primary mt-0.5 flex-shrink-0 md:w-4 md:h-4" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CollapsibleContent>
+              </Collapsible>
             )}
 
             {product.sizes && product.sizes.length > 0 && (
@@ -148,6 +181,41 @@ export default function QuickView({ product, isOpen, onClose }: QuickViewProps) 
                 </div>
               </div>
             )}
+
+            <Collapsible open={isSizeGuideOpen} onOpenChange={setIsSizeGuideOpen}>
+              <CollapsibleTrigger className="w-full">
+                <div className="flex items-center justify-between w-full py-2 hover:bg-muted/50 rounded-lg px-2 transition-colors">
+                  <h3 className="font-semibold flex items-center gap-2 text-sm md:text-base">
+                    <Icon name="Info" size={16} className="md:w-[18px] md:h-[18px]" />
+                    Как выбрать размер?
+                  </h3>
+                  <Icon 
+                    name="ChevronDown" 
+                    size={18} 
+                    className={`transition-transform duration-200 ${
+                      isSizeGuideOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </div>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="px-2 pt-1 pb-2">
+                <div className="text-xs md:text-sm text-muted-foreground space-y-2">
+                  <p><strong>Размеры указаны в US (американская система):</strong></p>
+                  <ul className="space-y-1 ml-4 list-disc">
+                    <li>US 7 = EU 40 = 25 см</li>
+                    <li>US 8 = EU 41 = 26 см</li>
+                    <li>US 9 = EU 42.5 = 27 см</li>
+                    <li>US 10 = EU 44 = 28 см</li>
+                    <li>US 11 = EU 45 = 29 см</li>
+                    <li>US 12 = EU 46 = 30 см</li>
+                    <li>US 13 = EU 47.5 = 31 см</li>
+                  </ul>
+                  <p className="text-primary font-medium mt-2">
+                    💡 Совет: измерьте длину стопы и добавьте 0.5-1 см для комфорта
+                  </p>
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
 
             <div className="mt-auto pt-3 md:pt-4 space-y-2">
               <Button size="default" className="w-full text-sm md:text-base md:h-11" asChild>
