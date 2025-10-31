@@ -23,37 +23,37 @@ const heroSlides: HeroSlide[] = [
     id: 2,
     title: 'Уверенность начинается с подошвы',
     subtitle: 'Здесь не просто продают кроссовки — здесь помогают тебе играть на максимум.',
-    image: 'https://cdn.poehali.dev/files/1b3e3805-07af-4231-8996-da107f288bb6.jpg',
+    image: 'https://cdn.poehali.dev/files/e3383eae-dbed-425a-8c00-8c5f63c0180a.jpg',
     bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
-    imagePosition: 'right'
+    imagePosition: 'center'
   },
   {
     id: 3,
     title: 'Технологии, которые ведут к успеху',
     subtitle: 'Здесь не просто продают кроссовки — здесь помогают тебе играть на максимум.',
-    image: 'https://cdn.poehali.dev/files/f5e58c29-5e36-4a70-9267-fa60e0b47b24.jpg',
+    image: 'https://cdn.poehali.dev/files/f70af5f7-bc2e-4ffe-a022-30abe861e778.jpg',
     bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
-    imagePosition: 'right'
+    imagePosition: 'center'
   },
   {
     id: 4,
     title: 'Твоя игра',
     subtitle: 'Твои кроссовки.',
-    image: 'https://cdn.poehali.dev/files/cd75750c-6761-4492-8794-b8548363acd4.jpg',
+    image: 'https://cdn.poehali.dev/files/d75807f2-43e8-4e20-9c10-91aaacb0f0f3.jpg',
     bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
     imagePosition: 'center'
   },
   {
     id: 5,
     title: 'Победа в каждом движении',
-    image: 'https://cdn.poehali.dev/files/4aaaac03-f3d8-45ab-92eb-669f5da89dfb.jpg',
+    image: 'https://cdn.poehali.dev/files/a6fb5e83-4801-4f68-bd0b-7463f9aab7b6.jpg',
     bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
     imagePosition: 'center'
   },
   {
     id: 6,
     title: 'Сила. Скорость. Стиль',
-    image: 'https://cdn.poehali.dev/files/9214a3ad-cd57-4169-9c0e-aa9d5920ad45.jpg',
+    image: 'https://cdn.poehali.dev/files/00aed167-8951-4f76-b215-dbe098aed239.jpg',
     bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
     imagePosition: 'center'
   }
