@@ -36,7 +36,7 @@ export default function HeroCarousel() {
         <Icon name="Dribbble" size={40} className="text-black drop-shadow-xl md:w-12 md:h-12" />
       </div>
 
-      <div className="relative z-10 h-full flex flex-col justify-between md:justify-center px-4 pt-24 pb-8 md:pt-20 md:px-12 lg:px-20">
+      <div className="relative z-10 h-full flex flex-col justify-between md:justify-start md:pt-32 lg:pt-40 px-4 pt-24 pb-8 md:px-12 lg:px-20">
         <div className="max-w-2xl space-y-3 md:space-y-6 w-full">
           <div className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-black/80 border border-black rounded-full backdrop-blur-xl">
             <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-orange-400 rounded-full animate-pulse" />
