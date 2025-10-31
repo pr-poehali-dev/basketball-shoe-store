@@ -37,19 +37,18 @@ export default function HeroCarousel() {
       </div>
 
       <div className="hidden md:flex absolute top-20 right-8 gap-3 z-30">
-        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
-          <div className="flex items-center gap-2 mb-1">
-            <Icon name="ShieldCheck" className="text-orange-400" size={16} />
-            <div className="text-white font-inter font-bold text-sm">Офиц. дилер</div>
-          </div>
+        <div className="text-center px-4 py-3 bg-black/80 backdrop-blur-xl rounded-xl border border-black flex flex-col items-center justify-center">
+          <Icon name="ShieldCheck" className="text-orange-400 mb-1" size={20} />
+          <div className="text-white font-inter font-bold text-xs uppercase tracking-wide">Официальный</div>
+          <div className="text-white font-inter font-bold text-xs uppercase tracking-wide">дилер</div>
         </div>
         
-        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
+        <div className="text-center px-4 py-3 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
           <div className="text-white font-inter font-bold text-lg">100%</div>
           <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Оригинал</div>
         </div>
         
-        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
+        <div className="text-center px-4 py-3 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
           <div className="text-white font-inter font-bold text-lg">1 год</div>
           <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Гарантия</div>
         </div>
@@ -83,15 +82,12 @@ export default function HeroCarousel() {
               Оригинальные баскетбольные кроссовки от мировых брендов. Гарантия качества и стиля.
             </p>
             
-            <div className="hidden md:flex items-center gap-4">
-              <span className="text-black/60 text-sm font-inter font-semibold uppercase tracking-wide">Бренды:</span>
-              <div className="flex items-center gap-3">
-                <span className="text-black font-inter font-bold text-lg">Nike</span>
-                <span className="text-black/40">•</span>
-                <span className="text-black font-inter font-bold text-lg">Jordan</span>
-                <span className="text-black/40">•</span>
-                <span className="text-black font-inter font-bold text-lg">Adidas</span>
-              </div>
+            <div className="hidden md:flex items-center gap-3">
+              <span className="text-black font-inter font-bold text-lg">Nike</span>
+              <span className="text-black/40">•</span>
+              <span className="text-black font-inter font-bold text-lg">Jordan</span>
+              <span className="text-black/40">•</span>
+              <span className="text-black font-inter font-bold text-lg">Adidas</span>
             </div>
           </div>
         </div>
@@ -139,17 +135,7 @@ export default function HeroCarousel() {
 
 
 
-      <div className="hidden md:flex absolute bottom-8 right-8 gap-3">
-        <div className="w-12 h-12 bg-black/80 backdrop-blur-xl rounded-full border border-black flex items-center justify-center hover:bg-black transition-colors cursor-pointer group">
-          <span className="text-white text-xs font-bold group-hover:scale-110 transition-transform">NK</span>
-        </div>
-        <div className="w-12 h-12 bg-black/80 backdrop-blur-xl rounded-full border border-black flex items-center justify-center hover:bg-black transition-colors cursor-pointer group">
-          <span className="text-white text-xs font-bold group-hover:scale-110 transition-transform">JD</span>
-        </div>
-        <div className="w-12 h-12 bg-black/80 backdrop-blur-xl rounded-full border border-black flex items-center justify-center hover:bg-black transition-colors cursor-pointer group">
-          <span className="text-white text-xs font-bold group-hover:scale-110 transition-transform">AD</span>
-        </div>
-      </div>
+
 
       <div className="hidden md:block absolute top-1/2 left-8 -translate-y-1/2 w-1 h-24 bg-gradient-to-b from-transparent via-black to-transparent" />
       <div className="hidden md:block absolute top-1/2 right-8 -translate-y-1/2 w-1 h-24 bg-gradient-to-b from-transparent via-black to-transparent" />
