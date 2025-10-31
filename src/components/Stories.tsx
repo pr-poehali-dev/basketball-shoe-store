@@ -30,13 +30,6 @@ const Stories = ({ allProducts }: StoriesProps) => {
 
   const stories: Story[] = [
     {
-      id: 'new',
-      title: 'Новинки',
-      emoji: '🔥',
-      gradient: 'from-orange-500 to-red-600',
-      products: allProducts.slice(0, 5)
-    },
-    {
       id: 'hits',
       title: 'Хиты',
       emoji: '⭐',
