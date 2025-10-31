@@ -11,6 +11,7 @@ import QuickView from '@/components/QuickView';
 import ProductCard from '@/components/ProductCard';
 import StickyTelegram from '@/components/StickyTelegram';
 import CompareProducts from '@/components/CompareProducts';
+import HeroCarousel from '@/components/HeroCarousel';
 
 interface Product {
   id: number;
@@ -376,90 +377,7 @@ const Index = () => {
         )}
       </header>
 
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 mb-32">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)]" />
-        
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-orange-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
-        </div>
-
-        <div className="container mx-auto px-4 md:px-8 z-10 h-full flex items-center">
-          <div className="max-w-3xl animate-fade-in">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-oswald font-bold text-white mb-4 md:mb-6 leading-[0.9]">
-              ИГРАЙ<br />
-              <span className="text-white/90">НА</span><br />
-              <span className="text-white inline-flex items-center gap-4">
-                МАКСИМУМ
-                <Icon name="Zap" size={48} className="text-orange-300 hidden md:inline animate-pulse" />
-              </span>
-            </h1>
-            
-            <div className="w-20 h-1.5 bg-orange-400 rounded-full mb-6 md:mb-8" />
-            
-            <p className="text-lg md:text-2xl text-white/90 mb-8 md:mb-10 max-w-2xl leading-relaxed">
-              Баскетбольные кроссовки премиум класса от <span className="text-white font-bold">Nike, Jordan, Anta</span> и <span className="text-white font-bold">LiNing</span>. 
-              Технологии профессионального уровня для твоей игры.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-5 mb-8 md:mb-12">
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 text-base md:text-xl px-8 py-6 md:px-12 md:py-8 shadow-2xl font-bold" asChild>
-                <a href="#catalog">
-                  <Icon name="ShoppingBag" size={24} className="mr-2" />
-                  Смотреть каталог
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-orange-600 text-base md:text-xl px-8 py-6 md:px-12 md:py-8 animate-pulse-scale font-bold" asChild>
-                <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-                  <Icon name="Send" size={24} className="mr-2" />
-                  Написать в Telegram
-                </a>
-              </Button>
-            </div>
-            
-            <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-xl">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center hover:bg-white/20 transition-all">
-                <Icon name="Shield" size={28} className="text-orange-300 mx-auto mb-2" />
-                <span className="text-white text-xs md:text-sm font-semibold block">100% Оригинал</span>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center hover:bg-white/20 transition-all">
-                <Icon name="Truck" size={28} className="text-orange-300 mx-auto mb-2" />
-                <span className="text-white text-xs md:text-sm font-semibold block">2-5 дней</span>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center hover:bg-white/20 transition-all">
-                <Icon name="Award" size={28} className="text-orange-300 mx-auto mb-2" />
-                <span className="text-white text-xs md:text-sm font-semibold block">Гарантия</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 space-y-6">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="text-5xl font-oswald font-bold mb-2">500+</div>
-              <div className="text-sm opacity-80">Довольных клиентов</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white animate-fade-in" style={{ animationDelay: '0.5s' }}>
-              <div className="text-5xl font-oswald font-bold mb-2">25+</div>
-              <div className="text-sm opacity-80">Моделей в наличии</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white animate-fade-in" style={{ animationDelay: '0.7s' }}>
-              <div className="flex items-center gap-2">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Icon key={i} name="Star" size={16} className="text-orange-400 fill-orange-400" />
-                  ))}
-                </div>
-                <span className="text-sm font-bold">5.0</span>
-              </div>
-              <div className="text-sm opacity-80 mt-2">Рейтинг отзывов</div>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
-          <Icon name="ChevronDown" size={32} className="text-white/70" />
-        </div>
-      </section>
+      <HeroCarousel />
 
       <section id="catalog" data-animate className="py-20 md:py-32 bg-background">
         <div className="container mx-auto px-4">
