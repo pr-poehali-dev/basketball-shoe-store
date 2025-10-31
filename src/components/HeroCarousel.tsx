@@ -117,13 +117,21 @@ export default function HeroCarousel() {
       </div>
 
       <div className="absolute top-[58%] -translate-y-1/2 left-4 flex flex-col gap-2.5 md:hidden z-20">
-        <div className="text-center px-3 py-2 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
-          <div className="text-white font-inter font-bold text-base">100%</div>
+        <div className="text-center px-3 py-2 bg-black/80 backdrop-blur-xl rounded-lg border border-black flex flex-col items-center">
+          <Icon name="ShieldCheck" className="text-orange-400 mb-1" size={16} />
+          <div className="text-white font-inter font-bold text-[10px] uppercase tracking-wide">Официальный</div>
+          <div className="text-white font-inter font-bold text-[10px] uppercase tracking-wide">дилер</div>
+        </div>
+        
+        <div className="text-center px-3 py-2 bg-black/80 backdrop-blur-xl rounded-lg border border-black flex flex-col items-center">
+          <Icon name="BadgeCheck" className="text-orange-400 mb-1" size={16} />
+          <div className="text-white font-inter font-bold text-[10px] uppercase tracking-wide">100%</div>
           <div className="text-white/90 font-inter text-[9px] uppercase tracking-wide">Оригинал</div>
         </div>
         
-        <div className="text-center px-3 py-2 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
-          <div className="text-white font-inter font-bold text-base">1 год</div>
+        <div className="text-center px-3 py-2 bg-black/80 backdrop-blur-xl rounded-lg border border-black flex flex-col items-center">
+          <Icon name="Award" className="text-orange-400 mb-1" size={16} />
+          <div className="text-white font-inter font-bold text-[10px] uppercase tracking-wide">1 год</div>
           <div className="text-white/90 font-inter text-[9px] uppercase tracking-wide">Гарантия</div>
         </div>
       </div>
