@@ -102,7 +102,7 @@ const Stories = ({ allProducts }: StoriesProps) => {
               onClick={() => openStory(story)}
               className="flex flex-col items-center gap-2 flex-shrink-0 group"
             >
-              <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br ${story.gradient} p-1 ring-2 ring-transparent group-hover:ring-primary transition-all`}>
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 p-[2px] ring-1 ring-gray-300 group-hover:ring-primary transition-all">
                 <div className="w-full h-full rounded-full bg-background flex items-center justify-center text-2xl md:text-3xl">
                   {story.emoji}
                 </div>
