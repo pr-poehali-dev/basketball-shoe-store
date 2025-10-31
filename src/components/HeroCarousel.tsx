@@ -1,62 +1,61 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
 interface HeroSlide {
   id: number;
   title: string;
-  subtitle: string;
-  price: string;
+  subtitle?: string;
   image: string;
   bgGradient: string;
-  badge?: string;
+  imagePosition: 'left' | 'right' | 'center';
 }
 
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
     title: 'Nike Hyperdunk 2017 Low «Racer/Blue»',
-    subtitle: 'Лёгкость и скорость на площадке',
-    price: 'от 9 577 ₽',
     image: 'https://cdn.poehali.dev/files/5e754ed8-22b8-4e63-b4d9-aeed8e19a688.jpg',
     bgGradient: 'from-orange-500 via-orange-400 to-orange-300',
-    badge: 'ХИТ ПРОДАЖ'
+    imagePosition: 'right'
   },
   {
     id: 2,
-    title: 'Nike KD 17 EP',
-    subtitle: 'Последняя модель Kevin Durant',
-    price: 'от 14 056 ₽',
-    image: 'https://cdn.poehali.dev/files/eb30716d-5a14-41d7-99c4-7b352da495f5.jpg',
-    bgGradient: 'from-orange-900/90 via-red-800/80 to-pink-900/90',
-    badge: 'НОВИНКА'
+    title: 'Уверенность начинается с подошвы',
+    subtitle: 'Здесь не просто продают кроссовки — здесь помогают тебе играть на максимум.',
+    image: 'https://cdn.poehali.dev/files/1b3e3805-07af-4231-8996-da107f288bb6.jpg',
+    bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
+    imagePosition: 'right'
   },
   {
     id: 3,
-    title: 'Jordan Luka 77',
-    subtitle: 'Сигнатурная модель Луки Дончича',
-    price: 'от 9 364 ₽',
-    image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg',
-    bgGradient: 'from-purple-900/90 via-violet-800/80 to-fuchsia-900/90',
-    badge: 'ЭКСКЛЮЗИВ'
+    title: 'Технологии, которые ведут к успеху',
+    subtitle: 'Здесь не просто продают кроссовки — здесь помогают тебе играть на максимум.',
+    image: 'https://cdn.poehali.dev/files/f5e58c29-5e36-4a70-9267-fa60e0b47b24.jpg',
+    bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
+    imagePosition: 'right'
   },
   {
     id: 4,
-    title: 'Nike KD 4 Brown',
-    subtitle: 'Классика в коричневой расцветке',
-    price: 'от 10 217 ₽',
-    image: 'https://cdn.poehali.dev/files/dee48e22-ca49-427c-8771-5fddab94cffd.jpg',
-    bgGradient: 'from-amber-900/90 via-orange-800/80 to-red-900/90'
+    title: 'Твоя игра',
+    subtitle: 'Твои кроссовки.',
+    image: 'https://cdn.poehali.dev/files/cd75750c-6761-4492-8794-b8548363acd4.jpg',
+    bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
+    imagePosition: 'center'
   },
   {
     id: 5,
-    title: 'Nike LeBron 21 EP',
-    subtitle: 'Профессиональный выбор для игры',
-    price: 'от 21 277 ₽',
-    image: 'https://cdn.poehali.dev/files/d994c68c-5ec9-4756-aa5e-6615c0d334bd.jpg',
-    bgGradient: 'from-teal-900/90 via-cyan-800/80 to-blue-900/90',
-    badge: 'PREMIUM'
+    title: 'Победа в каждом движении',
+    image: 'https://cdn.poehali.dev/files/4aaaac03-f3d8-45ab-92eb-669f5da89dfb.jpg',
+    bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
+    imagePosition: 'center'
+  },
+  {
+    id: 6,
+    title: 'Сила. Скорость. Стиль',
+    image: 'https://cdn.poehali.dev/files/9214a3ad-cd57-4169-9c0e-aa9d5920ad45.jpg',
+    bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
+    imagePosition: 'center'
   }
 ];
 
@@ -95,7 +94,7 @@ export default function HeroCarousel() {
   const slide = heroSlides[currentSlide];
 
   return (
-    <div className="relative h-screen w-full overflow-hidden" id="hero">
+    <div className="relative h-screen w-full overflow-hidden">
       {heroSlides.map((s, index) => (
         <div
           key={s.id}
@@ -107,55 +106,92 @@ export default function HeroCarousel() {
         </div>
       ))}
 
-      <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="absolute left-8 bottom-8 z-30">
-          <svg width="80" height="80" viewBox="0 0 100 100" className="text-white opacity-90">
-            <text x="10" y="45" fontSize="48" fontWeight="bold" fill="currentColor" fontFamily="Arial, sans-serif">SK</text>
+      <div className="relative z-20 h-full w-full">
+        <div className="absolute left-4 md:left-8 bottom-6 md:bottom-8 z-30">
+          <svg width="60" height="60" viewBox="0 0 100 100" className="text-white opacity-90 md:w-20 md:h-20">
+            <text x="10" y="55" fontSize="52" fontWeight="bold" fill="currentColor" fontFamily="Arial, sans-serif">SK</text>
           </svg>
         </div>
-        <div className="flex flex-col lg:flex-row items-center justify-between h-full gap-4 lg:gap-8 py-12 md:py-20">
-          <div className="flex-1 text-center lg:text-left space-y-3 md:space-y-6 animate-fade-in">
-            <h1 className="text-4xl sm:text-6xl lg:text-8xl font-extrabold text-white leading-tight" style={{ fontFamily: 'Arial, sans-serif', letterSpacing: '-0.02em' }}>
-              {slide.title}
-            </h1>
 
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4">
-              <Button 
-                size="default" 
-                className="text-sm md:text-lg px-4 md:px-8 h-10 md:h-14 bg-primary hover:bg-primary/90 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all"
-                asChild
+        <div className="h-full w-full px-4 md:px-8 lg:px-16 py-16 md:py-20 flex flex-col justify-between">
+          <div className={`flex-1 flex ${
+            slide.imagePosition === 'center' 
+              ? 'flex-col items-center justify-center text-center' 
+              : 'flex-col lg:flex-row items-center justify-between gap-8'
+          }`}>
+            <div className={`${
+              slide.imagePosition === 'center' 
+                ? 'w-full max-w-4xl space-y-4 md:space-y-6' 
+                : 'flex-1 space-y-3 md:space-y-6 text-center lg:text-left'
+            }`}>
+              <h1 
+                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-tight"
+                style={{ fontFamily: 'Arial, sans-serif', letterSpacing: '-0.02em' }}
               >
-                <a href="#catalog">
-                  <Icon name="ShoppingCart" size={20} className="mr-2 md:w-6 md:h-6" />
-                  Смотреть каталог
-                </a>
-              </Button>
+                {slide.title}
+              </h1>
               
-              <Button 
-                size="default" 
-                variant="outline" 
-                className="text-sm md:text-lg px-4 md:px-8 h-10 md:h-14 border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-primary transition-all shadow-lg"
-                asChild
-              >
-                <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-                  <Icon name="Send" size={20} className="mr-2 md:w-6 md:h-6" />
-                  Написать в Telegram
-                </a>
-              </Button>
+              {slide.subtitle && (
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0">
+                  {slide.subtitle}
+                </p>
+              )}
             </div>
+
+            {slide.imagePosition !== 'center' && (
+              <div className="flex-1 flex items-center justify-center">
+                <div className="relative w-full max-w-[280px] sm:max-w-md md:max-w-lg lg:max-w-2xl">
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    className="w-full h-auto drop-shadow-2xl"
+                    style={{
+                      filter: 'drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4))'
+                    }}
+                  />
+                </div>
+              </div>
+            )}
+
+            {slide.imagePosition === 'center' && (
+              <div className="w-full flex items-center justify-center mt-8 md:mt-12">
+                <div className="relative w-full max-w-[320px] sm:max-w-lg md:max-w-2xl lg:max-w-4xl">
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    className="w-full h-auto drop-shadow-2xl"
+                    style={{
+                      filter: 'drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4))'
+                    }}
+                  />
+                </div>
+              </div>
+            )}
           </div>
 
-          <div className="flex-1 flex items-center justify-center mt-4 lg:mt-0">
-            <div className="relative w-full max-w-[300px] sm:max-w-md lg:max-w-2xl">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-auto drop-shadow-2xl"
-                style={{
-                  filter: 'drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4))'
-                }}
-              />
-            </div>
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-center mt-8 pb-16 md:pb-0">
+            <Button 
+              size="default" 
+              className="w-full sm:w-auto text-sm md:text-base px-6 md:px-8 h-11 md:h-12 bg-white hover:bg-white/90 text-slate-900 font-semibold shadow-xl"
+              asChild
+            >
+              <a href="#catalog">
+                <Icon name="ShoppingCart" size={18} className="mr-2 md:w-5 md:h-5" />
+                Смотреть каталог
+              </a>
+            </Button>
+            
+            <Button 
+              size="default" 
+              variant="outline" 
+              className="w-full sm:w-auto text-sm md:text-base px-6 md:px-8 h-11 md:h-12 border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-slate-900 transition-all shadow-lg font-semibold"
+              asChild
+            >
+              <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
+                <Icon name="Send" size={18} className="mr-2 md:w-5 md:h-5" />
+                Написать в Telegram
+              </a>
+            </Button>
           </div>
         </div>
       </div>
@@ -176,50 +212,20 @@ export default function HeroCarousel() {
         <Icon name="ChevronRight" size={24} className="md:w-8 md:h-8" />
       </button>
 
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2 md:gap-3">
+      <div className="absolute bottom-20 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2 md:gap-3">
         {heroSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={`transition-all ${
               index === currentSlide
-                ? 'w-12 bg-white'
-                : 'w-3 bg-white/40 hover:bg-white/60'
-            } h-3 rounded-full`}
+                ? 'w-8 md:w-12 bg-white'
+                : 'w-2 md:w-3 bg-white/40 hover:bg-white/60'
+            } h-2 md:h-3 rounded-full`}
             aria-label={`Перейти к слайду ${index + 1}`}
           />
         ))}
       </div>
-
-      <style>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(-5deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(5deg);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 1s ease-out;
-        }
-
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 }
