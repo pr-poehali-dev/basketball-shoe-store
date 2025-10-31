@@ -18,11 +18,12 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-orange-950">
+    <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700">
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/20 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl animate-pulse-slow animation-delay-1000" />
-        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-orange-400/5 rounded-full blur-3xl animate-spin-slow" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-500/15 rounded-full blur-3xl animate-pulse-slow animation-delay-1000" />
+        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-white/3 rounded-full blur-3xl animate-spin-slow" />
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-slate-600/20 rounded-full blur-3xl animate-pulse-slow animation-delay-500" />
       </div>
 
       <div className="absolute top-6 left-8 z-20">
@@ -112,16 +113,17 @@ export default function HeroCarousel() {
                   transform: `perspective(1000px) rotateY(${mousePosition.x * 0.5}deg) rotateX(${-mousePosition.y * 0.5}deg)`
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/30 to-transparent rounded-full blur-3xl animate-pulse-slow" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-orange-500/20 to-transparent rounded-full blur-3xl animate-pulse-slow" />
                 
                 <img 
                   src="https://cdn.poehali.dev/files/1d11d89c-80ea-4eb2-aaf5-340a4fc497fb.jpg"
                   alt="Nike Basketball Shoes Sole"
-                  className="relative z-10 w-full drop-shadow-2xl animate-float"
+                  className="relative z-10 w-full drop-shadow-[0_0_80px_rgba(255,255,255,0.3)] animate-float"
                 />
                 
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-orange-500 rounded-full blur-3xl animate-pulse opacity-50" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-600 rounded-full blur-3xl animate-pulse opacity-30 animation-delay-500" />
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/30 rounded-full blur-3xl animate-pulse opacity-60" />
+                <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-orange-500/40 rounded-full blur-3xl animate-pulse opacity-40 animation-delay-500" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse-slow" />
               </div>
 
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-4">
