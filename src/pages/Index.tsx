@@ -71,7 +71,7 @@ const products: Product[] = [
     brand: 'Nike', 
     color: 'Оранжевый', 
     image: sneakerImages[17],
-    images: [sneakerImages[17], 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/11a912d2-2fb5-46b0-9bcf-c55636dd088f.jpg', 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/5871e394-d933-47de-a0a5-af6651b74295.jpg'],
+    images: [sneakerImages[17], 'https://cdn.poehali.dev/files/f19e3a96-c7e8-4d2c-8896-935e425c8b16.jpg', 'https://cdn.poehali.dev/files/cacb65b7-fc3f-435f-a7b4-fe9648e1b5f0.jpg', 'https://cdn.poehali.dev/files/cbff3858-f0ef-4850-9c9e-bf72f100af0d.jpg', 'https://cdn.poehali.dev/files/2b8b3012-bcfb-4713-b115-c56961e9ec39.jpg', 'https://cdn.poehali.dev/files/fed6a56d-1ab5-4103-8e50-cf4fe86b2c08.jpg'],
     priceFrom: true,
     description: 'Последняя модель линейки Kevin Durant. Создана для взрывной игры и точных бросков.',
     features: ['Полноразмерная подушка Air Strobel', 'Верх из синтетики и сетки', 'Поддержка голеностопа', 'Профессиональное сцепление'],
