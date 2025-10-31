@@ -115,8 +115,8 @@ export default function HeroCarousel() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/30 to-transparent rounded-full blur-3xl animate-pulse-slow" />
                 
                 <img 
-                  src="https://cdn.poehali.dev/files/5e754ed8-22b8-4e63-b4d9-aeed8e19a688.jpg"
-                  alt="Nike Basketball Shoes"
+                  src="https://cdn.poehali.dev/files/1d11d89c-80ea-4eb2-aaf5-340a4fc497fb.jpg"
+                  alt="Nike Basketball Shoes Sole"
                   className="relative z-10 w-full drop-shadow-2xl animate-float"
                 />
                 
