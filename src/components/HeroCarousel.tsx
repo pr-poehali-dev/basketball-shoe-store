@@ -36,66 +36,81 @@ export default function HeroCarousel() {
         <Icon name="Dribbble" size={40} className="text-black drop-shadow-xl md:w-12 md:h-12" />
       </div>
 
-      <div className="relative z-10 h-full flex items-start md:items-center px-4 pt-24 md:pt-20 md:px-12 lg:px-20">
-        <div className="max-w-2xl space-y-4 md:space-y-8 w-full">
-          <div className="space-y-3 md:space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-black/80 border border-black rounded-full backdrop-blur-xl">
-              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-orange-400 rounded-full animate-pulse" />
-              <span className="text-white text-xs md:text-sm font-bold uppercase tracking-widest">
-                Basketball Store
-              </span>
-            </div>
-            
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-archivo leading-tight tracking-tight">
-              <span className="text-black drop-shadow-sm">
-                ПОБЕДА В КАЖДОМ
-              </span>
-              <br />
-              <span className="text-black drop-shadow-sm">
-                ДВИЖЕНИИ
-              </span>
-            </h1>
-            
-            <p className="text-sm md:text-base lg:text-lg text-black/80 max-w-md font-inter font-normal leading-relaxed">
-              Оригинальные баскетбольные кроссовки от мировых брендов. Гарантия качества и стиля.
-            </p>
+      <div className="relative z-10 h-full flex flex-col justify-between md:justify-center px-4 pt-24 pb-8 md:pt-20 md:px-12 lg:px-20">
+        <div className="max-w-2xl space-y-3 md:space-y-6 w-full">
+          <div className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-black/80 border border-black rounded-full backdrop-blur-xl">
+            <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-orange-400 rounded-full animate-pulse" />
+            <span className="text-white text-xs md:text-sm font-bold uppercase tracking-widest">
+              Basketball Store
+            </span>
           </div>
+          
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-archivo leading-tight tracking-tight">
+            <span className="text-black drop-shadow-sm">
+              ПОБЕДА В КАЖДОМ
+            </span>
+            <br />
+            <span className="text-black drop-shadow-sm">
+              ДВИЖЕНИИ
+            </span>
+          </h1>
+          
+          <p className="text-sm md:text-base lg:text-lg text-black/80 max-w-md font-inter font-normal leading-relaxed">
+            Оригинальные баскетбольные кроссовки от мировых брендов. Гарантия качества и стиля.
+          </p>
+        </div>
 
-          <div className="flex flex-col sm:flex-row gap-2.5 md:gap-3 pt-3 md:pt-6 max-w-lg">
-            <Button 
-              size="default" 
-              className="bg-black hover:bg-black/80 text-white font-inter font-semibold px-5 py-3 md:px-8 md:py-5 text-xs md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all group w-full sm:w-auto"
-            >
-              Смотреть каталог
-              <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" size={14} />
-            </Button>
-            
-            <Button 
-              size="default" 
-              variant="outline"
-              className="border-2 border-black/90 bg-transparent text-black hover:bg-white hover:text-black hover:border-black font-inter font-semibold px-3 py-2.5 md:px-8 md:py-5 text-[11px] md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
-            >
-              <Icon name="Sparkles" className="mr-1.5" size={12} />
-              Подобрать модель
-            </Button>
-          </div>
+        <div className="flex flex-col md:flex-row gap-2 md:gap-3 max-w-lg">
+          <Button 
+            size="default" 
+            className="bg-black hover:bg-black/80 text-white font-inter font-semibold px-4 py-2.5 md:px-8 md:py-5 text-[11px] md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all group w-full sm:w-auto"
+          >
+            Смотреть каталог
+            <Icon name="ArrowRight" className="ml-1.5 group-hover:translate-x-1 transition-transform" size={12} />
+          </Button>
+          
+          <Button 
+            size="default" 
+            variant="outline"
+            className="border-2 border-black/90 bg-transparent text-black hover:bg-white hover:text-black hover:border-black font-inter font-semibold px-4 py-2.5 md:px-8 md:py-5 text-[11px] md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+          >
+            <Icon name="Sparkles" className="mr-1.5" size={12} />
+            Подобрать модель
+          </Button>
+        </div>
+      </div>
 
-          <div className="grid grid-cols-3 gap-2 md:flex md:items-center md:gap-4 pt-4 md:pt-8">
-            <div className="text-center px-2.5 py-2 md:px-4 md:py-2.5 bg-black/80 backdrop-blur-xl rounded-lg md:rounded-xl border border-black">
-              <div className="text-white font-inter font-bold text-base md:text-xl">100%</div>
-              <div className="text-white/90 font-inter text-[9px] md:text-[10px] uppercase tracking-wide mt-0.5">Оригинал</div>
-            </div>
-            
-            <div className="text-center px-2.5 py-2 md:px-4 md:py-2.5 bg-black/80 backdrop-blur-xl rounded-lg md:rounded-xl border border-black">
-              <div className="text-white font-inter font-bold text-base md:text-xl">1-3 дня</div>
-              <div className="text-white/90 font-inter text-[9px] md:text-[10px] uppercase tracking-wide mt-0.5">Доставка</div>
-            </div>
-            
-            <div className="text-center px-2.5 py-2 md:px-4 md:py-2.5 bg-black/80 backdrop-blur-xl rounded-lg md:rounded-xl border border-black">
-              <div className="text-white font-inter font-bold text-base md:text-xl">1 год</div>
-              <div className="text-white/90 font-inter text-[9px] md:text-[10px] uppercase tracking-wide mt-0.5">Гарантия</div>
-            </div>
-          </div>
+      <div className="absolute top-1/2 -translate-y-1/2 right-4 flex flex-col gap-2 md:hidden z-20">
+        <div className="text-center px-2 py-1.5 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
+          <div className="text-white font-inter font-bold text-sm">100%</div>
+          <div className="text-white/90 font-inter text-[8px] uppercase tracking-wide">Оригинал</div>
+        </div>
+        
+        <div className="text-center px-2 py-1.5 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
+          <div className="text-white font-inter font-bold text-sm">1-3 дня</div>
+          <div className="text-white/90 font-inter text-[8px] uppercase tracking-wide">Доставка</div>
+        </div>
+        
+        <div className="text-center px-2 py-1.5 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
+          <div className="text-white font-inter font-bold text-sm">1 год</div>
+          <div className="text-white/90 font-inter text-[8px] uppercase tracking-wide">Гарантия</div>
+        </div>
+      </div>
+
+      <div className="hidden md:flex md:items-center md:gap-4 absolute bottom-32 left-12 lg:left-20">
+        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
+          <div className="text-white font-inter font-bold text-xl">100%</div>
+          <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Оригинал</div>
+        </div>
+        
+        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
+          <div className="text-white font-inter font-bold text-xl">1-3 дня</div>
+          <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Доставка</div>
+        </div>
+        
+        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
+          <div className="text-white font-inter font-bold text-xl">1 год</div>
+          <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Гарантия</div>
         </div>
       </div>
 
