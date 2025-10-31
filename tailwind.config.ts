@@ -107,7 +107,9 @@ export default {
 			},
 			fontFamily: {
 				'oswald': ['Oswald', 'sans-serif'],
-				'roboto': ['Roboto', 'sans-serif']
+				'roboto': ['Roboto', 'sans-serif'],
+				'archivo': ['Archivo Black', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif']
 			}
 		}
 	},
