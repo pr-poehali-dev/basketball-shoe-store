@@ -84,7 +84,7 @@ const products: Product[] = [
     brand: 'Jordan', 
     color: 'Фиолетовый', 
     image: 'https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg',
-    images: ['https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/11a912d2-2fb5-46b0-9bcf-c55636dd088f.jpg', 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/ccf77b08-bca2-42bc-b177-bf50d72faabf.jpg'],
+    images: ['https://cdn.poehali.dev/files/1cca4b29-79a7-4323-bdc2-01b7fde981c3.jpg', 'https://cdn.poehali.dev/files/de342d93-c161-4a52-87a9-c86fdaeacaac.jpg', 'https://cdn.poehali.dev/files/43d1dcb0-85b5-462d-8847-ed83f0a54ee5.jpg', 'https://cdn.poehali.dev/files/1dbb88cb-0ccd-425e-bde0-bc4e6a6bf4ac.jpg', 'https://cdn.poehali.dev/files/a7f870ad-5c43-4106-b0bd-7db82272b638.jpg'],
     priceFrom: true,
     description: 'Сигнатурная модель Луки Дончича. Стиль и производительность в одной паре.',
     features: ['Технология IsoPlate для стабильности', 'Система шнуровки Formula 23', 'Амортизация Cushlon 3.0', 'Уникальный дизайн от Луки'],
