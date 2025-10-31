@@ -36,7 +36,7 @@ export default function HeroCarousel() {
         <Icon name="Dribbble" size={40} className="text-black drop-shadow-xl md:w-12 md:h-12" />
       </div>
 
-      <div className="relative z-10 h-full flex items-center px-4 py-20 md:px-12 lg:px-20">
+      <div className="relative z-10 h-full flex items-start md:items-center px-4 pt-24 md:pt-20 md:px-12 lg:px-20">
         <div className="max-w-2xl space-y-4 md:space-y-8 w-full">
           <div className="space-y-3 md:space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-black/80 border border-black rounded-full backdrop-blur-xl">
@@ -64,7 +64,7 @@ export default function HeroCarousel() {
           <div className="flex flex-col sm:flex-row gap-2.5 md:gap-3 pt-3 md:pt-6 max-w-lg">
             <Button 
               size="default" 
-              className="bg-black hover:bg-black/80 text-white font-inter font-semibold px-6 py-4 md:px-8 md:py-5 text-xs md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all group w-full sm:w-auto"
+              className="bg-black hover:bg-black/80 text-white font-inter font-semibold px-5 py-3 md:px-8 md:py-5 text-xs md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all group w-full sm:w-auto"
             >
               Смотреть каталог
               <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" size={14} />
@@ -73,9 +73,9 @@ export default function HeroCarousel() {
             <Button 
               size="default" 
               variant="outline"
-              className="border-2 border-black/90 bg-transparent text-black hover:bg-white hover:text-black hover:border-black font-inter font-semibold px-6 py-4 md:px-8 md:py-5 text-xs md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+              className="border-2 border-black/90 bg-transparent text-black hover:bg-white hover:text-black hover:border-black font-inter font-semibold px-3 py-2.5 md:px-8 md:py-5 text-[11px] md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
             >
-              <Icon name="Sparkles" className="mr-2" size={14} />
+              <Icon name="Sparkles" className="mr-1.5" size={12} />
               Подобрать модель
             </Button>
           </div>
