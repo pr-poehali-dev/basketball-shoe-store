@@ -36,7 +36,26 @@ export default function HeroCarousel() {
         <Icon name="Dribbble" size={40} className="text-black drop-shadow-xl md:w-12 md:h-12" />
       </div>
 
-      <div className="relative z-10 h-full flex flex-col justify-between md:justify-start md:pt-32 lg:pt-40 px-4 pt-24 pb-8 md:px-12 lg:px-20">
+      <div className="hidden md:flex absolute top-6 right-8 flex-col gap-3 z-30">
+        <div className="flex items-center gap-3 px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
+          <Icon name="ShieldCheck" className="text-orange-400" size={20} />
+          <span className="text-white text-sm font-semibold">Официальный дилер</span>
+        </div>
+        
+        <div className="flex items-center gap-3">
+          <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black flex-1">
+            <div className="text-white font-inter font-bold text-lg">100%</div>
+            <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Оригинал</div>
+          </div>
+          
+          <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black flex-1">
+            <div className="text-white font-inter font-bold text-lg">1 год</div>
+            <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Гарантия</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative z-10 h-full flex flex-col justify-between md:justify-start md:pt-20 lg:pt-24 px-4 pt-24 pb-8 md:px-12 lg:px-20">
         <div className="max-w-2xl space-y-3 md:space-y-6 w-full">
           <div className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-black/80 border border-black rounded-full backdrop-blur-xl">
             <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-orange-400 rounded-full animate-pulse" />
@@ -96,17 +115,7 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      <div className="hidden md:flex md:items-center md:gap-4 absolute bottom-32 left-12 lg:left-20">
-        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
-          <div className="text-white font-inter font-bold text-xl">100%</div>
-          <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Оригинал</div>
-        </div>
-        
-        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
-          <div className="text-white font-inter font-bold text-xl">1 год</div>
-          <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Гарантия</div>
-        </div>
-      </div>
+
 
       <div className="hidden md:flex absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex-col items-center gap-3">
         <span className="text-black/60 text-xs uppercase tracking-widest">Прокрути вниз</span>
@@ -115,12 +124,7 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      <div className="hidden md:flex absolute bottom-8 left-8 flex-col gap-3">
-        <div className="flex items-center gap-3 px-4 py-2 bg-black/80 backdrop-blur-xl rounded-full border border-black">
-          <Icon name="ShieldCheck" className="text-orange-400" size={20} />
-          <span className="text-white text-sm font-semibold">Официальный дилер</span>
-        </div>
-      </div>
+
 
       <div className="hidden md:flex absolute bottom-8 right-8 gap-3">
         <div className="w-12 h-12 bg-black/80 backdrop-blur-xl rounded-full border border-black flex items-center justify-center hover:bg-black transition-colors cursor-pointer group">
