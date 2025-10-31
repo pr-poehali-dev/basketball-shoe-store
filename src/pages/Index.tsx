@@ -292,13 +292,9 @@ const Index = () => {
 
       <header className="fixed top-0 w-full bg-secondary/95 backdrop-blur-sm z-50 border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img 
-              src="https://cdn.poehali.dev/files/0fb8a498-4ee7-4ccd-932c-ce19d4d6b529.jpg" 
-              alt="SK Basketball Store"
-              className="h-12 w-12 object-contain"
-            />
-            <h1 className="text-xl md:text-3xl font-oswald font-bold text-white">SK Basketball Store</h1>
+          <div className="flex items-center gap-2">
+            <Icon name="Dribbble" size={32} className="text-primary" />
+            <h1 className="text-xl md:text-3xl font-oswald font-bold text-white">SKBasketShop</h1>
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <a href="#catalog" className="text-white hover:text-primary transition-colors">Каталог</a>

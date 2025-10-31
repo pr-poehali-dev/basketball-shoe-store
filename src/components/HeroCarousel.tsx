@@ -26,11 +26,7 @@ export default function HeroCarousel() {
       </div>
 
       <div className="absolute top-6 left-8 z-20">
-        <img 
-          src="https://cdn.poehali.dev/files/0fb8a498-4ee7-4ccd-932c-ce19d4d6b529.jpg" 
-          alt="SK Basketball Store"
-          className="h-20 w-20 object-contain drop-shadow-2xl"
-        />
+        <Icon name="Dribbble" size={48} className="text-orange-500 drop-shadow-2xl" />
       </div>
 
       <div className="relative z-10 h-full flex items-center">
