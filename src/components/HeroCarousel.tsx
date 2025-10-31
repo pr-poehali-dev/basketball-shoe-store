@@ -73,7 +73,7 @@ export default function HeroCarousel() {
             <Button 
               size="default" 
               variant="outline"
-              className="border-2 border-black/90 bg-white/80 backdrop-blur-sm text-black hover:bg-white hover:border-black font-inter font-semibold px-8 py-5 text-sm rounded-full shadow-lg hover:shadow-xl transition-all"
+              className="border-2 border-black/90 bg-transparent text-black hover:bg-white hover:text-black hover:border-black font-inter font-semibold px-8 py-5 text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <Icon name="Sparkles" className="mr-2" size={16} />
               Подобрать модель
