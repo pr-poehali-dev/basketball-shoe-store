@@ -60,10 +60,10 @@ export default function HeroCarousel() {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-2 md:gap-3 max-w-lg">
+        <div className="flex gap-2 md:gap-3">
           <Button 
             size="default" 
-            className="bg-black hover:bg-black/80 text-white font-inter font-semibold px-3.5 py-2 md:px-8 md:py-5 text-[10px] md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all group w-full sm:w-auto"
+            className="bg-black hover:bg-black/80 text-white font-inter font-semibold px-3.5 py-2 md:px-8 md:py-5 text-[10px] md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all group"
           >
             Смотреть каталог
             <Icon name="ArrowRight" className="ml-1 group-hover:translate-x-1 transition-transform" size={11} />
@@ -72,7 +72,7 @@ export default function HeroCarousel() {
           <Button 
             size="default" 
             variant="outline"
-            className="border-2 border-black/90 bg-transparent text-black hover:bg-white hover:text-black hover:border-black font-inter font-semibold px-3.5 py-2 md:px-8 md:py-5 text-[10px] md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+            className="border-2 border-black/90 bg-transparent text-black hover:bg-white hover:text-black hover:border-black font-inter font-semibold px-3.5 py-2 md:px-8 md:py-5 text-[10px] md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <Icon name="Sparkles" className="mr-1" size={11} />
             Подобрать модель
