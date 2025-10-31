@@ -419,28 +419,29 @@ const Index = () => {
                   className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
-              <div className="flex gap-2">
+              <div className="grid grid-cols-3 gap-2 md:flex md:gap-2">
                 <Button
                   variant={sortOrder === 'default' ? 'default' : 'outline'}
                   onClick={() => setSortOrder('default')}
-                  className="flex-1 md:flex-none"
+                  className="text-xs md:text-sm px-2 md:px-4"
                 >
-                  По умолчанию
+                  <span className="hidden sm:inline">По умолчанию</span>
+                  <span className="sm:hidden">Стандарт</span>
                 </Button>
                 <Button
                   variant={sortOrder === 'asc' ? 'default' : 'outline'}
                   onClick={() => setSortOrder('asc')}
-                  className="flex-1 md:flex-none"
+                  className="text-xs md:text-sm px-2 md:px-4"
                 >
-                  <Icon name="ArrowUp" size={16} className="mr-1" />
+                  <Icon name="ArrowUp" size={14} className="mr-1 md:w-4 md:h-4" />
                   Дешевле
                 </Button>
                 <Button
                   variant={sortOrder === 'desc' ? 'default' : 'outline'}
                   onClick={() => setSortOrder('desc')}
-                  className="flex-1 md:flex-none"
+                  className="text-xs md:text-sm px-2 md:px-4"
                 >
-                  <Icon name="ArrowDown" size={16} className="mr-1" />
+                  <Icon name="ArrowDown" size={14} className="mr-1 md:w-4 md:h-4" />
                   Дороже
                 </Button>
               </div>
