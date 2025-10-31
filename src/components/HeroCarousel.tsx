@@ -60,7 +60,7 @@ export default function HeroCarousel() {
           </p>
         </div>
 
-        <div className="flex gap-2 md:gap-3">
+        <div className="flex flex-col items-start gap-2 md:flex-row md:gap-3">
           <Button 
             size="default" 
             className="bg-black hover:bg-black/80 text-white font-inter font-semibold px-3.5 py-2 md:px-8 md:py-5 text-[10px] md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all group"
