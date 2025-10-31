@@ -40,8 +40,8 @@ export default function HeroCarousel() {
         <Icon name="Dribbble" size={48} className="text-white drop-shadow-2xl" />
       </div>
 
-      <div className="relative z-10 h-full flex items-center justify-center px-6">
-        <div className="text-center max-w-5xl space-y-8">
+      <div className="relative z-10 h-full flex items-center px-6 md:px-12 lg:px-20">
+        <div className="max-w-2xl space-y-8">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 rounded-full backdrop-blur-xl">
               <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
@@ -50,7 +50,7 @@ export default function HeroCarousel() {
               </span>
             </div>
             
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-none tracking-tighter">
               <span className="text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]" style={{ textShadow: '0 0 40px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.9)' }}>
                 ИГРАЙ НА
               </span>
@@ -60,46 +60,46 @@ export default function HeroCarousel() {
               </span>
             </h1>
             
-            <p className="text-xl md:text-3xl text-white max-w-3xl mx-auto font-semibold tracking-wide" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 4px 20px rgba(0,0,0,0.7)' }}>
+            <p className="text-lg md:text-2xl text-white max-w-xl font-semibold tracking-wide" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 4px 20px rgba(0,0,0,0.7)' }}>
               Оригинальные баскетбольные кроссовки
               <br />
               от мировых брендов
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
+          <div className="flex flex-col gap-4 pt-6 max-w-md">
             <Button 
               size="lg" 
-              className="bg-white hover:bg-white/90 text-black font-bold px-14 py-8 text-lg rounded-full shadow-2xl hover:scale-105 transition-all group"
+              className="bg-white hover:bg-white/90 text-black font-bold px-12 py-7 text-base rounded-full shadow-2xl hover:scale-105 transition-all group w-full"
             >
               Смотреть каталог
-              <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" size={24} />
+              <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </Button>
             
             <Button 
               size="lg" 
               variant="outline"
-              className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-xl font-bold px-14 py-8 text-lg rounded-full hover:scale-105 transition-all"
+              className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-xl font-bold px-12 py-7 text-base rounded-full hover:scale-105 transition-all w-full"
             >
-              <Icon name="Play" className="mr-2" size={24} />
+              <Icon name="Play" className="mr-2" size={20} />
               Подобрать кроссовки
             </Button>
           </div>
 
-          <div className="flex items-center justify-center gap-12 pt-12">
-            <div className="text-center px-6 py-4 bg-black/50 backdrop-blur-xl rounded-2xl border border-white/10">
-              <div className="text-white font-black text-3xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}>100%</div>
-              <div className="text-white/90 text-sm uppercase tracking-widest mt-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Оригинал</div>
+          <div className="flex items-center gap-6 pt-8">
+            <div className="text-center px-5 py-3 bg-black/50 backdrop-blur-xl rounded-2xl border border-white/10">
+              <div className="text-white font-black text-2xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}>100%</div>
+              <div className="text-white/90 text-xs uppercase tracking-widest mt-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Оригинал</div>
             </div>
             
-            <div className="text-center px-6 py-4 bg-black/50 backdrop-blur-xl rounded-2xl border border-white/10">
-              <div className="text-white font-black text-3xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}>3+</div>
-              <div className="text-white/90 text-sm uppercase tracking-widest mt-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Доставка</div>
+            <div className="text-center px-5 py-3 bg-black/50 backdrop-blur-xl rounded-2xl border border-white/10">
+              <div className="text-white font-black text-2xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}>3+</div>
+              <div className="text-white/90 text-xs uppercase tracking-widest mt-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Доставка</div>
             </div>
             
-            <div className="text-center px-6 py-4 bg-black/50 backdrop-blur-xl rounded-2xl border border-white/10">
-              <div className="text-white font-black text-3xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}>1 год</div>
-              <div className="text-white/90 text-sm uppercase tracking-widest mt-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Гарантия</div>
+            <div className="text-center px-5 py-3 bg-black/50 backdrop-blur-xl rounded-2xl border border-white/10">
+              <div className="text-white font-black text-2xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}>1 год</div>
+              <div className="text-white/90 text-xs uppercase tracking-widest mt-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Гарантия</div>
             </div>
           </div>
         </div>
