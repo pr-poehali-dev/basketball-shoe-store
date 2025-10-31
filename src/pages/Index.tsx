@@ -12,9 +12,7 @@ import ProductCard from '@/components/ProductCard';
 import StickyTelegram from '@/components/StickyTelegram';
 import CompareProducts from '@/components/CompareProducts';
 import HeroCarousel from '@/components/HeroCarousel';
-import BrandsGrid from '@/components/BrandsGrid';
 import RunningLine from '@/components/RunningLine';
-import ProBanner from '@/components/ProBanner';
 
 interface Product {
   id: number;
@@ -387,10 +385,6 @@ const Index = () => {
       <HeroCarousel />
 
       <RunningLine />
-
-      <BrandsGrid />
-
-      <ProBanner />
 
       <section id="catalog" data-animate className="py-20 md:py-32 bg-background">
         <div className="container mx-auto px-4">
