@@ -87,7 +87,9 @@ export default function HeroCarousel() {
               <span className="text-black/40">•</span>
               <span className="text-black font-inter font-bold text-lg">Jordan</span>
               <span className="text-black/40">•</span>
-              <span className="text-black font-inter font-bold text-lg">Adidas</span>
+              <span className="text-black font-inter font-bold text-lg">Curry</span>
+              <span className="text-black/40">•</span>
+              <span className="text-black font-inter font-bold text-lg">Anta</span>
             </div>
           </div>
         </div>
