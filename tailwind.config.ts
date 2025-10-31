@@ -106,7 +106,7 @@ export default {
 				'bounce-slow': 'bounce-slow 2s ease-in-out infinite'
 			},
 			fontFamily: {
-				'bebas': ['Bebas Neue', 'sans-serif'],
+				'anton': ['Anton', 'sans-serif'],
 				'inter': ['Inter', 'sans-serif']
 			}
 		}

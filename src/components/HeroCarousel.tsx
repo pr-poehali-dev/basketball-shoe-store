@@ -36,22 +36,22 @@ export default function HeroCarousel() {
         <Icon name="Dribbble" size={40} className="text-black drop-shadow-xl md:w-12 md:h-12" />
       </div>
 
-      <div className="hidden md:flex absolute top-6 right-8 flex-col gap-3 z-30">
-        <div className="flex items-center gap-3 px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
-          <Icon name="ShieldCheck" className="text-orange-400" size={20} />
-          <span className="text-white text-sm font-semibold">Официальный дилер</span>
+      <div className="hidden md:flex absolute top-6 right-8 gap-3 z-30">
+        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
+          <div className="flex items-center gap-2 mb-1">
+            <Icon name="ShieldCheck" className="text-orange-400" size={16} />
+            <div className="text-white font-inter font-bold text-sm">Офиц. дилер</div>
+          </div>
         </div>
         
-        <div className="flex items-center gap-3">
-          <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black flex-1">
-            <div className="text-white font-inter font-bold text-lg">100%</div>
-            <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Оригинал</div>
-          </div>
-          
-          <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black flex-1">
-            <div className="text-white font-inter font-bold text-lg">1 год</div>
-            <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Гарантия</div>
-          </div>
+        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
+          <div className="text-white font-inter font-bold text-lg">100%</div>
+          <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Оригинал</div>
+        </div>
+        
+        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
+          <div className="text-white font-inter font-bold text-lg">1 год</div>
+          <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Гарантия</div>
         </div>
       </div>
 
@@ -64,7 +64,7 @@ export default function HeroCarousel() {
             </span>
           </div>
           
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bebas leading-none tracking-wider">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-anton leading-none tracking-wide">
             <span className="text-black drop-shadow-sm">
               ПОБЕДА
             </span>
@@ -83,22 +83,22 @@ export default function HeroCarousel() {
           </p>
         </div>
 
-        <div className="flex flex-col items-start gap-2 md:flex-row md:gap-3">
+        <div className="flex flex-col items-start gap-3 md:absolute md:bottom-12 md:left-12 lg:left-20">
           <Button 
-            size="default" 
-            className="bg-black hover:bg-black/80 text-white font-inter font-semibold px-4 py-2.5 md:px-8 md:py-5 text-xs md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all group"
+            size="lg" 
+            className="bg-black hover:bg-black/80 text-white font-inter font-semibold px-6 py-3 md:px-10 md:py-6 text-sm md:text-base rounded-full shadow-lg hover:shadow-xl transition-all group"
           >
             Смотреть каталог
-            <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" size={14} />
+            <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
           </Button>
           
           <Button 
-            size="default" 
+            size="lg" 
             variant="outline"
-            className="border-2 border-black/90 bg-transparent text-black hover:bg-white hover:text-black hover:border-black font-inter font-semibold px-4 py-2.5 md:px-8 md:py-5 text-xs md:text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            className="border-2 border-black/90 bg-transparent text-black hover:bg-white hover:text-black hover:border-black font-inter font-semibold px-6 py-3 md:px-10 md:py-6 text-sm md:text-base rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
           >
             Подобрать модель
-            <Icon name="Sparkles" className="ml-2" size={14} />
+            <Icon name="Sparkles" className="ml-2" size={18} />
           </Button>
         </div>
       </div>
