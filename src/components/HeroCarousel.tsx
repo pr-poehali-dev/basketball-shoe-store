@@ -80,7 +80,7 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      <div className="absolute top-1/2 -translate-y-1/2 right-4 flex flex-col gap-2 md:hidden z-20">
+      <div className="absolute top-1/2 -translate-y-1/2 left-4 flex flex-col gap-2 md:hidden z-20">
         <div className="text-center px-2 py-1.5 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
           <div className="text-white font-inter font-bold text-sm">100%</div>
           <div className="text-white/90 font-inter text-[8px] uppercase tracking-wide">Оригинал</div>
