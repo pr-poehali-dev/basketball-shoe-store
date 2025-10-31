@@ -97,7 +97,7 @@ const products: Product[] = [
     brand: 'Nike', 
     color: 'Коричневый', 
     image: sneakerImages[16],
-    images: [sneakerImages[16], 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/5871e394-d933-47de-a0a5-af6651b74295.jpg', 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/ccf77b08-bca2-42bc-b177-bf50d72faabf.jpg'],
+    images: [sneakerImages[16], 'https://cdn.poehali.dev/files/b16c9b56-c3f8-46b7-b4b4-e22d98e854b9.jpg', 'https://cdn.poehali.dev/files/3ee8b930-08c6-46b8-af8c-c289564131b3.jpg', 'https://cdn.poehali.dev/files/1133c05f-4932-47fa-a071-c2dd452b4ffb.jpg', 'https://cdn.poehali.dev/files/454b808c-e98f-4a63-ad54-07df179c31b8.jpg', 'https://cdn.poehali.dev/files/bdc0a729-58e0-43b7-a635-a353fe7fc357.jpg'],
     priceFrom: true,
     description: 'Культовая ретро-модель из коллекции Kevin Durant в коричневой расцветке.',
     features: ['Классическая амортизация Nike Zoom', 'Прочный синтетический верх', 'Винтажный дизайн', 'Надёжная фиксация стопы'],
