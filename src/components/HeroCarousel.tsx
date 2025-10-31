@@ -65,7 +65,7 @@ export default function HeroCarousel() {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="border-2 border-white/20 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-10 py-7 text-lg rounded-full hover:scale-105 transition-transform"
+                  className="border-2 border-white text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm font-bold px-10 py-7 text-lg rounded-full hover:scale-105 transition-all"
                 >
                   <Icon name="Sparkles" className="mr-2" size={24} />
                   Подобрать кроссовки
