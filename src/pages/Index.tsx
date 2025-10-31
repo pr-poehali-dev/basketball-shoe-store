@@ -424,39 +424,39 @@ const Index = () => {
                   className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-2 md:flex md:gap-2">
-                <Button
-                  variant={sortOrder === 'default' ? 'default' : 'outline'}
-                  onClick={() => setSortOrder('default')}
-                  className="text-xs md:text-sm px-2 md:px-4"
-                >
-                  <span className="hidden sm:inline">По умолчанию</span>
-                  <span className="sm:hidden">Стандарт</span>
-                </Button>
-                <Button
-                  variant={sortOrder === 'asc' ? 'default' : 'outline'}
-                  onClick={() => setSortOrder('asc')}
-                  className="text-xs md:text-sm px-2 md:px-4"
-                >
-                  <Icon name="ArrowUp" size={14} className="mr-1 md:w-4 md:h-4" />
-                  Дешевле
-                </Button>
-                <Button
-                  variant={sortOrder === 'desc' ? 'default' : 'outline'}
-                  onClick={() => setSortOrder('desc')}
-                  className="text-xs md:text-sm px-2 md:px-4"
-                >
-                  <Icon name="ArrowDown" size={14} className="mr-1 md:w-4 md:h-4" />
-                  Дороже
-                </Button>
+              <div className="flex flex-col gap-2 md:flex-row md:gap-2">
+                <div className="flex gap-2">
+                  <Button
+                    variant={sortOrder === 'default' ? 'default' : 'outline'}
+                    onClick={() => setSortOrder('default')}
+                    className="text-xs md:text-sm px-3 md:px-4 flex-1"
+                  >
+                    Стандарт
+                  </Button>
+                  <Button
+                    variant={sortOrder === 'asc' ? 'default' : 'outline'}
+                    onClick={() => setSortOrder('asc')}
+                    className="text-xs md:text-sm px-3 md:px-4 md:min-w-[120px]"
+                  >
+                    <Icon name="ArrowUp" size={14} className="md:mr-1" />
+                    <span className="hidden md:inline">Дешевле</span>
+                  </Button>
+                  <Button
+                    variant={sortOrder === 'desc' ? 'default' : 'outline'}
+                    onClick={() => setSortOrder('desc')}
+                    className="text-xs md:text-sm px-3 md:px-4 md:min-w-[120px]"
+                  >
+                    <Icon name="ArrowDown" size={14} className="md:mr-1" />
+                    <span className="hidden md:inline">Дороже</span>
+                  </Button>
+                </div>
                 <Button
                   variant="outline"
                   onClick={() => setCompareOpen(!compareOpen)}
-                  className="text-xs md:text-sm px-2 md:px-4 relative col-span-2 md:col-span-1"
+                  className="text-xs md:text-sm px-3 md:px-4 relative w-full md:w-auto"
                 >
-                  <Icon name="Sparkles" size={14} className="mr-1 md:w-4 md:h-4" />
-                  <span className="hidden sm:inline">Сравнить модели</span>
-                  <span className="sm:hidden">Сравнить</span>
+                  <Icon name="Sparkles" size={14} className="mr-1 md:mr-2" />
+                  Сравнить модели
                   {compareProducts.length > 0 && (
                     <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground">
                       {compareProducts.length}
