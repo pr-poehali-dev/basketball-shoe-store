@@ -110,7 +110,7 @@ const products: Product[] = [
     brand: 'Curry', 
     color: 'Оранжевый', 
     image: sneakerImages[20],
-    images: [sneakerImages[20], 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/11a912d2-2fb5-46b0-9bcf-c55636dd088f.jpg', 'https://cdn.poehali.dev/projects/3daf642b-8f4f-41a0-bdee-d1123fc45986/files/ccf77b08-bca2-42bc-b177-bf50d72faabf.jpg'],
+    images: [sneakerImages[20], 'https://cdn.poehali.dev/files/53afca5f-0bb3-49d9-abeb-c67181d87735.jpg', 'https://cdn.poehali.dev/files/a9a1b9e6-3593-4bd4-8575-c1a7af60141b.jpg', 'https://cdn.poehali.dev/files/78d64152-1bcf-49f8-83ff-7c9925b426c0.jpg', 'https://cdn.poehali.dev/files/591c0a5f-cbac-4c86-a415-39033bd06d3a.jpg'],
     priceFrom: true,
     description: 'Лимитированная модель Curry с уникальным дизайном. Для скоростных разыгрывающих.',
     features: ['Технология UA Flow без резиновой подошвы', 'Лёгкий верх из текстиля', 'Отзывчивая амортизация', 'Дизайн от De\'Aaron Fox'],
