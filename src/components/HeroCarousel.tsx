@@ -36,7 +36,7 @@ export default function HeroCarousel() {
         <Icon name="Dribbble" size={40} className="text-black drop-shadow-xl md:w-12 md:h-12" />
       </div>
 
-      <div className="hidden md:flex absolute top-6 right-8 gap-3 z-30">
+      <div className="hidden md:flex absolute top-20 right-8 gap-3 z-30">
         <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
           <div className="flex items-center gap-2 mb-1">
             <Icon name="ShieldCheck" className="text-orange-400" size={16} />
@@ -78,9 +78,22 @@ export default function HeroCarousel() {
             </span>
           </h1>
           
-          <p className="text-sm md:text-base lg:text-lg text-black/80 max-w-md font-inter font-normal leading-relaxed">
-            Оригинальные баскетбольные кроссовки от мировых брендов. Гарантия качества и стиля.
-          </p>
+          <div className="space-y-4">
+            <p className="text-sm md:text-base lg:text-lg text-black/80 max-w-md font-inter font-normal leading-relaxed md:mt-4">
+              Оригинальные баскетбольные кроссовки от мировых брендов. Гарантия качества и стиля.
+            </p>
+            
+            <div className="hidden md:flex items-center gap-4">
+              <span className="text-black/60 text-sm font-inter font-semibold uppercase tracking-wide">Бренды:</span>
+              <div className="flex items-center gap-3">
+                <span className="text-black font-inter font-bold text-lg">Nike</span>
+                <span className="text-black/40">•</span>
+                <span className="text-black font-inter font-bold text-lg">Jordan</span>
+                <span className="text-black/40">•</span>
+                <span className="text-black font-inter font-bold text-lg">Adidas</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-col items-start gap-3 md:absolute md:bottom-12 md:left-12 lg:left-20">
