@@ -48,11 +48,11 @@ export default function HeroCarousel() {
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-archivo leading-tight tracking-tight">
               <span className="text-black drop-shadow-sm">
-                ИГРАЙ НА
+                ПОБЕДА В КАЖДОМ
               </span>
               <br />
               <span className="text-black drop-shadow-sm">
-                МАКСИМУМ
+                ДВИЖЕНИИ
               </span>
             </h1>
             
