@@ -45,7 +45,7 @@ export default function HeroCarousel() {
             </span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-archivo leading-tight tracking-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bebas leading-none tracking-wider">
             <span className="text-black drop-shadow-sm">
               ПОБЕДА В КАЖДОМ
             </span>

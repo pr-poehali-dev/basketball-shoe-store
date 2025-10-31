@@ -106,9 +106,7 @@ export default {
 				'bounce-slow': 'bounce-slow 2s ease-in-out infinite'
 			},
 			fontFamily: {
-				'oswald': ['Oswald', 'sans-serif'],
-				'roboto': ['Roboto', 'sans-serif'],
-				'archivo': ['Archivo Black', 'sans-serif'],
+				'bebas': ['Bebas Neue', 'sans-serif'],
 				'inter': ['Inter', 'sans-serif']
 			}
 		}
