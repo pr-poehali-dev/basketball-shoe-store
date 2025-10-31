@@ -149,6 +149,8 @@ const Index = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quizFilters, setQuizFilters] = useState<{position: string, style: string, budget: string} | null>(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+  const [compareProducts, setCompareProducts] = useState<Product[]>([]);
+  const [compareOpen, setCompareOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
