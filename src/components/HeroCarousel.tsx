@@ -16,11 +16,11 @@ interface HeroSlide {
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
-    title: 'Nike Hyperdunk 2017',
+    title: 'Nike Hyperdunk 2017 Low «Racer/Blue»',
     subtitle: 'Лёгкость и скорость на площадке',
     price: 'от 9 577 ₽',
-    image: 'https://cdn.poehali.dev/files/375c50a7-ad11-4146-a938-2fba7e4121b8.jpg',
-    bgGradient: 'from-blue-900/90 via-indigo-800/80 to-purple-900/90',
+    image: 'https://cdn.poehali.dev/files/5e754ed8-22b8-4e63-b4d9-aeed8e19a688.jpg',
+    bgGradient: 'from-orange-500 via-orange-400 to-orange-300',
     badge: 'ХИТ ПРОДАЖ'
   },
   {
@@ -104,39 +104,20 @@ export default function HeroCarousel() {
           }`}
         >
           <div className={`absolute inset-0 bg-gradient-to-br ${s.bgGradient}`} />
-          
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-20"
-            style={{
-              backgroundImage: 'url("https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80")',
-              filter: 'blur(2px)'
-            }}
-          />
         </div>
       ))}
 
       <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute left-8 bottom-8 z-30">
+          <svg width="80" height="80" viewBox="0 0 100 100" className="text-white opacity-90">
+            <text x="10" y="45" fontSize="48" fontWeight="bold" fill="currentColor" fontFamily="Arial, sans-serif">SK</text>
+          </svg>
+        </div>
         <div className="flex flex-col lg:flex-row items-center justify-between h-full gap-4 lg:gap-8 py-12 md:py-20">
           <div className="flex-1 text-center lg:text-left space-y-3 md:space-y-6 animate-fade-in">
-            {slide.badge && (
-              <Badge className="bg-primary text-white px-4 py-2 text-sm font-bold animate-pulse">
-                {slide.badge}
-              </Badge>
-            )}
-            
-            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight">
+            <h1 className="text-4xl sm:text-6xl lg:text-8xl font-extrabold text-white leading-tight" style={{ fontFamily: 'Arial, sans-serif', letterSpacing: '-0.02em' }}>
               {slide.title}
             </h1>
-            
-            <p className="text-base sm:text-xl lg:text-2xl text-gray-200 max-w-xl">
-              {slide.subtitle}
-            </p>
-            
-            <div className="flex items-baseline gap-2 md:gap-3 justify-center lg:justify-start">
-              <span className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white">
-                {slide.price}
-              </span>
-            </div>
 
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4">
               <Button 
@@ -165,17 +146,15 @@ export default function HeroCarousel() {
           </div>
 
           <div className="flex-1 flex items-center justify-center mt-4 lg:mt-0">
-            <div className="relative w-full max-w-[250px] sm:max-w-sm lg:max-w-lg animate-float">
+            <div className="relative w-full max-w-[300px] sm:max-w-md lg:max-w-2xl">
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-full h-auto drop-shadow-2xl transform transition-transform duration-1000"
+                className="w-full h-auto drop-shadow-2xl"
                 style={{
-                  filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5))'
+                  filter: 'drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4))'
                 }}
               />
-              
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl -z-10" />
             </div>
           </div>
         </div>
