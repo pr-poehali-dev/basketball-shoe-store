@@ -23,6 +23,17 @@ const ProductQuiz = ({ onComplete }: ProductQuizProps) => {
   });
 
   useEffect(() => {
+    const handleQuizOpen = () => {
+      setIsOpen(true);
+      setStep(0);
+      setAnswers({ position: '', style: '', budget: '' });
+    };
+
+    window.addEventListener('openQuiz', handleQuizOpen);
+    return () => window.removeEventListener('openQuiz', handleQuizOpen);
+  }, []);
+
+  useEffect(() => {
     const hasSeenQuiz = localStorage.getItem('hasSeenQuiz');
     if (!hasSeenQuiz) {
       const timer = setTimeout(() => {

@@ -93,6 +93,12 @@ export default function HeroCarousel() {
           <Button 
             size="lg" 
             className="bg-black hover:bg-black/80 text-white font-inter font-semibold px-6 py-3 md:px-10 md:py-6 text-sm md:text-base rounded-full shadow-lg hover:shadow-xl transition-all group"
+            onClick={() => {
+              const catalogElement = document.getElementById('catalog');
+              if (catalogElement) {
+                catalogElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
           >
             Смотреть каталог
             <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
@@ -102,6 +108,9 @@ export default function HeroCarousel() {
             size="lg" 
             variant="outline"
             className="border-2 border-black/90 bg-transparent text-black hover:bg-white hover:text-black hover:border-black font-inter font-semibold px-6 py-3 md:px-10 md:py-6 text-sm md:text-base rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={() => {
+              window.dispatchEvent(new Event('openQuiz'));
+            }}
           >
             Подобрать модель
             <Icon name="Sparkles" className="ml-2" size={18} />
