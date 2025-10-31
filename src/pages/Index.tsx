@@ -422,7 +422,7 @@ const Index = () => {
                   className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
-              <div className="grid grid-cols-3 gap-2 md:flex md:gap-2">
+              <div className="grid grid-cols-2 gap-2 md:flex md:gap-2">
                 <Button
                   variant={sortOrder === 'default' ? 'default' : 'outline'}
                   onClick={() => setSortOrder('default')}
@@ -446,6 +446,20 @@ const Index = () => {
                 >
                   <Icon name="ArrowDown" size={14} className="mr-1 md:w-4 md:h-4" />
                   Дороже
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => setCompareOpen(!compareOpen)}
+                  className="text-xs md:text-sm px-2 md:px-4 relative col-span-2 md:col-span-1"
+                >
+                  <Icon name="Sparkles" size={14} className="mr-1 md:w-4 md:h-4" />
+                  <span className="hidden sm:inline">Сравнить модели</span>
+                  <span className="sm:hidden">Сравнить</span>
+                  {compareProducts.length > 0 && (
+                    <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground">
+                      {compareProducts.length}
+                    </Badge>
+                  )}
                 </Button>
               </div>
             </div>
