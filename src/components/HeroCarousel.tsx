@@ -95,7 +95,7 @@ export default function HeroCarousel() {
   const slide = heroSlides[currentSlide];
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative h-screen w-full overflow-hidden" id="hero">
       {heroSlides.map((s, index) => (
         <div
           key={s.id}
@@ -116,56 +116,56 @@ export default function HeroCarousel() {
       ))}
 
       <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-between h-full gap-8 py-20">
-          <div className="flex-1 text-center lg:text-left space-y-6 animate-fade-in">
+        <div className="flex flex-col lg:flex-row items-center justify-between h-full gap-4 lg:gap-8 py-12 md:py-20">
+          <div className="flex-1 text-center lg:text-left space-y-3 md:space-y-6 animate-fade-in">
             {slide.badge && (
               <Badge className="bg-primary text-white px-4 py-2 text-sm font-bold animate-pulse">
                 {slide.badge}
               </Badge>
             )}
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight">
               {slide.title}
             </h1>
             
-            <p className="text-xl sm:text-2xl text-gray-200 max-w-xl">
+            <p className="text-base sm:text-xl lg:text-2xl text-gray-200 max-w-xl">
               {slide.subtitle}
             </p>
             
-            <div className="flex items-baseline gap-3">
-              <span className="text-4xl sm:text-5xl font-bold text-white">
+            <div className="flex items-baseline gap-2 md:gap-3 justify-center lg:justify-start">
+              <span className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white">
                 {slide.price}
               </span>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4">
               <Button 
-                size="lg" 
-                className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all"
+                size="default" 
+                className="text-sm md:text-lg px-4 md:px-8 h-10 md:h-14 bg-primary hover:bg-primary/90 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all"
                 asChild
               >
                 <a href="#catalog">
-                  <Icon name="ShoppingCart" size={24} className="mr-2" />
+                  <Icon name="ShoppingCart" size={20} className="mr-2 md:w-6 md:h-6" />
                   Смотреть каталог
                 </a>
               </Button>
               
               <Button 
-                size="lg" 
+                size="default" 
                 variant="outline" 
-                className="text-lg px-8 py-6 border-2 border-white text-white hover:bg-white hover:text-secondary"
+                className="text-sm md:text-lg px-4 md:px-8 h-10 md:h-14 border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-primary transition-all shadow-lg"
                 asChild
               >
                 <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-                  <Icon name="Send" size={24} className="mr-2" />
+                  <Icon name="Send" size={20} className="mr-2 md:w-6 md:h-6" />
                   Написать в Telegram
                 </a>
               </Button>
             </div>
           </div>
 
-          <div className="flex-1 flex items-center justify-center">
-            <div className="relative w-full max-w-lg animate-float">
+          <div className="flex-1 flex items-center justify-center mt-4 lg:mt-0">
+            <div className="relative w-full max-w-[250px] sm:max-w-sm lg:max-w-lg animate-float">
               <img
                 src={slide.image}
                 alt={slide.title}
@@ -183,21 +183,21 @@ export default function HeroCarousel() {
 
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all"
         aria-label="Предыдущий слайд"
       >
-        <Icon name="ChevronLeft" size={32} />
+        <Icon name="ChevronLeft" size={24} className="md:w-8 md:h-8" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all"
         aria-label="Следующий слайд"
       >
-        <Icon name="ChevronRight" size={32} />
+        <Icon name="ChevronRight" size={24} className="md:w-8 md:h-8" />
       </button>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2 md:gap-3">
         {heroSlides.map((_, index) => (
           <button
             key={index}
