@@ -43,14 +43,16 @@ export default function HeroCarousel() {
           <div className="text-white font-inter font-bold text-xs uppercase tracking-wide">дилер</div>
         </div>
         
-        <div className="text-center px-4 py-3 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
-          <div className="text-white font-inter font-bold text-lg">100%</div>
-          <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Оригинал</div>
+        <div className="text-center px-4 py-3 bg-black/80 backdrop-blur-xl rounded-xl border border-black flex flex-col items-center justify-center">
+          <Icon name="BadgeCheck" className="text-orange-400 mb-1" size={20} />
+          <div className="text-white font-inter font-bold text-xs uppercase tracking-wide">100%</div>
+          <div className="text-white font-inter font-bold text-xs uppercase tracking-wide">Оригинал</div>
         </div>
         
-        <div className="text-center px-4 py-3 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
-          <div className="text-white font-inter font-bold text-lg">1 год</div>
-          <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Гарантия</div>
+        <div className="text-center px-4 py-3 bg-black/80 backdrop-blur-xl rounded-xl border border-black flex flex-col items-center justify-center">
+          <Icon name="Award" className="text-orange-400 mb-1" size={20} />
+          <div className="text-white font-inter font-bold text-xs uppercase tracking-wide">1 год</div>
+          <div className="text-white font-inter font-bold text-xs uppercase tracking-wide">Гарантия</div>
         </div>
       </div>
 
