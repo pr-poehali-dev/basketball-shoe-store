@@ -7,89 +7,47 @@ interface HeroSlide {
   title: string;
   subtitle?: string;
   image: string;
-  bgGradient: string;
-  imagePosition: 'left' | 'right' | 'center';
+  bgColor: string;
+  textColor: string;
 }
 
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
-    title: 'Nike Hyperdunk 2017 Low «Racer/Blue»',
+    title: 'Играй на максимум',
+    subtitle: 'Оригинальные баскетбольные кроссовки от мировых брендов',
     image: 'https://cdn.poehali.dev/files/5e754ed8-22b8-4e63-b4d9-aeed8e19a688.jpg',
-    bgGradient: 'from-orange-500 via-orange-400 to-orange-300',
-    imagePosition: 'right'
+    bgColor: 'bg-orange-500',
+    textColor: 'text-white'
   },
   {
     id: 2,
-    title: 'Уверенность начинается с подошвы',
-    subtitle: 'Здесь не просто продают кроссовки — здесь помогают тебе играть на максимум.',
+    title: 'Технологии для побед',
+    subtitle: 'Nike • Jordan • Curry • Anta',
     image: 'https://cdn.poehali.dev/files/e3383eae-dbed-425a-8c00-8c5f63c0180a.jpg',
-    bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
-    imagePosition: 'center'
+    bgColor: 'bg-slate-900',
+    textColor: 'text-white'
   },
   {
     id: 3,
-    title: 'Технологии, которые ведут к успеху',
-    subtitle: 'Здесь не просто продают кроссовки — здесь помогают тебе играть на максимум.',
-    image: 'https://cdn.poehali.dev/files/f70af5f7-bc2e-4ffe-a022-30abe861e778.jpg',
-    bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
-    imagePosition: 'center'
-  },
-  {
-    id: 4,
-    title: 'Твоя игра',
-    subtitle: 'Твои кроссовки.',
+    title: 'Твоя игра начинается здесь',
+    subtitle: 'Профессиональная экипировка для серьёзной игры',
     image: 'https://cdn.poehali.dev/files/d75807f2-43e8-4e20-9c10-91aaacb0f0f3.jpg',
-    bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
-    imagePosition: 'center'
-  },
-  {
-    id: 5,
-    title: 'Победа в каждом движении',
-    image: 'https://cdn.poehali.dev/files/a6fb5e83-4801-4f68-bd0b-7463f9aab7b6.jpg',
-    bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
-    imagePosition: 'center'
-  },
-  {
-    id: 6,
-    title: 'Сила. Скорость. Стиль',
-    image: 'https://cdn.poehali.dev/files/00aed167-8951-4f76-b215-dbe098aed239.jpg',
-    bgGradient: 'from-slate-900 via-slate-800 to-slate-700',
-    imagePosition: 'center'
+    bgColor: 'bg-slate-800',
+    textColor: 'text-white'
   }
 ];
 
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
-
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  };
+  }, []);
 
   const slide = heroSlides[currentSlide];
 
@@ -99,130 +57,55 @@ export default function HeroCarousel() {
         <div
           key={s.id}
           className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <div className={`absolute inset-0 bg-gradient-to-br ${s.bgGradient}`} />
+          <div className={`absolute inset-0 ${s.bgColor}`}>
+            <img 
+              src={s.image} 
+              alt={s.title}
+              className="w-full h-full object-contain scale-110 animate-slow-zoom"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         </div>
       ))}
 
-      <div className="relative z-20 h-full w-full">
-        <div className="absolute left-4 md:left-8 bottom-6 md:bottom-8 z-30">
-          <svg width="60" height="60" viewBox="0 0 100 100" className="text-white opacity-90 md:w-20 md:h-20">
-            <text x="10" y="55" fontSize="52" fontWeight="bold" fill="currentColor" fontFamily="Arial, sans-serif">SK</text>
-          </svg>
-        </div>
+      <div className="absolute top-6 left-8 z-20">
+        <img 
+          src="https://cdn.poehali.dev/files/0fb8a498-4ee7-4ccd-932c-ce19d4d6b529.jpg" 
+          alt="SK Basketball Store"
+          className="h-20 w-20 object-contain"
+        />
+      </div>
 
-        <div className="h-full w-full px-4 md:px-8 lg:px-16 py-16 md:py-20 flex flex-col justify-between">
-          <div className={`flex-1 flex ${
-            slide.imagePosition === 'center' 
-              ? 'flex-col items-center justify-center text-center' 
-              : 'flex-col lg:flex-row items-center justify-between gap-8'
-          }`}>
-            <div className={`${
-              slide.imagePosition === 'center' 
-                ? 'w-full max-w-4xl space-y-4 md:space-y-6' 
-                : 'flex-1 space-y-3 md:space-y-6 text-center lg:text-left'
-            }`}>
-              <h1 
-                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-tight"
-                style={{ fontFamily: 'Arial, sans-serif', letterSpacing: '-0.02em' }}
-              >
-                {slide.title}
-              </h1>
-              
-              {slide.subtitle && (
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0">
-                  {slide.subtitle}
-                </p>
-              )}
-            </div>
-
-            {slide.imagePosition !== 'center' && (
-              <div className="flex-1 flex items-center justify-center">
-                <div className="relative w-full max-w-[280px] sm:max-w-md md:max-w-lg lg:max-w-2xl">
-                  <img
-                    src={slide.image}
-                    alt={slide.title}
-                    className="w-full h-auto drop-shadow-2xl"
-                    style={{
-                      filter: 'drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4))'
-                    }}
-                  />
-                </div>
-              </div>
-            )}
-
-            {slide.imagePosition === 'center' && (
-              <div className="w-full flex items-center justify-center mt-8 md:mt-12">
-                <div className="relative w-full max-w-[320px] sm:max-w-lg md:max-w-2xl lg:max-w-4xl">
-                  <img
-                    src={slide.image}
-                    alt={slide.title}
-                    className="w-full h-auto drop-shadow-2xl"
-                    style={{
-                      filter: 'drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4))'
-                    }}
-                  />
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-center mt-8 pb-16 md:pb-0">
-            <Button 
-              size="default" 
-              className="w-full sm:w-auto text-sm md:text-base px-6 md:px-8 h-11 md:h-12 bg-white hover:bg-white/90 text-slate-900 font-semibold shadow-xl"
-              asChild
-            >
-              <a href="#catalog">
-                <Icon name="ShoppingCart" size={18} className="mr-2 md:w-5 md:h-5" />
-                Смотреть каталог
-              </a>
-            </Button>
-            
-            <Button 
-              size="default" 
-              variant="outline" 
-              className="w-full sm:w-auto text-sm md:text-base px-6 md:px-8 h-11 md:h-12 border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-slate-900 transition-all shadow-lg font-semibold"
-              asChild
-            >
-              <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-                <Icon name="Send" size={18} className="mr-2 md:w-5 md:h-5" />
-                Написать в Telegram
-              </a>
-            </Button>
-          </div>
+      <div className="relative z-10 h-full flex items-center justify-center px-6">
+        <div className="text-center max-w-4xl">
+          <h1 className={`text-6xl md:text-8xl font-black mb-6 ${slide.textColor} tracking-tight animate-fade-up`}>
+            {slide.title}
+          </h1>
+          <p className={`text-xl md:text-2xl mb-12 ${slide.textColor} opacity-90 animate-fade-up animation-delay-200`}>
+            {slide.subtitle}
+          </p>
+          <Button 
+            size="lg" 
+            className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-12 py-6 text-lg rounded-full animate-fade-up animation-delay-400"
+          >
+            Смотреть каталог
+          </Button>
         </div>
       </div>
 
-      <button
-        onClick={prevSlide}
-        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all"
-        aria-label="Предыдущий слайд"
-      >
-        <Icon name="ChevronLeft" size={24} className="md:w-8 md:h-8" />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all"
-        aria-label="Следующий слайд"
-      >
-        <Icon name="ChevronRight" size={24} className="md:w-8 md:h-8" />
-      </button>
-
-      <div className="absolute bottom-20 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2 md:gap-3">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {heroSlides.map((_, index) => (
           <button
             key={index}
-            onClick={() => goToSlide(index)}
-            className={`transition-all ${
-              index === currentSlide
-                ? 'w-8 md:w-12 bg-white'
-                : 'w-2 md:w-3 bg-white/40 hover:bg-white/60'
-            } h-2 md:h-3 rounded-full`}
-            aria-label={`Перейти к слайду ${index + 1}`}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide 
+                ? 'bg-orange-500 w-12' 
+                : 'bg-white/50 hover:bg-white/75'
+            }`}
           />
         ))}
       </div>
