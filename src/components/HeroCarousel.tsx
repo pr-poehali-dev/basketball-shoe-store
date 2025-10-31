@@ -87,11 +87,6 @@ export default function HeroCarousel() {
         </div>
         
         <div className="text-center px-3 py-2 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
-          <div className="text-white font-inter font-bold text-base">1-3 дня</div>
-          <div className="text-white/90 font-inter text-[9px] uppercase tracking-wide">Доставка</div>
-        </div>
-        
-        <div className="text-center px-3 py-2 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
           <div className="text-white font-inter font-bold text-base">1 год</div>
           <div className="text-white/90 font-inter text-[9px] uppercase tracking-wide">Гарантия</div>
         </div>
@@ -101,11 +96,6 @@ export default function HeroCarousel() {
         <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
           <div className="text-white font-inter font-bold text-xl">100%</div>
           <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Оригинал</div>
-        </div>
-        
-        <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">
-          <div className="text-white font-inter font-bold text-xl">1-3 дня</div>
-          <div className="text-white/90 font-inter text-[10px] uppercase tracking-wide mt-0.5">Доставка</div>
         </div>
         
         <div className="text-center px-4 py-2.5 bg-black/80 backdrop-blur-xl rounded-xl border border-black">

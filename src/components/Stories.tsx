@@ -80,7 +80,14 @@ const Stories = ({ allProducts }: StoriesProps) => {
     if (selectedStory && currentIndex < selectedStory.products.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      closeStory();
+      const currentStoryIndex = stories.findIndex(s => s.id === selectedStory?.id);
+      if (currentStoryIndex < stories.length - 1) {
+        const nextStory = stories[currentStoryIndex + 1];
+        setSelectedStory(nextStory);
+        setCurrentIndex(0);
+      } else {
+        closeStory();
+      }
     }
   };
 
@@ -117,27 +124,38 @@ const Stories = ({ allProducts }: StoriesProps) => {
 
       {selectedStory && currentProduct && (
         <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
-          <div className="absolute top-0 left-0 right-0 p-4 flex gap-1 z-10">
-            {selectedStory.products.map((_, idx) => (
-              <div
-                key={idx}
-                className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden"
-              >
-                <div
-                  className={`h-full bg-white rounded-full transition-all duration-300 ${
-                    idx < currentIndex ? 'w-full' : idx === currentIndex ? 'w-full animate-progress' : 'w-0'
-                  }`}
-                />
+          <div className="absolute top-0 left-0 right-0 p-4 z-10">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 p-[2px]">
+                  <div className="w-full h-full rounded-full bg-black flex items-center justify-center text-lg">
+                    {selectedStory.emoji}
+                  </div>
+                </div>
+                <span className="text-white font-semibold text-sm">{selectedStory.title}</span>
               </div>
-            ))}
+              <button
+                onClick={closeStory}
+                className="text-white hover:text-gray-300 transition-colors"
+              >
+                <Icon name="X" size={24} />
+              </button>
+            </div>
+            <div className="flex gap-1">
+              {selectedStory.products.map((_, idx) => (
+                <div
+                  key={idx}
+                  className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden"
+                >
+                  <div
+                    className={`h-full bg-white rounded-full transition-all duration-300 ${
+                      idx < currentIndex ? 'w-full' : idx === currentIndex ? 'w-full animate-progress' : 'w-0'
+                    }`}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-
-          <button
-            onClick={closeStory}
-            className="absolute top-4 right-4 z-20 text-white hover:text-gray-300 transition-colors"
-          >
-            <Icon name="X" size={32} />
-          </button>
 
           <div className="w-full h-full flex items-center justify-center p-4 md:p-8">
             <Card className="w-full max-w-lg bg-gradient-to-br from-gray-900 to-black border-white/10 overflow-hidden">
