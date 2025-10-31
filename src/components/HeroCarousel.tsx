@@ -80,20 +80,20 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      <div className="absolute top-1/2 -translate-y-1/2 left-4 flex flex-col gap-2 md:hidden z-20">
-        <div className="text-center px-2 py-1.5 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
-          <div className="text-white font-inter font-bold text-sm">100%</div>
-          <div className="text-white/90 font-inter text-[8px] uppercase tracking-wide">Оригинал</div>
+      <div className="absolute top-[58%] -translate-y-1/2 left-4 flex flex-col gap-2.5 md:hidden z-20">
+        <div className="text-center px-3 py-2 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
+          <div className="text-white font-inter font-bold text-base">100%</div>
+          <div className="text-white/90 font-inter text-[9px] uppercase tracking-wide">Оригинал</div>
         </div>
         
-        <div className="text-center px-2 py-1.5 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
-          <div className="text-white font-inter font-bold text-sm">1-3 дня</div>
-          <div className="text-white/90 font-inter text-[8px] uppercase tracking-wide">Доставка</div>
+        <div className="text-center px-3 py-2 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
+          <div className="text-white font-inter font-bold text-base">1-3 дня</div>
+          <div className="text-white/90 font-inter text-[9px] uppercase tracking-wide">Доставка</div>
         </div>
         
-        <div className="text-center px-2 py-1.5 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
-          <div className="text-white font-inter font-bold text-sm">1 год</div>
-          <div className="text-white/90 font-inter text-[8px] uppercase tracking-wide">Гарантия</div>
+        <div className="text-center px-3 py-2 bg-black/80 backdrop-blur-xl rounded-lg border border-black">
+          <div className="text-white font-inter font-bold text-base">1 год</div>
+          <div className="text-white/90 font-inter text-[9px] uppercase tracking-wide">Гарантия</div>
         </div>
       </div>
 
