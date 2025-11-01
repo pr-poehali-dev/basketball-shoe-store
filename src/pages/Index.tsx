@@ -617,9 +617,10 @@ const Index = () => {
               </div>
 
               {compareProducts.length >= 2 && (
-                <div className="mt-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 border-2 border-primary">
-                  <h3 className="text-3xl font-oswald font-bold text-center mb-8">Сравнение моделей</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="mt-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-4 md:p-8 border-2 border-primary">
+                  <h3 className="text-2xl md:text-3xl font-oswald font-bold text-center mb-6 md:mb-8">Сравнение моделей</h3>
+                  
+                  <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {compareProducts.map(product => (
                       <Card key={product.id} className="relative">
                         <Button
@@ -675,6 +676,83 @@ const Index = () => {
                           <Button className="w-full" asChild>
                             <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
                               <Icon name="Send" size={16} className="mr-2" />
+                              Заказать
+                            </a>
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+
+                  <div className="md:hidden space-y-4">
+                    {compareProducts.map((product, idx) => (
+                      <Card key={product.id} className="relative">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="absolute top-2 right-2 z-10 bg-white/90"
+                          onClick={() => toggleCompare(product)}
+                        >
+                          <Icon name="X" size={18} />
+                        </Button>
+                        <CardContent className="p-4">
+                          <div className="flex gap-3 mb-3">
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="w-24 h-24 object-cover rounded-lg flex-shrink-0"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-bold text-base mb-1 line-clamp-2">{product.name}</h4>
+                              <Badge variant="secondary" className="text-xs mb-2">{product.brand}</Badge>
+                              <p className="text-xl font-bold text-primary">{product.price.toLocaleString()} ₽</p>
+                            </div>
+                          </div>
+                          
+                          <Accordion type="single" collapsible className="w-full">
+                            <AccordionItem value="details" className="border-none">
+                              <AccordionTrigger className="py-2 text-sm font-semibold">
+                                Подробнее
+                              </AccordionTrigger>
+                              <AccordionContent className="space-y-3 pt-2">
+                                {product.description && (
+                                  <div>
+                                    <h5 className="font-semibold text-sm mb-1">Описание:</h5>
+                                    <p className="text-xs text-muted-foreground">{product.description}</p>
+                                  </div>
+                                )}
+
+                                {product.features && product.features.length > 0 && (
+                                  <div>
+                                    <h5 className="font-semibold text-sm mb-1">Особенности:</h5>
+                                    <ul className="space-y-1">
+                                      {product.features.map((feature, fidx) => (
+                                        <li key={fidx} className="text-xs flex items-start gap-1.5">
+                                          <Icon name="Check" size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                                          <span>{feature}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+
+                                {product.sizes && product.sizes.length > 0 && (
+                                  <div>
+                                    <h5 className="font-semibold text-sm mb-1">Размеры:</h5>
+                                    <div className="flex flex-wrap gap-1.5">
+                                      {product.sizes.map((size, sidx) => (
+                                        <Badge key={sidx} variant="outline" className="text-xs">{size}</Badge>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+                              </AccordionContent>
+                            </AccordionItem>
+                          </Accordion>
+
+                          <Button className="w-full mt-3" size="sm" asChild>
+                            <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
+                              <Icon name="Send" size={14} className="mr-2" />
                               Заказать
                             </a>
                           </Button>
