@@ -18,7 +18,7 @@ export default function HeroCarousel() {
     <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-orange-400 via-orange-300 to-orange-200">
       <div className="absolute inset-0">
         <img 
-          src="https://cdn.poehali.dev/files/6bd5aa58-d107-4ced-ac18-8750f32d1441.jpg"
+          src="https://cdn.poehali.dev/files/0ddbfd10-eb5d-4c2f-897c-0405b43a2b46.png"
           alt="Nike Basketball Shoes Sole"
           className="w-full h-full object-cover"
           style={{
