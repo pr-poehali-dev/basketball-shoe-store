@@ -152,6 +152,18 @@ const Index = () => {
   const [compareProducts, setCompareProducts] = useState<Product[]>([]);
   const [compareOpen, setCompareOpen] = useState(false);
 
+  const toggleCompare = (product: Product) => {
+    if (compareProducts.find(p => p.id === product.id)) {
+      setCompareProducts(compareProducts.filter(p => p.id !== product.id));
+    } else if (compareProducts.length < 3) {
+      setCompareProducts([...compareProducts, product]);
+    }
+  };
+
+  const isInCompare = (productId: number) => {
+    return compareProducts.some(p => p.id === productId);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
@@ -553,22 +565,144 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-            {filteredProducts.map((product, idx) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onClick={() => {
-                  setSelectedProduct(product);
-                  setIsQuickViewOpen(true);
-                }}
-                animationDelay={idx * 0.05}
-                isVisible={visibleSections.has('catalog')}
-                imageLoaded={imageLoaded.has(product.id)}
-                onImageLoad={() => setImageLoaded((prev) => new Set(prev).add(product.id))}
-              />
-            ))}
-          </div>
+          {compareOpen ? (
+            <div className="space-y-6">
+              <div className="text-center">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setCompareOpen(false)}
+                  className="mb-6"
+                >
+                  <Icon name="X" size={20} className="mr-2" />
+                  Закрыть режим сравнения
+                </Button>
+                {compareProducts.length > 0 && (
+                  <div className="bg-primary/10 rounded-lg p-4 mb-6 inline-block">
+                    <p className="font-semibold text-lg">Выбрано: {compareProducts.length}/3</p>
+                    <p className="text-sm text-muted-foreground">Нажмите на карточки товаров чтобы добавить их в сравнение</p>
+                  </div>
+                )}
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+                {filteredProducts.map((product, idx) => (
+                  <div key={product.id} className="relative">
+                    <div 
+                      className={`absolute -top-2 -right-2 z-10 transition-all ${
+                        isInCompare(product.id) ? 'scale-100' : 'scale-0'
+                      }`}
+                    >
+                      <div className="bg-primary rounded-full p-2">
+                        <Icon name="Check" size={20} className="text-primary-foreground" />
+                      </div>
+                    </div>
+                    <div 
+                      className={`transition-all ${
+                        isInCompare(product.id) ? 'ring-4 ring-primary rounded-lg' : ''
+                      }`}
+                      onClick={() => toggleCompare(product)}
+                    >
+                      <ProductCard
+                        product={product}
+                        onClick={() => {}}
+                        animationDelay={idx * 0.05}
+                        isVisible={visibleSections.has('catalog')}
+                        imageLoaded={imageLoaded.has(product.id)}
+                        onImageLoad={() => setImageLoaded((prev) => new Set(prev).add(product.id))}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {compareProducts.length >= 2 && (
+                <div className="mt-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 border-2 border-primary">
+                  <h3 className="text-3xl font-oswald font-bold text-center mb-8">Сравнение моделей</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {compareProducts.map(product => (
+                      <Card key={product.id} className="relative">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="absolute top-2 right-2 z-10"
+                          onClick={() => toggleCompare(product)}
+                        >
+                          <Icon name="X" size={20} />
+                        </Button>
+                        <CardContent className="p-6 space-y-4">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-64 object-cover rounded-xl"
+                          />
+                          <h4 className="font-bold text-xl">{product.name}</h4>
+                          <Badge variant="secondary" className="text-sm">{product.brand}</Badge>
+                          <p className="text-2xl font-bold text-primary">{product.price.toLocaleString()} ₽</p>
+                          
+                          {product.description && (
+                            <div>
+                              <h5 className="font-semibold mb-2">Описание:</h5>
+                              <p className="text-sm text-muted-foreground">{product.description}</p>
+                            </div>
+                          )}
+
+                          {product.features && product.features.length > 0 && (
+                            <div>
+                              <h5 className="font-semibold mb-2">Особенности:</h5>
+                              <ul className="space-y-1">
+                                {product.features.map((feature, idx) => (
+                                  <li key={idx} className="text-sm flex items-start gap-2">
+                                    <Icon name="Check" size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                                    <span>{feature}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {product.sizes && product.sizes.length > 0 && (
+                            <div>
+                              <h5 className="font-semibold mb-2">Размеры:</h5>
+                              <div className="flex flex-wrap gap-2">
+                                {product.sizes.map((size, idx) => (
+                                  <Badge key={idx} variant="outline">{size}</Badge>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          <Button className="w-full" asChild>
+                            <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
+                              <Icon name="Send" size={16} className="mr-2" />
+                              Заказать
+                            </a>
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+              {filteredProducts.map((product, idx) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onClick={() => {
+                    setSelectedProduct(product);
+                    setIsQuickViewOpen(true);
+                  }}
+                  animationDelay={idx * 0.05}
+                  isVisible={visibleSections.has('catalog')}
+                  imageLoaded={imageLoaded.has(product.id)}
+                  onImageLoad={() => setImageLoaded((prev) => new Set(prev).add(product.id))}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -1395,6 +1529,25 @@ const Index = () => {
         </div>
         
         <StickyTelegram />
+        
+        {!compareOpen && (
+          <div className="fixed bottom-24 right-6 z-40">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setCompareOpen(true)}
+              className="bg-white shadow-xl border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              <Icon name="ArrowLeftRight" size={20} className="mr-2" />
+              Сравнить модели
+              {compareProducts.length > 0 && (
+                <Badge className="ml-2 bg-primary text-primary-foreground">
+                  {compareProducts.length}
+                </Badge>
+              )}
+            </Button>
+          </div>
+        )}
         
         <QuickView 
           product={selectedProduct}
