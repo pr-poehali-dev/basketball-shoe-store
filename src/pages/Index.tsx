@@ -620,145 +620,112 @@ const Index = () => {
                 <div className="mt-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-4 md:p-8 border-2 border-primary">
                   <h3 className="text-2xl md:text-3xl font-oswald font-bold text-center mb-6 md:mb-8">Сравнение моделей</h3>
                   
-                  <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {compareProducts.map(product => (
-                      <Card key={product.id} className="relative">
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="absolute top-2 right-2 z-10"
-                          onClick={() => toggleCompare(product)}
-                        >
-                          <Icon name="X" size={20} />
-                        </Button>
-                        <CardContent className="p-6 space-y-4">
-                          <img
-                            src={product.image}
-                            alt={product.name}
-                            className="w-full h-64 object-cover rounded-xl"
-                          />
-                          <h4 className="font-bold text-xl">{product.name}</h4>
-                          <Badge variant="secondary" className="text-sm">{product.brand}</Badge>
-                          <p className="text-2xl font-bold text-primary">{product.price.toLocaleString()} ₽</p>
-                          
-                          {product.description && (
-                            <div>
-                              <h5 className="font-semibold mb-2">Описание:</h5>
-                              <p className="text-sm text-muted-foreground">{product.description}</p>
-                            </div>
-                          )}
-
-                          {product.features && product.features.length > 0 && (
-                            <div>
-                              <h5 className="font-semibold mb-2">Особенности:</h5>
-                              <ul className="space-y-1">
-                                {product.features.map((feature, idx) => (
-                                  <li key={idx} className="text-sm flex items-start gap-2">
-                                    <Icon name="Check" size={16} className="text-primary mt-0.5 flex-shrink-0" />
-                                    <span>{feature}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-
-                          {product.sizes && product.sizes.length > 0 && (
-                            <div>
-                              <h5 className="font-semibold mb-2">Размеры:</h5>
-                              <div className="flex flex-wrap gap-2">
-                                {product.sizes.map((size, idx) => (
-                                  <Badge key={idx} variant="outline">{size}</Badge>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-
-                          <Button className="w-full" asChild>
-                            <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-                              <Icon name="Send" size={16} className="mr-2" />
-                              Заказать
-                            </a>
+                  <div className="space-y-8">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+                      {compareProducts.map(product => (
+                        <Card key={product.id} className="relative">
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="absolute top-1 right-1 md:top-2 md:right-2 z-10 bg-white/90 h-7 w-7 md:h-10 md:w-10"
+                            onClick={() => toggleCompare(product)}
+                          >
+                            <Icon name="X" size={16} className="md:hidden" />
+                            <Icon name="X" size={20} className="hidden md:block" />
                           </Button>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-
-                  <div className="md:hidden space-y-4">
-                    {compareProducts.map((product, idx) => (
-                      <Card key={product.id} className="relative">
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="absolute top-2 right-2 z-10 bg-white/90"
-                          onClick={() => toggleCompare(product)}
-                        >
-                          <Icon name="X" size={18} />
-                        </Button>
-                        <CardContent className="p-4">
-                          <div className="flex gap-3 mb-3">
+                          <CardContent className="p-3 md:p-6">
                             <img
                               src={product.image}
                               alt={product.name}
-                              className="w-24 h-24 object-cover rounded-lg flex-shrink-0"
+                              className="w-full aspect-square object-cover rounded-lg mb-3 md:mb-4"
                             />
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-bold text-base mb-1 line-clamp-2">{product.name}</h4>
-                              <Badge variant="secondary" className="text-xs mb-2">{product.brand}</Badge>
-                              <p className="text-xl font-bold text-primary">{product.price.toLocaleString()} ₽</p>
-                            </div>
-                          </div>
-                          
-                          <Accordion type="single" collapsible className="w-full">
-                            <AccordionItem value="details" className="border-none">
-                              <AccordionTrigger className="py-2 text-sm font-semibold">
-                                Подробнее
-                              </AccordionTrigger>
-                              <AccordionContent className="space-y-3 pt-2">
-                                {product.description && (
-                                  <div>
-                                    <h5 className="font-semibold text-sm mb-1">Описание:</h5>
-                                    <p className="text-xs text-muted-foreground">{product.description}</p>
-                                  </div>
-                                )}
+                            <h4 className="font-bold text-sm md:text-xl mb-1 md:mb-2 line-clamp-2">{product.name}</h4>
+                            <Badge variant="secondary" className="text-xs mb-2">{product.brand}</Badge>
+                            <p className="text-lg md:text-2xl font-bold text-primary">{product.price.toLocaleString()} ₽</p>
+                            <Button className="w-full mt-3 md:mt-4" size="sm" asChild>
+                              <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
+                                <Icon name="Send" size={14} className="mr-2" />
+                                Заказать
+                              </a>
+                            </Button>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
 
-                                {product.features && product.features.length > 0 && (
-                                  <div>
-                                    <h5 className="font-semibold text-sm mb-1">Особенности:</h5>
-                                    <ul className="space-y-1">
-                                      {product.features.map((feature, fidx) => (
-                                        <li key={fidx} className="text-xs flex items-start gap-1.5">
-                                          <Icon name="Check" size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                                          <span>{feature}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                )}
+                    <div className="space-y-4 md:space-y-6">
+                      <div>
+                        <h4 className="font-bold text-lg md:text-xl mb-3 md:mb-4 flex items-center gap-2">
+                          <Icon name="FileText" size={20} className="text-primary" />
+                          Описание
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                          {compareProducts.map(product => (
+                            <Card key={product.id}>
+                              <CardContent className="p-3 md:p-4">
+                                <p className="font-semibold text-sm md:text-base mb-2">{product.name}</p>
+                                <p className="text-xs md:text-sm text-muted-foreground">
+                                  {product.description || 'Описание отсутствует'}
+                                </p>
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
+                      </div>
 
-                                {product.sizes && product.sizes.length > 0 && (
-                                  <div>
-                                    <h5 className="font-semibold text-sm mb-1">Размеры:</h5>
-                                    <div className="flex flex-wrap gap-1.5">
-                                      {product.sizes.map((size, sidx) => (
-                                        <Badge key={sidx} variant="outline" className="text-xs">{size}</Badge>
-                                      ))}
-                                    </div>
-                                  </div>
+                      <div>
+                        <h4 className="font-bold text-lg md:text-xl mb-3 md:mb-4 flex items-center gap-2">
+                          <Icon name="Sparkles" size={20} className="text-primary" />
+                          Особенности
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                          {compareProducts.map(product => (
+                            <Card key={product.id}>
+                              <CardContent className="p-3 md:p-4">
+                                <p className="font-semibold text-sm md:text-base mb-2">{product.name}</p>
+                                {product.features && product.features.length > 0 ? (
+                                  <ul className="space-y-1 md:space-y-2">
+                                    {product.features.map((feature, idx) => (
+                                      <li key={idx} className="text-xs md:text-sm flex items-start gap-1.5 md:gap-2">
+                                        <Icon name="Check" size={14} className="text-primary mt-0.5 flex-shrink-0 md:w-4 md:h-4" />
+                                        <span>{feature}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                ) : (
+                                  <p className="text-xs md:text-sm text-muted-foreground">Особенности не указаны</p>
                                 )}
-                              </AccordionContent>
-                            </AccordionItem>
-                          </Accordion>
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
+                      </div>
 
-                          <Button className="w-full mt-3" size="sm" asChild>
-                            <a href="https://t.me/SKBasketShop" target="_blank" rel="noopener noreferrer">
-                              <Icon name="Send" size={14} className="mr-2" />
-                              Заказать
-                            </a>
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    ))}
+                      <div>
+                        <h4 className="font-bold text-lg md:text-xl mb-3 md:mb-4 flex items-center gap-2">
+                          <Icon name="Ruler" size={20} className="text-primary" />
+                          Размеры
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                          {compareProducts.map(product => (
+                            <Card key={product.id}>
+                              <CardContent className="p-3 md:p-4">
+                                <p className="font-semibold text-sm md:text-base mb-2">{product.name}</p>
+                                {product.sizes && product.sizes.length > 0 ? (
+                                  <div className="flex flex-wrap gap-1.5 md:gap-2">
+                                    {product.sizes.map((size, idx) => (
+                                      <Badge key={idx} variant="outline" className="text-xs">{size}</Badge>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <p className="text-xs md:text-sm text-muted-foreground">Размеры не указаны</p>
+                                )}
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
